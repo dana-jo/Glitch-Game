@@ -122,26 +122,6 @@ public class InventoryController : MonoBehaviour
         item.UseItem();
     }
 
-    //public void RebuildItemCounts()
-    //{
-    //    itemsCountCache.Clear();
-    //    foreach (Transform slotTransform in inventoryPanel.transform)
-    //    {
-    //        Slot slot = slotTransform.GetComponent<Slot>();
-    //        if (slot.currentItem != null)
-    //        {
-    //            Item item = slot.currentItem.GetComponent<Item>();
-    //            if (item != null)
-    //            {
-    //                itemsCountCache[item.ID] = itemsCountCache.GetValueOrDefault(item.ID, 0) + item.quantity;
-    //            }
-    //        }
-    //    }
-    //    OnInventoryChanged?.Invoke();
-
-    //}
-
-
     //modified Rebuild Item Counts-------------------------------------
     public void RebuildItemCounts()
     {
@@ -176,47 +156,6 @@ public class InventoryController : MonoBehaviour
 
 
     public Dictionary<int, int> GetItemCounts() => itemsCountCache;
-
-    //public bool AddItem(GameObject itemPrefab)
-    //{
-
-    //    Item itemToAdd = itemPrefab.GetComponent<Item>();
-    //    if (itemToAdd == null) return false;
-
-    //    foreach (Transform slotTransform in inventoryPanel.transform)
-    //    {
-    //        Slot slot = slotTransform.GetComponent<Slot>();
-    //        if (slot != null && slot.currentItem != null)
-    //        {
-
-    //            Item slotItem = slot.currentItem.GetComponent<Item>();
-    //            if (slotItem != null && slotItem.ID == itemToAdd.ID)
-    //            {
-    //                slotItem.AddToStack();
-    //                RebuildItemCounts();
-    //                return true;
-    //            }
-    //        }
-
-    //    }
-
-    //    foreach (Transform slotTransform in inventoryPanel.transform)
-    //    {
-    //        Slot slot = slotTransform.GetComponent<Slot>();
-    //        if (slot != null && slot.currentItem == null)
-    //        {
-
-    //            GameObject newItem = Instantiate(itemPrefab, slot.transform);
-    //            newItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-    //            slot.currentItem = newItem;
-    //            RebuildItemCounts();
-    //            return true;
-    //        }
-
-    //    }
-    //    Debug.Log("Inventory is full");
-    //    return false;
-    //}
 
     //new Add Item:-------------------------------------
     public bool AddItem(GameObject itemPrefab)
@@ -300,59 +239,6 @@ public class InventoryController : MonoBehaviour
         return false;
     }
 
-
-
-    //public List<InventorySaveData> GetInventoryItems()
-    //{
-    //    List<InventorySaveData> invData = new List<InventorySaveData>();
-    //    foreach (Transform slotTransform in inventoryPanel.transform)
-    //    {
-    //        Slot slot = slotTransform.GetComponent<Slot>();
-    //        if (slot.currentItem != null)
-    //        {
-    //            Item item = slot.currentItem.GetComponent<Item>();
-    //            invData.Add(new InventorySaveData { itemID = item.ID, slotIndex = slotTransform.GetSiblingIndex(), quantity = item.quantity });
-    //        }
-    //    }
-    //    return invData;
-    //}
-
-    //public void SetInventoryItems(List<InventorySaveData> inventorySaveData)
-    //{
-    //    foreach (Transform child in inventoryPanel.transform)
-    //    {
-    //        Destroy(child.gameObject);
-    //    }
-    //    for (int i = 0; i < slotCount; i++)
-    //    {
-    //        Instantiate(slotPrefab, inventoryPanel.transform);
-    //    }
-
-    //    foreach (InventorySaveData data in inventorySaveData)
-    //    {
-    //        if (data.slotIndex < slotCount)
-    //        {
-    //            Slot slot = inventoryPanel.transform.GetChild(data.slotIndex).GetComponent<Slot>();
-    //            GameObject itemPrefab = itemDictionary.GetItemPrefab(data.itemID);
-    //            if (itemPrefab != null)
-    //            {
-    //                GameObject item = Instantiate(itemPrefab, slot.transform);
-    //                item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-    //                Item itemComponent = item.GetComponent<Item>();
-    //                if (itemComponent != null && data.quantity > 1)
-    //                {
-    //                    itemComponent.quantity = data.quantity;
-    //                    itemComponent.UpdateQuantityDisplay();
-    //                }
-    //                slot.currentItem = item;
-    //            }
-
-    //        }
-
-    //    }
-    //    RebuildItemCounts();
-    //}
-
     //new get set ---------------------------------------
     public List<InventorySaveData> GetInventoryItems()
     {
@@ -406,14 +292,11 @@ public class InventoryController : MonoBehaviour
     private void SetItemsToPanel(List<InventorySaveData> saveData, GameObject panel, int panelSlotCount)
     {
         if (panel == null) return;
-
-        // Make sure this panel has enough slots
         while (panel.transform.childCount < panelSlotCount)
         {
             Instantiate(slotPrefab, panel.transform);
         }
 
-        // Clear current items from slots
         for (int i = 0; i < panelSlotCount; i++)
         {
             Slot slot = panel.transform.GetChild(i).GetComponent<Slot>();
@@ -424,8 +307,6 @@ public class InventoryController : MonoBehaviour
                 slot.currentItem = null;
             }
         }
-
-        // Load saved items back into the correct slots
         foreach (InventorySaveData data in saveData)
         {
             if (data.slotIndex < panelSlotCount)
@@ -459,35 +340,6 @@ public class InventoryController : MonoBehaviour
 
         RebuildItemCounts();
     }
-
-
-
-
-    //    public void RemoveItemsFromInventory(int itemID, int amountToRemove)
-    //    {
-
-    //        foreach (Transform slotTransform in inventoryPanel.transform)
-    //        {
-    //            if (amountToRemove <= 0) break;
-
-    //            Slot slot = slotTransform.GetComponent<Slot>();
-    //            if (slot?.currentItem?.GetComponent<Item>() is Item item && item.ID == itemID)
-    //            {
-    //                int removed = Mathf.Min(amountToRemove, item.quantity);
-    //                item.RemoveFromStack(removed);
-    //                amountToRemove -= removed;
-
-    //                if (item.quantity == 0)
-    //                {
-    //                    Destroy(slot.currentItem);
-    //                    slot.currentItem = null;
-    //                }
-    //            }
-
-    //        }
-    //        RebuildItemCounts();
-
-    //    }
 
     //new remove mthod ---------------------------------------------------------
     public void RemoveItemsFromInventory(int itemID, int amountToRemove)
