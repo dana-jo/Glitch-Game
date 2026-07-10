@@ -3,7 +3,23 @@
   "WorkspaceRootPath": "D:\\UNI\\3\\project 1\\Glitch-Game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|d:\\uni\\3\\project 1\\glitch-game\\assets\\scripts\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|D:\\UNI\\3\\project 1\\Glitch-Game\\assets\\scripts\\interactable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\interactable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|d:\\uni\\3\\project 1\\glitch-game\\assets\\scripts\\dragndroppuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dragndroppuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|D:\\UNI\\3\\project 1\\Glitch-Game\\assets\\scripts\\draghandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\draghandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|D:\\UNI\\3\\project 1\\Glitch-Game\\assets\\scripts\\interactiondetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\interactiondetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|D:\\UNI\\3\\project 1\\Glitch-Game\\assets\\scripts\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -14,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,16 +42,66 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DragHandler.cs",
+              "DocumentMoniker": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\DragHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DragHandler.cs",
+              "ToolTip": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\DragHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DragHandler.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAkwD4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-19T18:32:53.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DragNDropPuzzle.cs",
+              "DocumentMoniker": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\DragNDropPuzzle.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DragNDropPuzzle.cs",
+              "ToolTip": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\DragNDropPuzzle.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DragNDropPuzzle.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAgwBQAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-18T00:29:25.976Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Interactable.cs",
+              "DocumentMoniker": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\Interactable.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Interactable.cs",
+              "ToolTip": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\Interactable.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Interactable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-17T16:32:28.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InteractionDetector.cs",
+              "DocumentMoniker": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\InteractionDetector.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\InteractionDetector.cs",
+              "ToolTip": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\InteractionDetector.cs",
+              "RelativeToolTip": "Assets\\Scripts\\InteractionDetector.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-17T16:29:15.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "PlayerMovement.cs",
               "DocumentMoniker": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\PlayerMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerMovement.cs",
               "ToolTip": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\PlayerMovement.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerMovement.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAYwC8AAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAgwFEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-08T22:48:42.565Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-08T22:48:42.565Z"
             }
           ]
         }
