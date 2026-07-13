@@ -2,11 +2,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class DragNDropPuzzle : MonoBehaviour, Interactable
+public class DragNDropPuzzle : PuzzleBehaviour, Interactable
 {
     //public string machineId { get; private set; }
     public GameObject canvas;
-    public bool isFinished = true;
 
     private List<Transform> targetSlots = new();
     private List<Transform> puzzlePieces = new();
@@ -14,36 +13,10 @@ public class DragNDropPuzzle : MonoBehaviour, Interactable
 
     void Start()
     {
-        //machineId ??= GlobalHelper.GenerateUniqueId(gameObject);
+        OnStart();
+
         canvas.SetActive(false);
-
-        if( isFinished )
-            FinishedPuzzleState();
-
-        // to access pieces and targets
-        //Transform slotsParent = canvas.transform.Find("PuzzleSlots");
-        //Transform piecesParent = canvas.transform.Find("PuzzlePieces");
-
-        //foreach (Transform child in slotsParent)
-        //{
-        //    targetSlots.Add(child);
-        //}
-
-        //foreach (Transform parent in piecesParent)
-        //{
-        //    foreach (Transform piece in parent)
-        //    {
-        //        Debug.Log("piece added");
-        //        puzzlePieces.Add(piece);
-
-        //        if (isFinished)
-        //        {
-        //            Debug.Log("inside if");
-        //            piece.GetComponent<DragHandler>().SetAttatched();
-        //        }
-                    
-        //    }
-        //}
+        Debug.Log("from inside child");
     }
 
     public bool CanInteract()
@@ -60,19 +33,21 @@ public class DragNDropPuzzle : MonoBehaviour, Interactable
     }
 
 
-    public void UpdatePuzzleState()
+    public override void UpdatePuzzleState()
     {
         attachedPieces++;
 
         if (attachedPieces >= targetSlots.Count)
         {
-            isFinished = true;
+            Complete();
             Debug.Log("Puzzle Finished");
         }
     }
 
-    public void FinishedPuzzleState()
+    public override void RestoreCompletedState()
     {
+        base.RestoreCompletedState();
+
         Transform piecesParent = canvas.transform.Find("PuzzlePieces");
 
         foreach (Transform parent in piecesParent)
@@ -80,11 +55,7 @@ public class DragNDropPuzzle : MonoBehaviour, Interactable
             foreach (Transform piece in parent)
             {
                 puzzlePieces.Add(piece);
-
-                if (isFinished)
-                {
-                    piece.GetComponent<DragHandler>().SetAttatched();
-                }
+                piece.GetComponent<DragHandler>().SetAttatched();
 
             }
         }

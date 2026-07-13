@@ -42,6 +42,11 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (isAttached)
+        {
+            return;
+        }
+
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
 

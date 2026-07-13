@@ -3,19 +3,30 @@
   "WorkspaceRootPath": "D:\\UNI\\3\\project 1\\Glitch-Game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|d:\\uni\\3\\project 1\\glitch-game\\assets\\scripts\\shakeeffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\shakeeffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|D:\\UNI\\3\\project 1\\Glitch-Game\\assets\\scripts\\quest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\quest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|d:\\uni\\3\\project 1\\glitch-game\\assets\\scripts\\dragndroppuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dragndroppuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|D:\\UNI\\3\\project 1\\Glitch-Game\\assets\\scripts\\draghandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\draghandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|D:\\UNI\\3\\project 1\\Glitch-Game\\assets\\scripts\\dragndroppuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dragndroppuzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|D:\\UNI\\3\\project 1\\Glitch-Game\\assets\\scripts\\shakeeffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\shakeeffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|d:\\uni\\3\\project 1\\glitch-game\\assets\\scripts\\interactable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|D:\\UNI\\3\\project 1\\Glitch-Game\\assets\\scripts\\puzzlebehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\puzzlebehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\codes\\Unity\\2d project\\project\\My project\\Assets\\scripts\\QuestController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|D:\\UNI\\3\\project 1\\Glitch-Game\\assets\\scripts\\interactable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3C233213-9818-E17A-8112-FFEB0149A659}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\interactable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -34,7 +45,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,46 +57,81 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ShakeEffect.cs",
-              "DocumentMoniker": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\ShakeEffect.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ShakeEffect.cs",
-              "ToolTip": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\ShakeEffect.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ShakeEffect.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA1wBMAAAA2AAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "PuzzleBehaviour.cs",
+              "DocumentMoniker": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\PuzzleBehaviour.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PuzzleBehaviour.cs",
+              "ToolTip": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\PuzzleBehaviour.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PuzzleBehaviour.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-03T20:09:17.74Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-13T21:20:10.32Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DragHandler.cs",
-              "DocumentMoniker": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\DragHandler.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\DragHandler.cs",
-              "ToolTip": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\DragHandler.cs",
-              "RelativeToolTip": "Assets\\Scripts\\DragHandler.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwCYAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-19T18:32:53.409Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "DragNDropPuzzle.cs",
               "DocumentMoniker": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\DragNDropPuzzle.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\DragNDropPuzzle.cs",
               "ToolTip": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\DragNDropPuzzle.cs",
               "RelativeToolTip": "Assets\\Scripts\\DragNDropPuzzle.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAswBQAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-18T00:29:25.976Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "QuestController.cs",
+              "DocumentMoniker": "D:\\codes\\Unity\\2d project\\project\\My project\\Assets\\scripts\\QuestController.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\codes\\Unity\\2d project\\project\\My project\\Assets\\scripts\\QuestController.cs",
+              "ToolTip": "D:\\codes\\Unity\\2d project\\project\\My project\\Assets\\scripts\\QuestController.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\codes\\Unity\\2d project\\project\\My project\\Assets\\scripts\\QuestController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-10T19:02:43.343Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Quest.cs",
+              "DocumentMoniker": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\Quest.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Quest.cs",
+              "ToolTip": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\Quest.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Quest.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCcAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-10T18:17:15.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "ShakeEffect.cs",
+              "DocumentMoniker": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\ShakeEffect.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ShakeEffect.cs",
+              "ToolTip": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\ShakeEffect.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ShakeEffect.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBMAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-03T20:09:17.74Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DragHandler.cs",
+              "DocumentMoniker": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\DragHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DragHandler.cs",
+              "ToolTip": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\DragHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DragHandler.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwDAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-19T18:32:53.409Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Interactable.cs",
               "DocumentMoniker": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\Interactable.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Interactable.cs",
@@ -93,12 +139,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Interactable.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-17T16:32:28.571Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-17T16:32:28.571Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "InteractionDetector.cs",
               "DocumentMoniker": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\InteractionDetector.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\InteractionDetector.cs",
@@ -110,7 +155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "PlayerMovement.cs",
               "DocumentMoniker": "D:\\UNI\\3\\project 1\\Glitch-Game\\Assets\\Scripts\\PlayerMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerMovement.cs",

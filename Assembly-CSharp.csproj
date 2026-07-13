@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\ShakeEffect.cs" />
     <Compile Include="Assets\Scripts\DragNDropPuzzle.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
+    <Compile Include="Assets\Scripts\PuzzleBehaviour.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\InteractionDetector.cs" />
   </ItemGroup>
