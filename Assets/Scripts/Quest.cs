@@ -27,6 +27,11 @@ public class Quest : ScriptableObject
             return;
         }
 
+        if (qd.quests == null)
+        {
+            return;
+        }
+
         if (id >= qd.quests.Count)
         {
             Debug.LogWarning($"Quest ID {id} not found");

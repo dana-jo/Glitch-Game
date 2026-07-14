@@ -12,15 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4233e3d4e514a2542b8067b313ca18d0, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: Assembly-CSharp::Quest
-  id: 0
+  id: -1
   questName: 
   description: 
-  objectives:
-  - name: 
-    description: 
-    type: 0
-    ob: {fileID: 0}
-  - name: 
-    description: 
-    type: 0
-    ob: {fileID: 0}
+  objectives: []

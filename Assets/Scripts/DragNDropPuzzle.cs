@@ -13,7 +13,6 @@ public class DragNDropPuzzle : ObjectiveBehaviour, Interactable
 
     void Start()
     {
-        Complete();
         OnStart();
 
         canvas.SetActive(false);
