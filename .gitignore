@@ -1,3 +1,4 @@
+# Unity generated
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
@@ -6,3 +7,28 @@
 [Ll]ogs/
 UserSettings/
 MemoryCaptures/
+Assets/AssetStoreTools*
+
+# Visual Studio
+.vs/
+*.csproj
+*.sln
+*.user
+*.userprefs
+*.suo
+*.pidb
+*.booproj
+*.svd
+
+# Unity generated IDE files
+*.unityproj
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
