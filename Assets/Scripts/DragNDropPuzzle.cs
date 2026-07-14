@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class DragNDropPuzzle : PuzzleBehaviour, Interactable
+public class DragNDropPuzzle : ObjectiveBehaviour, Interactable
 {
     //public string machineId { get; private set; }
     public GameObject canvas;
@@ -13,6 +13,7 @@ public class DragNDropPuzzle : PuzzleBehaviour, Interactable
 
     void Start()
     {
+        Complete();
         OnStart();
 
         canvas.SetActive(false);

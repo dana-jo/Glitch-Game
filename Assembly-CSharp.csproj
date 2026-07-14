@@ -61,13 +61,17 @@
     <Analyzer Include="D:\Unity editor\6000.3.14f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\QuestDictionary.cs" />
+    <Compile Include="Assets\Scripts\Objective.cs" />
     <Compile Include="Assets\Scripts\DragHandler.cs" />
     <Compile Include="Assets\Scripts\ShakeEffect.cs" />
     <Compile Include="Assets\Scripts\DragNDropPuzzle.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
-    <Compile Include="Assets\Scripts\PuzzleBehaviour.cs" />
+    <Compile Include="Assets\Scripts\ObjectiveBehaviour.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\InteractionDetector.cs" />
+    <Compile Include="Assets\Scripts\test.cs" />
+    <Compile Include="Assets\Scripts\Quest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

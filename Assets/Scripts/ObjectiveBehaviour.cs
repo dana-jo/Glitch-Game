@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class PuzzleBehaviour : MonoBehaviour
+public abstract class ObjectiveBehaviour : MonoBehaviour
 {
     public bool IsCompleted { get; private set; }
 
