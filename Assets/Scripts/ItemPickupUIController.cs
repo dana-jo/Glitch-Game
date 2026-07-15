@@ -23,7 +23,7 @@ public class ItemPickupUIController : MonoBehaviour
             Instance = this;
         }
         else {
-            Debug.LogError("Multiple ItemPickup instances detected! Destroying the extra one.");
+            Debug.LogError("multiple ItemPickup instances detected! Destroying the extra one.");
             Destroy(gameObject);
         }
     }
