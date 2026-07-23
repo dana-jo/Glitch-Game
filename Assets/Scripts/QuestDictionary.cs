@@ -6,7 +6,8 @@ using static UnityEditor.Progress;
 public class QuestDictionary : MonoBehaviour
 {
     public static QuestDictionary Instance { get; private set; }
-    public List<QuestObjectives> quests;
+    public List<Quest> quests;
+
     void Awake()
     {
         if (Instance == null)
@@ -14,28 +15,10 @@ public class QuestDictionary : MonoBehaviour
         else
             Destroy(gameObject);
     }
-    public ObjectiveBehaviour getObjective(int questID, int objID)
+
+    public Quest GetQuest(int id)
     {
-        GameObject go = quests[questID].objectives[objID];
-
-        if (go == null)
-        {
-            Debug.LogWarning($"objective with id {questID},{objID} not found in dictionary");
-        }
-
-        ObjectiveBehaviour ob = go.GetComponentInChildren<ObjectiveBehaviour>();
-        if (ob == null)
-        {
-            Debug.LogWarning($"objective behaviour not found");
-        }
-
-        return ob;
+        return quests[id];
     }
-}
-
-[System.Serializable]
-public class QuestObjectives
-{
-    // this is a helper so the unity editor shows the list<list<>> field
-    public List<GameObject> objectives;
+    
 }

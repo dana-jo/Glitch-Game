@@ -6,13 +6,12 @@ public class test : MonoBehaviour
     QuestDictionary qd;
     void Start()
     {
-        qd = QuestDictionary.Instance;
-        Debug.Log(qd.getObjective(0, 0).IsCompleted);
     }
 
     private void Update()
     {
-        Debug.Log(qd.getObjective(0, 0).IsCompleted);
+        QuestDictionary qd = QuestDictionary.Instance;
+        Debug.Log(qd.GetQuest(0).objectives[0].IsComplete);
     }
 
 }
