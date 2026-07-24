@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
     private Animator animator;
 
-    //private bool playingFootsteps = false;
-    //public float footStepsSpeed = 0.5f;
+    private bool playingFootsteps = false;
+    public float footStepsSpeed = 0.5f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,26 +21,25 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (pauseController.IsGamePaused)
-        //{
+        // if (pauseController.IsGamePaused)
+        // {
         //    rb.linearVelocity = Vector2.zero;
         //    animator.SetBool("isWalking", false);
 
         //    StopFootsteps();
         //    return;
-        //}
+        // }
         rb.linearVelocity = moveInput * speed;
-        //animator.SetBool("isWalking", rb.linearVelocity.magnitude > 0);
+        animator.SetBool("isWalking", rb.linearVelocity.magnitude > 0);
 
-        // footsteps sound
-        //if (rb.linearVelocity.magnitude > 0 && !playingFootsteps)
-        //{
-        //    StartFootsteps();
-        //}
-        //else if (playingFootsteps)
-        //{
-        //    StopFootsteps();
-        //}
+        if (rb.linearVelocity.magnitude > 0 && !playingFootsteps)
+        {
+           StartFootsteps();
+        }
+        else if (rb.linearVelocity.magnitude==0)
+        {
+           StopFootsteps();
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -59,23 +58,20 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("inputY", moveInput.y);
     }
 
-    //void StartFootsteps()
-    //{
-    //    playingFootsteps = true;
-    //    InvokeRepeating(nameof(PlayFootsteps), 0f, footStepsSpeed);
-    //}
+    void StartFootsteps()
+    {
+       playingFootsteps = true;
+       InvokeRepeating(nameof(PlayFootsteps), 0f, footStepsSpeed);
+    }
 
-    //void StopFootsteps()
-    //{
-    //    playingFootsteps = false;
-    //    CancelInvoke(nameof(PlayFootsteps));
-    //}
+    void StopFootsteps()
+    {
+       playingFootsteps = false;
+       CancelInvoke(nameof(PlayFootsteps));
+    }
 
-    //void PlayFootsteps()
-    //{
-    //    if (!SoundEffectManager.IsRandomAudioPlaying())
-    //    {
-    //        SoundEffectManager.Play("Footstep", true);
-    //    }
-    //}
+    void PlayFootsteps()
+    {
+           SoundEffectManager.play("FootStep",true);
+    }
 }
