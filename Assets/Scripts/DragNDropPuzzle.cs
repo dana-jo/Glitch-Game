@@ -41,6 +41,9 @@ public class DragNDropPuzzle : ObjectiveBehaviour, Interactable
         {
             Complete();
             Debug.Log("Puzzle Finished");
+
+            SceneController.Instance.PlayCutscene("Intro");
+
         }
     }
 
