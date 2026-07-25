@@ -2,15 +2,16 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
-public class CutsceneSceneLoader : MonoBehaviour
+public class CutsceneManager : MonoBehaviour
 {
-    [SerializeField]
-    GameObject timeLine; // attatch the object that has PlayableDirector (which is usually the timeline
     private PlayableDirector director;
+    private SceneController sc;
 
     private void Awake()
     {
-        director = timeLine.GetComponent<PlayableDirector>();
+        sc = SceneController.Instance;
+
+        director = GetComponent<PlayableDirector>();
         if (director != null)
             Debug.Log("we got the director");
     }
@@ -19,7 +20,7 @@ public class CutsceneSceneLoader : MonoBehaviour
     {
         Debug.Log("finish from cutscene");
 
-        if (SceneController.Instance.loop)
+        if (sc.loop)
         {
             director.time = 0;
             director.Evaluate();
@@ -27,7 +28,7 @@ public class CutsceneSceneLoader : MonoBehaviour
         }
         else
         {
-            SceneController.Instance.EndCutscene();
+            sc.EndCutscene();
         }
     }
 }
