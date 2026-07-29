@@ -13,10 +13,8 @@ public class test : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            sc.EndCutscene();
-        }
+        Debug.Log("0" + qd.GetQuest(0).objectives[0].IsComplete);
+        Debug.Log("1" + qd.GetQuest(0).objectives[1].IsComplete);
     }
 
 }

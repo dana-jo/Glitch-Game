@@ -16,7 +16,7 @@ public class DragNDropPuzzle : ObjectiveBehaviour, Interactable
         OnStart();
 
         canvas.SetActive(false);
-        Debug.Log("from inside child");
+        //Debug.Log("from inside child");
     }
 
     public bool CanInteract()
@@ -29,7 +29,7 @@ public class DragNDropPuzzle : ObjectiveBehaviour, Interactable
         if (!CanInteract())
             return;
         canvas.SetActive(!canvas.activeSelf);
-        Debug.Log("inside interact");
+        //Debug.Log("inside interact");
     }
 
 

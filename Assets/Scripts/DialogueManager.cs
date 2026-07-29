@@ -76,11 +76,11 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("if 1");
             questState = QuestState.HandedIn;
         }
-        //else if (QuestController.Instance.IsQuestCompleted(questID) || !QuestController.Instance.IsQuestHandedIn(questID))
-        //{
-        //    Debug.Log("if 2");
-        //    questState = QuestState.Completed;
-        //}
+        else if (QuestController.Instance.IsQuestCompleted(questID) || !QuestController.Instance.IsQuestHandedIn(questID))
+        {
+            Debug.Log("if 2");
+            questState = QuestState.Completed;
+        }
         else if (QuestController.Instance.IsQuestActive(questID))
         {
             Debug.Log("if 3");
