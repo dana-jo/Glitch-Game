@@ -76,11 +76,11 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("if 1");
             questState = QuestState.HandedIn;
         }
-        else if (QuestController.Instance.IsQuestCompleted(questID) || !QuestController.Instance.IsQuestHandedIn(questID))
-        {
-            Debug.Log("if 2");
-            questState = QuestState.Completed;
-        }
+        //else if (QuestController.Instance.IsQuestCompleted(questID) || !QuestController.Instance.IsQuestHandedIn(questID))
+        //{
+        //    Debug.Log("if 2");
+        //    questState = QuestState.Completed;
+        //}
         else if (QuestController.Instance.IsQuestActive(questID))
         {
             Debug.Log("if 3");
@@ -152,14 +152,30 @@ public class DialogueManager : MonoBehaviour
         isTyping = true;
 
         dialogueUI.SetDialogueText("");
-
         string currentText = "";
+        string line = dialogueData.dialogueLines[dialogueIndex].line;
 
-        foreach (char letter in dialogueData.dialogueLines[dialogueIndex].line)
+        //foreach (char letter in dialogueData.dialogueLines[dialogueIndex].line)
+        //{
+        //    currentText += letter;
+        //    dialogueUI.SetDialogueText(currentText);
+
+        //    yield return new WaitForSeconds(dialogueData.typingSpeed);
+        //}
+
+        for (int i = 0; i < line.Length; i++)
         {
-            currentText += letter;
-            dialogueUI.SetDialogueText(currentText);
+            if (line[i] == '\\' && i + 1 < line.Length && line[i + 1] == 'n')
+            {
+                currentText += '\n';
+                i++;
+            }
+            else
+            {
+                currentText += line[i];
+            }
 
+            dialogueUI.SetDialogueText(currentText);
             yield return new WaitForSeconds(dialogueData.typingSpeed);
         }
 
