@@ -20,5 +20,9 @@ public class QuestDictionary : MonoBehaviour
     {
         return quests[id];
     }
-    
+
+    public int GetQuestID(Quest quest)
+    {
+        return quests.IndexOf(quest);
+    }
 }

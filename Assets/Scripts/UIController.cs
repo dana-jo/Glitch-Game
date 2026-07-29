@@ -1,11 +1,13 @@
 using UnityEngine;
 
-public class InventoryUIController : MonoBehaviour
+public class UIController : MonoBehaviour
 {
     public GameObject inventoryGroup;
+    public GameObject questsPage;
     void Start()
     {
         inventoryGroup.SetActive(false);
+        questsPage.SetActive(false);
     }
 
   
@@ -19,6 +21,17 @@ public class InventoryUIController : MonoBehaviour
             //}
             inventoryGroup.SetActive(!inventoryGroup.activeSelf);
             //PauseController.Setpause(inventoryGroup.activeSelf);
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            //if (!questsPage.activeSelf && PauseController.IsGamePause)
+            //{
+            //    return;
+            //}
+            inventoryGroup.SetActive(!inventoryGroup.activeSelf);
+            PauseController.Setpause(inventoryGroup.activeSelf);
 
         }
     }
