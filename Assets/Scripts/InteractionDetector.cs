@@ -42,4 +42,13 @@ public class InteractionDetector : MonoBehaviour
             interactionIcon.SetActive(false);
         }
     }
+    private void Update()
+    {
+        if (interactableRange == null)
+        {
+            interactionIcon.SetActive(false);
+            return;
+        }
+        interactionIcon.SetActive(interactableRange.CanInteract());
+    }
 }
