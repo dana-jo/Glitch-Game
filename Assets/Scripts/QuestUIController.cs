@@ -8,6 +8,7 @@ public class QuestUIController : MonoBehaviour
     public Transform questListContent;
     public GameObject questEntryPrefab;
     public GameObject objectiveTextPrefab;
+    public GameObject onQuests;
 
 
     // this is just for testing
@@ -32,6 +33,11 @@ public class QuestUIController : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+
+        bool hasQuests = QuestController.Instance.activeQuests.Count > 0;
+        onQuests.SetActive(!hasQuests);
+        if (!hasQuests)
+            return;
 
         // build quest entries
         // -----------

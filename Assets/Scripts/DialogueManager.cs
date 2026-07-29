@@ -73,18 +73,22 @@ public class DialogueManager : MonoBehaviour
         // quest state
         if (QuestController.Instance.IsQuestCompleted(questID) || QuestController.Instance.IsQuestHandedIn(questID))
         {
+            Debug.Log("if 1");
             questState = QuestState.HandedIn;
         }
-        else if (QuestController.Instance.IsQuestCompleted(questID) || !QuestController.Instance.IsQuestHandedIn(questID))
-        {
-            questState = QuestState.Completed;
-        }
+        //else if (QuestController.Instance.IsQuestCompleted(questID) || !QuestController.Instance.IsQuestHandedIn(questID))
+        //{
+        //    Debug.Log("if 2");
+        //    questState = QuestState.Completed;
+        //}
         else if (QuestController.Instance.IsQuestActive(questID))
         {
+            Debug.Log("if 3");
             questState = QuestState.Inprogress;
         }
         else
         {
+            Debug.Log("if 4");
             questState = QuestState.NotStarted;
         }
     }

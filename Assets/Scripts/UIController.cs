@@ -30,8 +30,8 @@ public class UIController : MonoBehaviour
             //{
             //    return;
             //}
-            inventoryGroup.SetActive(!inventoryGroup.activeSelf);
-            PauseController.Setpause(inventoryGroup.activeSelf);
+            questsPage.SetActive(!questsPage.activeSelf);
+            //PauseController.Setpause(questsPage.activeSelf);
 
         }
     }
