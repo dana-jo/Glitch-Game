@@ -16,7 +16,7 @@ public class Objective
     [Header("For collecting items")]
     public int requiredAmount;
     [HideInInspector]
-    public int currentAmount;
+    public int currentAmount, previousAmount;
     public int itemID;
     public bool countFrom0;
 

@@ -29,6 +29,8 @@ public class QuestUIController : MonoBehaviour
     }
     public void UpdateQuestUI()
     {
+        Debug.Log("Update Quest UI");
+
         foreach (Transform child in questListContent)
         {
             Destroy(child.gameObject);
@@ -55,7 +57,10 @@ public class QuestUIController : MonoBehaviour
             {
                 GameObject objTextGO = Instantiate(objectiveTextPrefab, objectiveList);
                 TMP_Text objText = objTextGO.GetComponent<TMP_Text>();
-                objText.text = $"{objective.description}";
+                objText.text = "";
+                if (objective.type == ObjectiveType.CollectItem)
+                    objText.text += $"({objective.currentAmount} / {objective.requiredAmount}) ";
+                objText.text += $"{objective.description}";
             }
         }
     }

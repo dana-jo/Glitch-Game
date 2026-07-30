@@ -38,8 +38,7 @@ public class QuestController : MonoBehaviour
 
         //CheckInventoryForQuests();
         InitiateQuestObjectives(questID);
-
-        questUI.UpdateQuestUI();
+        UpdateUI();
     }
 
     public bool IsQuestActive(int questID) => activeQuests.Exists(q => q.questID == questID);
@@ -57,13 +56,21 @@ public class QuestController : MonoBehaviour
 
         foreach (Objective objective in quest.objectives)
         {
-            if(objective.type == ObjectiveType.CollectItem && !objective.countFrom0)
+            if(objective.type == ObjectiveType.CollectItem)
             {
                 int newAmount = itemCounts.TryGetValue(objective.itemID, out int count) ? Mathf.Min(count, objective.requiredAmount) : 0;
-                objective.currentAmount = newAmount;
+                if(objective.countFrom0)
+                    objective.previousAmount = newAmount;
+                else
+                    objective.currentAmount = newAmount;
                 Debug.Log($"Objective current amount initiated    {newAmount}");
             }
         }
+    }
+
+    public void UpdateUI()
+    {
+        questUI.UpdateQuestUI();
     }
     public void CheckInventoryForQuests()
     {
@@ -89,7 +96,7 @@ public class QuestController : MonoBehaviour
             }
         }
 
-        questUI.UpdateQuestUI();
+        UpdateUI();
     }
 
     public bool IsQuestCompleted(int questID)
@@ -111,7 +118,7 @@ public class QuestController : MonoBehaviour
         {
             handingQuestIDs.Add(questID);
             activeQuests.Remove(quest);
-            questUI.UpdateQuestUI();
+            UpdateUI();
         }
 
     }
@@ -160,6 +167,6 @@ public class QuestController : MonoBehaviour
         activeQuests = savedQuests ?? new();
 
         CheckInventoryForQuests();
-        questUI.UpdateQuestUI();
+        UpdateUI();
     }
 }

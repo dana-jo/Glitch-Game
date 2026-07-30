@@ -83,8 +83,16 @@ public class QuestProgress
         {
             if (objective.type == ObjectiveType.CollectItem && objective.itemID == itemID)
             {
-                objective.currentAmount = Mathf.Min(objective.currentAmount + amount, objective.requiredAmount);
+                if (objective.countFrom0)
+                {
+                    //objective.currentAmount = Mathf.Min(objective.currentAmount + amount - objective.previousAmount, objective.requiredAmount);
+                    //objective.previousAmount += objective.currentAmount;
+                }
+                else
+                    objective.currentAmount = Mathf.Min(objective.currentAmount + amount, objective.requiredAmount);
+
                 Debug.Log($"item added catched {itemID}      -       current amount {objective.currentAmount}");
+                QuestController.Instance.UpdateUI();
                 //return;        // ??
             }
         }
@@ -98,6 +106,7 @@ public class QuestProgress
             {
                 objective.currentAmount = Mathf.Max(objective.currentAmount - amount, 0);
                 Debug.Log($"item removed catched {itemID}      -       current amount {objective.currentAmount}");
+                QuestController.Instance.UpdateUI();
                 //return;        // ??
             }
         }
