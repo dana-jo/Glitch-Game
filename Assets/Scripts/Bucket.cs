@@ -2,10 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Bucket : Item
 {
-    public string currentLiquid = "";
-    public Sprite emptySprite;
-    public Sprite waterSprite;
-    public Sprite mudSprite;
+    [SerializeField] public string currentLiquid = "";
+    [SerializeField] private Sprite emptySprite;
+    [SerializeField] private Sprite waterSprite;
+    [SerializeField] private Sprite mudSprite;
 
     private SpriteRenderer spriteRenderer;
     private Image img ;
@@ -24,26 +24,31 @@ public class Bucket : Item
     public void Fill(string liquid)
     {
         currentLiquid = liquid;
-
-
-        if (liquid == "Water")
-        {
-            spriteRenderer.sprite = waterSprite;
-            img.sprite = waterSprite;
-        }
-        else if(liquid == "Mud")
-        {
-            spriteRenderer.sprite = mudSprite;
-            img.sprite = mudSprite;
-        }
+        updateSprite();
     }
 
     public void EmptyBucket()
     {
         currentLiquid = "";
-
-        spriteRenderer.sprite = emptySprite;
-        img.sprite = emptySprite;
+        updateSprite();
+    }
+    private void updateSprite()
+    {
+        if (currentLiquid == "Water")
+        {
+            spriteRenderer.sprite = waterSprite;
+            img.sprite = waterSprite;
+        }
+        else if(currentLiquid == "Mud")
+        {
+            spriteRenderer.sprite = mudSprite;
+            img.sprite = mudSprite;
+        }
+        else
+        {
+            spriteRenderer.sprite = emptySprite;
+            img.sprite = emptySprite;
+        }
     }
 
     // public override void UseItem()

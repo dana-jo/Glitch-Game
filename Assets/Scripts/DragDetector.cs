@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class DragDetector : MonoBehaviour
 {
     private Draggable draggableInRange = null;
+    static public bool isDragging = false;
     // public GameObject dragIcon;
 
     void Start()
@@ -15,11 +16,12 @@ public class DragDetector : MonoBehaviour
         if (draggableInRange == null)
             return;
 
-        if (context.performed)
+        if (context.performed && draggableInRange.CanBeDragged())
         {
             Debug.Log("Start Drag");
             // dragIcon.SetActive(false);
             draggableInRange.PickUp();
+            isDragging = true;
         }
 
         if (context.canceled)
@@ -27,6 +29,7 @@ public class DragDetector : MonoBehaviour
             Debug.Log("Stop Drag");
             // dragIcon.SetActive(true);
             draggableInRange.Drop();
+            isDragging = false;
         }
     }
 

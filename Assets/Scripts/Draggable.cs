@@ -7,8 +7,8 @@ public class Draggable : MonoBehaviour
     PlayerMovement player;
     private Collider2D playerCollider , objectCollider;
     private Rigidbody2D rb;
-    bool isHeld = false;
-    public bool IsHeld => isHeld;
+    public bool canBeDragged = true;
+    public bool IsHeld { get; private set; }
     private void Awake()
     {
         player = FindFirstObjectByType<PlayerMovement>();
@@ -19,7 +19,7 @@ public class Draggable : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isHeld)
+        if (!IsHeld || !CanBeDragged())
             return;
 
         Vector2 holdPosition =
@@ -40,18 +40,21 @@ public class Draggable : MonoBehaviour
     }
     public bool CanBeDragged()
     {
-        return true;
+        return canBeDragged;
     }
     public void PickUp()
     {
-        isHeld = true;
+        if(!CanBeDragged()) 
+            return;
+
+        IsHeld = true;
         player.speedMultiplier = speedReduction; 
         Physics2D.IgnoreCollision(playerCollider, objectCollider, true);
         rb.constraints = RigidbodyConstraints2D.FreezeRotation; 
     }
     public void Drop()
     {
-        isHeld = false;
+        IsHeld = false;
         player.speedMultiplier = 1f;
         Physics2D.IgnoreCollision(playerCollider, objectCollider, false);
         rb.constraints = RigidbodyConstraints2D.FreezePositionX |

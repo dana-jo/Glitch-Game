@@ -7,8 +7,10 @@ public class Cauldron : MonoBehaviour , Interactable
     [SerializeField] private Sprite emptySprite;
     [SerializeField] private Sprite waterSprite;
     [SerializeField] private Sprite mudSprite;
+    private float waterWeight = 5.0f , mudWeight = 25.0f , emptyCauldronWeight = 1.0f;
     private SpriteRenderer spriteRenderer;
     private Draggable draggable;
+    public bool canInteract = true;
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -28,10 +30,7 @@ public class Cauldron : MonoBehaviour , Interactable
     {
         Item current = InventoryController.Instance.CurrentItemInUse;
 
-        if (current == null)
-            return;
-
-        if(!CanInteract()) //  no interaction if the cauldron is being dragged
+        if (current == null || !CanInteract())//  no interaction if the cauldron is being dragged
             return;
 
         Bucket bucket = current as Bucket;
@@ -71,7 +70,7 @@ public class Cauldron : MonoBehaviour , Interactable
 
     public bool CanInteract()
     {
-        return ( draggable == null ||(draggable != null && !draggable.IsHeld));
+        return canInteract && ( draggable == null || (draggable != null && !draggable.IsHeld));
     }
     private void emptyCauldron()
     {
@@ -83,11 +82,26 @@ public class Cauldron : MonoBehaviour , Interactable
         Liquid = liquid;
         if(liquid == "Water")
         {
-            spriteRenderer.sprite = waterSprite;
+            spriteRenderer.sprite = waterSprite;           
         }
         else if(liquid == "Mud")
         {
             spriteRenderer.sprite = mudSprite;
+        }
+    }
+    public float GetWeight()
+    {
+        if(Liquid == "Water")
+        {
+            return waterWeight + emptyCauldronWeight;
+        }
+        else if(Liquid == "Mud")
+        {
+            return mudWeight + emptyCauldronWeight;
+        }
+        else
+        {
+            return emptyCauldronWeight;
         }
     }
 }
