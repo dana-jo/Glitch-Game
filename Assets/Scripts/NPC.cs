@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour, Interactable
 {
+    public int npcID;
     private DialogueManager dialogueManager;
 
     private void Start()

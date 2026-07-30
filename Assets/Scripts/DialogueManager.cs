@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -236,6 +237,8 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.ClearDialogueText();
         dialogueUI.ShowDialogueUI(false);
         //pauseController.SetPaused(false);
+
+        DialogueController.Instance.OnFinishDialogue(GetComponent<NPC>().npcID);
     }
 
     void handleQuestCompletion(Quest quest)

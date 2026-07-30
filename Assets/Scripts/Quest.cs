@@ -74,7 +74,7 @@ public class QuestProgress
     {
         InventoryController.Instance.OnItemAdded += OnItemAdded;
         InventoryController.Instance.OnItemRemoved += OnItemRemoved;
-        //NPCManager.OnNPCSpoken += OnNPCSpoken;
+        DialogueController.Instance.OnFinishedDialogue += OnFinishedDialogue;
     }
 
     private void OnItemAdded(int itemID, int amount)
@@ -112,13 +112,14 @@ public class QuestProgress
         }
     }
 
-    private void OnNPCSpoken(int npcID)
+    private void OnFinishedDialogue(int npcID)
     {
         foreach (Objective objective in objectives)
         {
             if (objective.type == ObjectiveType.TalkNPC && objective.npcID == npcID)
             {
                 objective.doneTalking = true;
+                Debug.Log("Done talking catched");
                 //return;        // ??
             }
         }

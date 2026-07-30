@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,9 +24,7 @@ public class DialogueController : MonoBehaviour
 
     private TMP_Text currentDialogueText;
 
-    //public TMP_Text dialogueText, nameText;
-    //public Transform choiceContainer;
-    //public GameObject choiceButtonPrefab;
+    public event Action<int> OnFinishedDialogue;
 
     void Awake()
     {
@@ -88,5 +87,11 @@ public class DialogueController : MonoBehaviour
     {
         normalDialogueText.text = "";
         questionText.text = "";
+    }
+
+    public void OnFinishDialogue(int npcID)
+    {
+        OnFinishedDialogue?.Invoke(npcID);
+        Debug.Log("Done talking invoke");
     }
 }
