@@ -60,11 +60,18 @@ public class Item : MonoBehaviour
 
     public virtual void ShowPopup()
     {
-        Sprite itemIcon = GetComponent<Image>().sprite;
-        if (ItemPickupUIController.Instance != null)
+        if (PopupManager.Instance == null)
         {
-            ItemPickupUIController.Instance.ShowitemPickup(Name, itemIcon);
+            Debug.LogWarning("PopupManager was not found.");
+            return;
         }
 
+        PopupManager.Instance.ShowItemPopup(
+            ID,
+            Name,
+            itemIcon,
+            quantity
+        );
     }
+
 }

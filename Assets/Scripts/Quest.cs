@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Quest", menuName = "Scriptable Objects/Quest")]
@@ -66,4 +67,13 @@ public class Quest : ScriptableObject
 
         Debug.Log("Successfully added quests");
     }
+
+    public virtual void ShowQuestPopup()
+    {
+        PopupManager.Instance.ShowPopup(
+            questName,
+            description
+        );
+    }
+
 }
