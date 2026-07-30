@@ -1,6 +1,8 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class QuestController : MonoBehaviour
 {
@@ -24,7 +26,6 @@ public class QuestController : MonoBehaviour
         questUI = FindFirstObjectByType<QuestUIController>();
         questDictionary = QuestDictionary.Instance;
 
-        // -------------------------------------------------------------------------------------- collect item
         //InventoryController.Instance.OnInventoryChanged += CheckInventoryForQuests;
     }
 
@@ -35,13 +36,35 @@ public class QuestController : MonoBehaviour
 
         activeQuests.Add(new QuestProgress(questID));
 
-        // -------------------------------------------------------------------------------------- collect item
         //CheckInventoryForQuests();
+        InitiateQuestObjectives(questID);
+
         questUI.UpdateQuestUI();
     }
 
     public bool IsQuestActive(int questID) => activeQuests.Exists(q => q.questID == questID);
 
+    public void InitiateQuestObjectives(int questID)
+    {
+        Dictionary<int, int> itemCounts = InventoryController.Instance.GetItemCounts();
+
+        QuestProgress quest = activeQuests.FirstOrDefault(q => q.questID == questID);
+        if(quest == null)
+        {
+            Debug.LogError("Quest is not found after being accepted. an error happened.");
+            return;
+        }
+
+        foreach (Objective objective in quest.objectives)
+        {
+            if(objective.type == ObjectiveType.CollectItem && !objective.countFrom0)
+            {
+                int newAmount = itemCounts.TryGetValue(objective.itemID, out int count) ? Mathf.Min(count, objective.requiredAmount) : 0;
+                objective.currentAmount = newAmount;
+                Debug.Log($"Objective current amount initiated    {newAmount}");
+            }
+        }
+    }
     public void CheckInventoryForQuests()
     {
         Dictionary<int, int> itemCounts = InventoryController.Instance.GetItemCounts();
@@ -72,7 +95,7 @@ public class QuestController : MonoBehaviour
     public bool IsQuestCompleted(int questID)
     {
         QuestProgress quest = activeQuests.Find(q => q.questID == questID);
-        return quest != null && quest.IsCompleted;
+        return quest != null && quest.IsCompleted();
     }
 
     public void HandInQuest(int questID)

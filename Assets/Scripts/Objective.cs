@@ -7,9 +7,27 @@ public class Objective
     public string name;
     public string description;
     public ObjectiveType type;
+
+    [Space(15)]
+    [Header("For puzzles and locations")]
     public GameObject target;
 
-    private ObjectiveBehaviour getBehaviour() { 
+    [Space(15)]
+    [Header("For collecting items")]
+    public int requiredAmount;
+    [HideInInspector]
+    public int currentAmount;
+    public int itemID;
+    public bool countFrom0;
+
+    [Space(15)]
+    [Header("For talk to npc")]
+    public int npcID;
+    [HideInInspector]
+    public bool doneTalking;
+
+
+    public ObjectiveBehaviour getBehaviour() {
 
         if (target == null)
         {
@@ -24,8 +42,5 @@ public class Objective
 
         return ob;
     }
-
-    public bool IsComplete =>
-        getBehaviour() != null && getBehaviour().IsCompleted;
 }
 public enum ObjectiveType { Puzzle, CollectItem, ReachLocation, TalkNPC }

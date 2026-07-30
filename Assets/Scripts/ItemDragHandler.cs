@@ -78,10 +78,6 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                     dropSlot.currentItem = gameObject;
                     GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
                 }
-
-
-
-
             }
             else
             {
@@ -159,11 +155,11 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         //destroy ui one
         if (quantity <= 1 && originalSlot.currentItem == null)
         {
-
-
             Destroy(gameObject);
         }
-        InventoryController.Instance.RebuildItemCounts();
+
+        //InventoryController.Instance.RebuildItemCounts();
+        InventoryController.Instance.NotifyItemRemoved(item.ID, 1);
     }
 
     public void OnPointerClick(PointerEventData eventData)
