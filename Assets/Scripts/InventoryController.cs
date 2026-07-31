@@ -23,7 +23,7 @@ public class InventoryController : MonoBehaviour
     public Image itemPreviewImage;
     public TMP_Text itemNameText;
     public TMP_Text itemDescriptionText;
-
+    public Item CurrentItemInUse { get; private set; }
     public static InventoryController Instance { get; private set; }
     Dictionary<int, int> itemsCountCache = new();
     public event Action OnInventoryChanged;
@@ -119,6 +119,7 @@ public class InventoryController : MonoBehaviour
         Item item = slot.currentItem.GetComponent<Item>();
         if (item == null) return;
 
+        CurrentItemInUse = item;
         item.UseItem();
     }
 

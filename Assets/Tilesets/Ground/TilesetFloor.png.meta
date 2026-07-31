@@ -8133,10 +8133,10 @@ TextureImporter:
       name: TilesetFloor_365
       rect:
         serializedVersion: 2
-        x: 0
-        y: 65
-        width: 16
-        height: 16
+        x: 19
+        y: 48
+        width: 28
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -8177,10 +8177,10 @@ TextureImporter:
       name: TilesetFloor_367
       rect:
         serializedVersion: 2
-        x: 32
-        y: 65
-        width: 16
-        height: 16
+        x: 0
+        y: 34
+        width: 46
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -9014,9 +9014,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 33
-        width: 16
-        height: 16
+        y: 34
+        width: 49
+        height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
