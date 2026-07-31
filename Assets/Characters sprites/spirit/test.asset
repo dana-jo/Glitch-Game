@@ -61,10 +61,24 @@ MonoBehaviour:
     autoProgress: 0
     endProgress: 1
     choices: []
+  - line: So you know my anti-aginng secret, huh?
+    autoProgress: 0
+    endProgress: 0
+    choices: []
+  - line: Don't go spreading it all around.
+    autoProgress: 0
+    endProgress: 0
+    choices: []
+  - line: IT. IS. A. SECRET.
+    autoProgress: 0
+    endProgress: 1
+    choices: []
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   voiceSound: {fileID: 0}
   voicePitch: 1
   questInProgressIndex: 6
-  questCompletedIndex: 7
-  questID: 0
+  questCompletedIndex: 9
+  questHandedInIndex: 7
+  questID: 1
+  isQuestHolder: 1

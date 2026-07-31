@@ -8,10 +8,9 @@ public class DialogueManager : MonoBehaviour
     // multiple portraits
     // PORTRAIT - find a way to add the portraits to the npc not the dialogue
     // pause + sound systems
-    // rewards
 
     public Dialogue dialogueData;
-    public bool isDialogueActive;
+    public bool disableDialogue;
 
     private DialogueController dialogueUI;
     private int dialogueIndex;
@@ -52,8 +51,12 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueIndex = dialogueData.questCompletedIndex;
         }
+        else if(questState == QuestState.HandedIn)
+        {
+            dialogueIndex = dialogueData.questHandedInIndex;
+        }
 
-        isDialogueActive = true;
+            disableDialogue = true;
 
         dialogueUI.SetNPCInfo(dialogueData.npcname, dialogueData.portrait);
         dialogueUI.ShowDialogueUI(true);
@@ -131,25 +134,6 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeLine()
     {
-        //isTyping = true;
-        //dialogueUI.SetDialogueText("");
-
-        //foreach (char letter in dialogueData.dialogueLines[dialogueIndex].line)
-        //{
-        //    dialogueUI.SetDialogueText(dialogueUI.dialogueText.text += letter);
-        //    //SoundEffectManager.PlayVoice(dialogueData.voiceSound, dialogueData.voicePitch);
-        //    yield return new WaitForSeconds(dialogueData.typingSpeed);
-        //}
-
-        //isTyping = false;
-
-        //if (dialogueData.dialogueLines[dialogueIndex].autoProgress)
-        //{
-        //    yield return new WaitForSeconds(dialogueData.autoProgressDelay);
-        //    NextLine();
-        //}
-
-        // -----------------
         isTyping = true;
 
         dialogueUI.SetDialogueText("");
@@ -191,8 +175,6 @@ public class DialogueManager : MonoBehaviour
 
     void DisplayChoices(DialogueChoice[] choices)
     {
-        //dialogueUI.ShowChoicesLayout();
-        //dialogueUI.SetDialogueText(dialogueData.dialogueLines[dialogueIndex].line);
         foreach (DialogueChoice choice in choices)
         {
             int nextIndex = choice.nextDialogueIndex;
@@ -227,23 +209,20 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        //if (questState == QuestState.Completed && !QuestController.Instance.IsQuestHandedIn(dialogueData.questID))
-        //{
-        //    handleQuestCompletion(dialogueData.questID);
-        //}
+        DialogueController.Instance.OnFinishDialogue(GetComponent<NPC>().npcID);
+
+        SyncQuestState();
+
+        if (questState == QuestState.Completed && !QuestController.Instance.IsQuestHandedIn(dialogueData.questID) && dialogueData.isQuestHolder)
+        {
+            QuestController.Instance.HandInQuest(dialogueData.questID);
+        }
 
         StopAllCoroutines();
-        isDialogueActive = false;
+        disableDialogue = false;
         dialogueUI.ClearDialogueText();
         dialogueUI.ShowDialogueUI(false);
         //pauseController.SetPaused(false);
 
-        DialogueController.Instance.OnFinishDialogue(GetComponent<NPC>().npcID);
-    }
-
-    void handleQuestCompletion(Quest quest)
-    {
-        //RewardsController.Instance.GiveQuestRewards(quest);
-        //QuestController.Instance.HandInQuest(quest.questID);
     }
 }

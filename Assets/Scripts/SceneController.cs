@@ -5,7 +5,8 @@ public class SceneController : MonoBehaviour
 {
     public static SceneController Instance { get; private set; }
 
-    public bool loop { get; private set; }
+    public bool loop { get; private set; } // if loop = true the scene loops from the scene manager
+
     private string currentCutscene;
     private bool isPlayingCutscene;
     public GameObject cutsceneBg;
@@ -23,6 +24,8 @@ public class SceneController : MonoBehaviour
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        // needs more work, keeps items in inventory, notebook n stuff
+        // maybe we can save and then load save file into another scene, we then need to save the name of the scene we're at
     }
 
     public void PlayCutscene(string sceneName, bool l = false)

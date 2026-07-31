@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4233e3d4e514a2542b8067b313ca18d0, type: 3}
+  m_Name: Unlock the door
+  m_EditorClassIdentifier: Assembly-CSharp::Quest
+  ID: 2
+  questName: Reach sus location
+  description: 
+  objectives:
+  - description: Go north west
+    type: 0
+    puzzleID: 1
+    requiredAmount: 0
+    currentAmount: 0
+    previousAmount: 0
+    itemID: 0
+    removeItemsAfterFinish: 0
+    countFrom0: 0
+    npcID: 0
+    doneTalking: 0
+  rewards:
+  - rewardType: 2
+    ID: 2
+    amount: 5
+    sceneName: 

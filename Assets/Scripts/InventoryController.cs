@@ -48,7 +48,8 @@ public class InventoryController : MonoBehaviour
     }
     void Start()
     {
-        itemDictionary = FindAnyObjectByType<ItemDictionary>();
+        itemDictionary = ItemDictionary.Instance;
+
         for (int i=0;i<slotCount-hotbarSlotCount;i++)
         {
             Slot slot = Instantiate(slotPrefab, inventoryPanel.transform).GetComponent<Slot>();

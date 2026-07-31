@@ -107,19 +107,17 @@ public class QuestController : MonoBehaviour
 
     public void HandInQuest(int questID)
     {
-        // -------------------------------------------------------------------------------------- collect item
-        //if (!RemoveRequiredItemsFromInventory(questID))
-        //{
-        //    return; // thee quest is not completed => nothing happens
-        //}
-
         QuestProgress quest = activeQuests.Find(q => q.questID == questID);
-        if (quest != null)
-        {
-            handingQuestIDs.Add(questID);
-            activeQuests.Remove(quest);
-            UpdateUI();
-        }
+
+        if (quest == null || !quest.IsCompleted() || !RemoveRequiredItemsFromInventory(questID))
+            return;
+
+        RewardsController.Instance.GiveQuestRewards(questID);
+
+        handingQuestIDs.Add(questID);
+        activeQuests.Remove(quest);
+
+        UpdateUI();
 
     }
 
@@ -137,10 +135,10 @@ public class QuestController : MonoBehaviour
         Dictionary<int, int> requiredItems = new();
         foreach (Objective objective in quest.objectives)
         {
-            //if (objective.type == ObjectiveType.CollectItem && int.TryParse(objective.objectiveID, out int itemID))
-            //{
-            //    requiredItems[itemID] = objective.requiredAmount;
-            //}
+            if (objective.type == ObjectiveType.CollectItem && objective.removeItemsAfterFinish)
+            {
+                requiredItems[objective.itemID] = objective.requiredAmount;
+            }
         }
 
         // make sure we have the items

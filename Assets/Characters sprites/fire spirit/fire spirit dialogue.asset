@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639751c7de7b2b04b808dec0f2ac2b2b, type: 3}
+  m_Name: fire spirit dialogue
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  npcname: Fire Spirit
+  portrait: {fileID: 21300000, guid: 4e64096fc620e7149b997e5e3ffe5ddc, type: 3}
+  isKnown: 0
+  dialogueLines:
+  - line: hey, kid
+    autoProgress: 0
+    endProgress: 1
+    choices: []
+  - line: oh, so you want to know more about that spirit?
+    autoProgress: 0
+    endProgress: 0
+    choices: []
+  - line: i can tell you ...
+    autoProgress: 0
+    endProgress: 0
+    choices: []
+  - line: he has a weird habit of eating shrimp with tea
+    autoProgress: 0
+    endProgress: 0
+    choices: []
+  - line: He says that it's the secret for glowing skin
+    autoProgress: 0
+    endProgress: 0
+    choices: []
+  - line: He's weird, right? \ndon't get close to him.
+    autoProgress: 0
+    endProgress: 1
+    choices: []
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05
+  voiceSound: {fileID: 0}
+  voicePitch: 1
+  questInProgressIndex: 1
+  questCompletedIndex: 3
+  questHandedInIndex: 5
+  questID: 1
+  isQuestHolder: 0

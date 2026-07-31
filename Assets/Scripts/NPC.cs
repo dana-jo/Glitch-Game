@@ -11,15 +11,16 @@ public class NPC : MonoBehaviour, Interactable
     }
     public bool CanInteract()
     {
-        return !dialogueManager.isDialogueActive;
+        return !dialogueManager.disableDialogue;
     }
 
     public void Interact()
     {
         //if (dialogueData == null || (pauseController.IsGamePaused && !isDialogueActive))
-        //    return;
+        if (dialogueManager.dialogueData == null)
+            return;
 
-        if (dialogueManager.isDialogueActive)
+        if (dialogueManager.disableDialogue)
         {
             dialogueManager.NextLine();
         }

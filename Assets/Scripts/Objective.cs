@@ -4,13 +4,13 @@ using UnityEngine;
 [Serializable]
 public class Objective
 {
-    public string name;
+    //public string name;
     public string description;
     public ObjectiveType type;
 
     [Space(15)]
     [Header("For puzzles and locations")]
-    public GameObject target;
+    public int puzzleID;
 
     [Space(15)]
     [Header("For collecting items")]
@@ -18,6 +18,7 @@ public class Objective
     [HideInInspector]
     public int currentAmount, previousAmount;
     public int itemID;
+    public bool removeItemsAfterFinish;
     public bool countFrom0;
 
     [Space(15)]
@@ -25,22 +26,5 @@ public class Objective
     public int npcID;
     [HideInInspector]
     public bool doneTalking;
-
-
-    public ObjectiveBehaviour getBehaviour() {
-
-        if (target == null)
-        {
-            Debug.LogWarning($"no gameobject attached to puzzle {name}");
-        }
-
-        ObjectiveBehaviour ob = target.GetComponentInChildren<ObjectiveBehaviour>();
-        if (ob == null)
-        {
-            Debug.LogWarning($"objective behaviour not found in puzzle {name}");
-        }
-
-        return ob;
-    }
 }
 public enum ObjectiveType { Puzzle, CollectItem, ReachLocation, TalkNPC }
