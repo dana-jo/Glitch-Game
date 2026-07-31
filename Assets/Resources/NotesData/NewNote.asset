@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77760c8935fc1fd4ebd45933ce836fa1, type: 3}
+  m_Name: NewNote
+  m_EditorClassIdentifier: Assembly-CSharp::NoteSO
+  noteID: 1
+  NoteTitle: helllo
+  Elements:
+  - Type: 0
+    TextContent: 'hello iam lama '
+    ImageContent: {fileID: 0}
+  - Type: 0
+    TextContent: glitch
+    ImageContent: {fileID: 4035959289877228764, guid: 7511ee255dd839146a8b72299046004f, type: 3}
+  - Type: 1
+    TextContent: stoppppp
+    ImageContent: {fileID: -5409570386352685021, guid: 7511ee255dd839146a8b72299046004f, type: 3}
+  - Type: 0
+    TextContent: lunaaaaaaaaaa
+    ImageContent: {fileID: -5409570386352685021, guid: 7511ee255dd839146a8b72299046004f, type: 3}
+  - Type: 0
+    TextContent: nouraaaaaaaaaaa
+    ImageContent: {fileID: -5409570386352685021, guid: 7511ee255dd839146a8b72299046004f, type: 3}
