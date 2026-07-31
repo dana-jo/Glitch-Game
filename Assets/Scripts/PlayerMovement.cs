@@ -3,10 +3,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float baseSpeed = 5f;
+    public float speedMultiplier = 1f;
+    private float speed => baseSpeed * speedMultiplier;
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private Animator animator;
+    public Vector2 LastFacingDirection { get; private set; } = Vector2.down;
 
     private bool playingFootsteps = false;
     public float footStepsSpeed = 0.5f;
@@ -56,6 +59,14 @@ public class PlayerMovement : MonoBehaviour
         moveInput = context.ReadValue<Vector2>();
         animator.SetFloat("inputX", moveInput.x);
         animator.SetFloat("inputY", moveInput.y);
+
+        if(context.performed)
+        {
+            if (moveInput != Vector2.zero)
+            {
+                LastFacingDirection = moveInput.normalized;
+            }
+        }
     }
 
     void StartFootsteps()

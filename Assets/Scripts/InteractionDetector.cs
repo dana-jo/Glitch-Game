@@ -9,19 +9,21 @@ public class InteractionDetector : MonoBehaviour
     void Start()
     {
         interactionIcon.SetActive(false);
-
     }
 
     public void OnInteract(InputAction.CallbackContext context)
     {
+        if(DragDetector.isDragging)
+            return;
+            
         if (context.performed && interactableRange != null)
         {
-            Debug.Log("Calling the Interact function");
-            interactableRange?.Interact(); // calling the interact function on whatever we interacted with
             if (!interactableRange.CanInteract())
             {
                 interactionIcon?.SetActive(false);
             }
+            Debug.Log("Calling the Interact function");
+            interactableRange?.Interact(); // calling the interact function on whatever we interacted with
         }
     }
 
@@ -41,5 +43,14 @@ public class InteractionDetector : MonoBehaviour
             interactableRange = null;
             interactionIcon.SetActive(false);
         }
+    }
+    private void Update()
+    {
+        if (interactableRange == null)
+        {
+            interactionIcon.SetActive(false);
+            return;
+        }
+        interactionIcon.SetActive(interactableRange.CanInteract());
     }
 }
