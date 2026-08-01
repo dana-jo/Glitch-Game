@@ -4,15 +4,16 @@ public class test : MonoBehaviour
 {
     // this is a class only for testing stuff like dictionaries
     QuestDictionary qd;
+    SceneController sc;
     void Start()
     {
         qd = QuestDictionary.Instance;
-        Debug.Log(qd.getObjective(0, 0).IsCompleted);
+        sc = SceneController.Instance;
     }
 
     private void Update()
     {
-        Debug.Log(qd.getObjective(0, 0).IsCompleted);
+
     }
 
 }

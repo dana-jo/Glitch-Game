@@ -26,7 +26,10 @@ public class InventoryController : MonoBehaviour
     public Item CurrentItemInUse { get; private set; }
     public static InventoryController Instance { get; private set; }
     Dictionary<int, int> itemsCountCache = new();
-    public event Action OnInventoryChanged;
+
+    //public event Action OnInventoryChanged;
+    public event Action<int, int> OnItemAdded;
+    public event Action<int, int> OnItemRemoved;
 
     private void Awake()
     {
@@ -45,7 +48,8 @@ public class InventoryController : MonoBehaviour
     }
     void Start()
     {
-        itemDictionary = FindAnyObjectByType<ItemDictionary>();
+        itemDictionary = ItemDictionary.Instance;
+
         for (int i=0;i<slotCount-hotbarSlotCount;i++)
         {
             Slot slot = Instantiate(slotPrefab, inventoryPanel.transform).GetComponent<Slot>();
@@ -131,7 +135,7 @@ public class InventoryController : MonoBehaviour
         CountItemsInPanel(inventoryPanel);
         CountItemsInPanel(hotbarPanel);
 
-        OnInventoryChanged?.Invoke();
+        //OnInventoryChanged?.Invoke();
     }
 
     void CountItemsInPanel(GameObject panel)
@@ -157,12 +161,20 @@ public class InventoryController : MonoBehaviour
 
 
     public Dictionary<int, int> GetItemCounts() => itemsCountCache;
+    public int CountExistingItems(int itemID)
+    {
+        return itemsCountCache.GetValueOrDefault(itemID, 0);
+    }
 
     //new Add Item:-------------------------------------
     public bool AddItem(GameObject itemPrefab)
     {
         Item itemToAdd = itemPrefab.GetComponent<Item>();
         if (itemToAdd == null) return false;
+
+        // notify the quests
+        OnItemAdded?.Invoke(itemToAdd.ID, 1);
+        Debug.Log("item added invoke");
 
         // 1.try stacking in normal inventory
         if (TryStackItemInPanel(inventoryPanel, itemToAdd))
@@ -194,6 +206,13 @@ public class InventoryController : MonoBehaviour
 
         Debug.Log("Inventory and hotbar is full");
         return false;
+    }
+
+    public void NotifyItemRemoved(int itemID, int amount)
+    {
+        RebuildItemCounts();
+        OnItemRemoved?.Invoke(itemID, amount);
+        Debug.Log("item removed invoke");
     }
 
     private bool TryStackItemInPanel(GameObject panel, Item itemToAdd)

@@ -3,11 +3,18 @@ using UnityEngine;
 
 public class ItemDictionary : MonoBehaviour
 {
+    public static ItemDictionary Instance { get; private set; }
+
     public List<Item> ItemPrefabs;
     private Dictionary<int, GameObject> itemDictionary;
 
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
         itemDictionary = new Dictionary<int, GameObject>();
         for (int i = 0; i < ItemPrefabs.Count; i++)
         {

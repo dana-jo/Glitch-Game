@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639751c7de7b2b04b808dec0f2ac2b2b, type: 3}
+  m_Name: test
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  dialogueLines:
+  - line: What's up little boy?
+    autoProgress: 0
+    endProgress: 0
+    choices: []
+  - line: It's a sunny day today. A good day to think, Don't you think?
+    autoProgress: 0
+    endProgress: 0
+    choices: []
+  - line: I was wondering how life changes quickly....
+    autoProgress: 1
+    endProgress: 0
+    choices: []
+  - line: you won't understand, you look young
+    autoProgress: 1
+    endProgress: 0
+    choices: []
+  - line: how old are you, kid?
+    autoProgress: 1
+    endProgress: 0
+    choices:
+    - line: 350 yo
+      nextDialogueIndex: 5
+      givesQuest: 1
+    - line: 20 yo
+      nextDialogueIndex: 7
+      givesQuest: 0
+    - line: you look sus, i won't tell you.
+      nextDialogueIndex: 8
+      givesQuest: 0
+  - line: HAHA. good one.
+    autoProgress: 0
+    endProgress: 0
+    choices: []
+  - line: You can't fool a 1254 yo spirit, boy.
+    autoProgress: 0
+    endProgress: 1
+    choices: []
+  - line: enjoy life while you're young, kid.
+    autoProgress: 0
+    endProgress: 1
+    choices: []
+  - line: i like your spirit, kid! \nyou should not trust strangers.
+    autoProgress: 0
+    endProgress: 1
+    choices: []
+  - line: So you know my anti-aginng secret, huh?
+    autoProgress: 0
+    endProgress: 0
+    choices: []
+  - line: Don't go spreading it all around.
+    autoProgress: 0
+    endProgress: 0
+    choices: []
+  - line: IT. IS. A. SECRET.
+    autoProgress: 0
+    endProgress: 1
+    choices: []
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05
+  voiceSound: {fileID: 0}
+  voicePitch: 1
+  questInProgressIndex: 6
+  questCompletedIndex: 9
+  questHandedInIndex: 7
+  questID: 1
+  isQuestHolder: 1
+  changeDialogue: 0
+  nextDialogue: {fileID: 11400000, guid: 5e629a40f309f9c48b27c39237345d35, type: 2}
