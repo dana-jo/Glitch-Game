@@ -43,6 +43,10 @@ public class DialogueController : MonoBehaviour
     public void ShowDialogueUI(bool show)
     {
         dialoguePanel.SetActive(show);
+        if (show)
+            PauseController.Instance.OpenDialogue();
+        else
+            PauseController.Instance.ResumeGame();
     }
 
     public void SetNPCInfo(string npcName, Sprite portrait)
