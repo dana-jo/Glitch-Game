@@ -19,7 +19,7 @@ public class RewardsController : MonoBehaviour
         if (quest?.rewards == null)
             return;
 
-        foreach (var reward in quest.rewards)
+        foreach (Reward reward in quest.rewards)
         {
             switch (reward.rewardType)
             {
@@ -32,6 +32,12 @@ public class RewardsController : MonoBehaviour
                 case RewardType.Quest:
                     QuestController.Instance.AcceptQuest(reward.ID);
                     break;
+                case RewardType.Dialogue:
+                    if (NPCDicionary.Instance.GetNPC(reward.ID) == null)
+                        Debug.Log($"NPC id is wrong in quest {questID}");
+                    else
+                        NPCDicionary.Instance.GetNPC(reward.ID).GetComponent<DialogueManager>().ChangeDialogue(reward.dialogue);
+                    break;
                 case RewardType.Note:
                     // ------------------------- nouraaaaa
                     break;
@@ -41,7 +47,6 @@ public class RewardsController : MonoBehaviour
             }
         }
     }
-
     private void GiveItemReward(int itemID, int amount)
     {
         var itemPrefab = ItemDictionary.Instance.GetItemPrefab(itemID);

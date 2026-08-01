@@ -25,6 +25,11 @@ public class Dialogue : ScriptableObject
     [Header("Quest related")]
     public int questID;
     public bool isQuestHolder = true;
+
+    [Space(15)]
+    [Header("Jump to another dialogue")]
+    public bool changeDialogue;
+    public Dialogue nextDialogue;
 }
 
 [System.Serializable]

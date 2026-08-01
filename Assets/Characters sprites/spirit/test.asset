@@ -79,3 +79,5 @@ MonoBehaviour:
   questHandedInIndex: 7
   questID: 1
   isQuestHolder: 1
+  changeDialogue: 0
+  nextDialogue: {fileID: 11400000, guid: 5e629a40f309f9c48b27c39237345d35, type: 2}

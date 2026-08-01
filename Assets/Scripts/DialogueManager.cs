@@ -6,7 +6,7 @@ public class DialogueManager : MonoBehaviour
 {
     // multiple dialogues managing
     // multiple portraits
-    // PORTRAIT - find a way to add the portraits to the npc not the dialogue
+    //done       PORTRAIT - find a way to add the portraits to the npc not the dialogue
     // pause + sound systems
 
     public Dialogue dialogueData;
@@ -208,6 +208,15 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeLine());
     }
 
+    public void ChangeDialogue(Dialogue newDialogue)
+    {
+        dialogueData = newDialogue;
+        dialogueIndex = 0;
+
+        SyncQuestState();
+        //DisplayCurrentLine();
+    }
+
     public void EndDialogue()
     {
         DialogueController.Instance.OnFinishDialogue(GetComponent<NPC>().npcID);
@@ -224,6 +233,11 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.ClearDialogueText();
         dialogueUI.ShowDialogueUI(false);
         //pauseController.SetPaused(false);
+
+        if (dialogueData.changeDialogue)
+        {
+            ChangeDialogue(dialogueData.nextDialogue);
+        }
 
     }
 }

@@ -3,11 +3,18 @@ using UnityEngine;
 
 public class NPCDicionary : MonoBehaviour
 {
+    public static NPCDicionary Instance { get; private set; }
+
     public List<NPC> NPCs;
     private Dictionary<int, GameObject> NPCsDictionary;
 
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
         NPCsDictionary = new Dictionary<int, GameObject>();
         for (int i = 0; i < NPCs.Count; i++)
         {
