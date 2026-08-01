@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class ObjectiveBehaviour : MonoBehaviour
 {
     public int puzzleID;
+    public bool isActive = false;
     public bool IsCompleted { get; private set; }
 
     public void OnStart()

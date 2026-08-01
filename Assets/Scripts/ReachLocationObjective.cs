@@ -9,7 +9,7 @@ public class ReachLocationObjective : ObjectiveBehaviour
 
     private void OnTriggerEnter2D(Collider2D x)
     {
-        if (IsCompleted || !x.CompareTag("Player"))
+        if ( !isActive || IsCompleted || !x.CompareTag("Player"))
             return;
 
         Complete();

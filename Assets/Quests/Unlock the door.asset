@@ -17,7 +17,7 @@ MonoBehaviour:
   description: 
   objectives:
   - description: Go north west
-    type: 0
+    type: 2
     puzzleID: 1
     requiredAmount: 0
     currentAmount: 0

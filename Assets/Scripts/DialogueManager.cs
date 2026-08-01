@@ -58,7 +58,8 @@ public class DialogueManager : MonoBehaviour
 
             disableDialogue = true;
 
-        dialogueUI.SetNPCInfo(dialogueData.npcname, dialogueData.portrait);
+        NPC npc = GetComponent<NPC>();
+        dialogueUI.SetNPCInfo(npc.npcName, npc.portrait);
         dialogueUI.ShowDialogueUI(true);
 
         //pauseController.SetPaused(true);

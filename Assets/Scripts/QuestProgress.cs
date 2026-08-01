@@ -35,6 +35,7 @@ public class QuestProgress
             });
         }
 
+        ActivatePuzzles();
         Subscriptions();
     }
 
@@ -53,6 +54,19 @@ public class QuestProgress
         else
         {
             return obj.doneTalking;
+        }
+    }
+
+    private void ActivatePuzzles()
+    {
+        Debug.Log("Activating");
+        foreach (Objective objective in objectives)
+        {
+            if (objective.type == ObjectiveType.ReachLocation)
+            {
+                PuzzlesDictionary.Instance.GetPuzzleOB(objective.puzzleID).isActive = true;
+                Debug.Log("puzzle activated");
+            }
         }
     }
 

@@ -3,10 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewDialogue", menuName = "Dialogue")]
 public class Dialogue : ScriptableObject
 {
-    public string npcname;
-    public Sprite portrait;
-    public bool isKnown;
-
     public DialogueLine[] dialogueLines;
 
     [Space(15)]

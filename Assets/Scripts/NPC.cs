@@ -3,6 +3,11 @@ using UnityEngine;
 public class NPC : MonoBehaviour, Interactable
 {
     public int npcID;
+
+    public string npcName;
+    public Sprite portrait;
+    //public bool isKnown;    // for later, to show ??? or the npc name
+
     private DialogueManager dialogueManager;
 
     private void Start()
