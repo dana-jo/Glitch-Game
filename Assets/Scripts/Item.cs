@@ -12,6 +12,7 @@ public class Item : MonoBehaviour
     public Sprite itemIcon;
     public int quantity = 1;
     private TMP_Text quantityText;
+    public bool isCollected = false;
 
     private void Awake()
     {
