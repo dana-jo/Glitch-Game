@@ -10,31 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4233e3d4e514a2542b8067b313ca18d0, type: 3}
-  m_Name: Unlock the door
+  m_Name: sus spirit
   m_EditorClassIdentifier: Assembly-CSharp::Quest
-  ID: 2
-  questName: Reach sus location
+  ID: 1
+  questName: Sus spirit
   description: 
   objectives:
-  - description: Go north west
-    type: 2
-    puzzleID: 1
+  - description: talk to the fire spirit
+    type: 3
+    puzzleID: 0
     requiredAmount: 0
     currentAmount: 0
     previousAmount: 0
     itemID: 0
     removeItemsAfterFinish: 0
     countFrom0: 0
-    npcID: 0
+    npcID: 2
     doneTalking: 0
   rewards:
-  - rewardType: 5
-    ID: 1
-    amount: 5
-    sceneName: 
-    dialogue: {fileID: 11400000, guid: 5e629a40f309f9c48b27c39237345d35, type: 2}
-  - rewardType: 2
-    ID: 2
-    amount: 5
-    sceneName: 
-    dialogue: {fileID: 11400000, guid: 5e629a40f309f9c48b27c39237345d35, type: 2}
+  - rewardType: 4
+    noteID: 0
+    questID: 2
+    itemID: 0
+    amount: 10
+    sceneName: Intro
+    dialogue: {fileID: 0}
+    npcID: 0

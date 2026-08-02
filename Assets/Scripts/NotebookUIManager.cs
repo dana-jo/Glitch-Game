@@ -31,6 +31,7 @@ public class NotebookUIManager : MonoBehaviour
     {
         if (Instance == null)
         {
+            Debug.Log("Instance created");
             Instance = this;
         }
         else
@@ -54,6 +55,9 @@ public class NotebookUIManager : MonoBehaviour
         if (notebookPanel == null) return;
 
         notebookPanel.SetActive(!notebookPanel.activeSelf);
+
+        PauseController.Instance.OpenNotebook(notebookPanel.activeSelf);
+
         if (notebookPanel.activeSelf)
         {
             UpdateUI();

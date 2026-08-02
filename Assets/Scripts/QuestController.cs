@@ -38,6 +38,9 @@ public class QuestController : MonoBehaviour
 
         //CheckInventoryForQuests();
         InitiateQuestObjectives(questID);
+
+        questDictionary.GetQuest(questID).ShowQuestPopup();
+
         UpdateUI();
     }
 

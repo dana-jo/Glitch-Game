@@ -46,5 +46,12 @@ public class DialogueLine
     public string line;
     public bool autoProgress;
     public bool endProgress;
+
+    [Space(15)]
+    [Header("Note")]
+    public int noteID;
+    public bool givesNote;
+
+    [Space(15)]
     public DialogueChoice[] choices;
 }

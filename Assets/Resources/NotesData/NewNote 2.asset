@@ -9,35 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD:Assets/Resources/NotesData/NewNote 2.asset
   m_Script: {fileID: 11500000, guid: 77760c8935fc1fd4ebd45933ce836fa1, type: 3}
   m_Name: NewNote 2
   m_EditorClassIdentifier: Assembly-CSharp::NoteSO
   noteID: 0
   NoteTitle: 
   Elements: []
-=======
-  m_Script: {fileID: 11500000, guid: 4233e3d4e514a2542b8067b313ca18d0, type: 3}
-  m_Name: sus spirit
-  m_EditorClassIdentifier: Assembly-CSharp::Quest
-  ID: 1
-  questName: Sus spirit
-  description: 
-  objectives:
-  - description: talk to the fire spirit
-    type: 3
-    puzzleID: 0
-    requiredAmount: 0
-    currentAmount: 0
-    previousAmount: 0
-    itemID: 0
-    removeItemsAfterFinish: 0
-    countFrom0: 0
-    npcID: 2
-    doneTalking: 0
-  rewards:
-  - rewardType: 4
-    ID: 2
-    amount: 10
-    sceneName: Intro
->>>>>>> dialogue:Assets/Resources/NotesData/sus spirit.asset

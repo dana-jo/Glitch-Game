@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NotebookController : MonoBehaviour
@@ -20,17 +21,10 @@ public class NotebookController : MonoBehaviour
         }
 
         unlockedNotesIDs = new List<int>();
-    
-     
-    
-
-}
+    }
 
     private void Start()
     {
-
-        AddNote(1);
-        AddNote(2);
     }
     public void AddNote(int id)
     {
@@ -45,6 +39,9 @@ public class NotebookController : MonoBehaviour
                 if (NotebookUIManager.Instance != null)
                 {
                     NotebookUIManager.Instance.WriteNote(newNote);
+
+                    ShowNotebookPopup(newNote.name);
+
                     Debug.Log($"Note '{newNote.NoteTitle}' successfully added to the notebook!");
                 }
                 else
@@ -57,5 +54,19 @@ public class NotebookController : MonoBehaviour
         {
             Debug.Log($"Player already unlocked note with ID: {id}");
         }
+    }
+
+    public virtual void ShowNotebookPopup(string name)
+    {
+        if (PopupManager.Instance == null)
+        {
+            Debug.LogWarning("PopupManager was not found.");
+            return;
+        }
+
+        PopupManager.Instance.ShowNotebookPopup(
+            name,
+            ""
+        );
     }
 }

@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class QuestUIController : MonoBehaviour
 {
+    public GameObject questsPage;
     public Transform questListContent;
     public GameObject questEntryPrefab;
     public GameObject objectiveTextPrefab;
-    public GameObject onQuests;
+    public GameObject noQuests;
 
 
     // this is just for testing
@@ -27,6 +28,15 @@ public class QuestUIController : MonoBehaviour
         // -----------
         UpdateQuestUI();
     }
+
+    public void ToggleQuestsPage()
+    {
+        if (questsPage == null) return;
+
+        questsPage.SetActive(!questsPage.activeSelf);
+
+        PauseController.Instance.OpenQuests(questsPage.activeSelf);
+    }
     public void UpdateQuestUI()
     {
         Debug.Log("Update Quest UI");
@@ -37,7 +47,7 @@ public class QuestUIController : MonoBehaviour
         }
 
         bool hasQuests = QuestController.Instance.activeQuests.Count > 0;
-        onQuests.SetActive(!hasQuests);
+        noQuests.SetActive(!hasQuests);
         if (!hasQuests)
             return;
 

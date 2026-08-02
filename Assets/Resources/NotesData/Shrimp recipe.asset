@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77760c8935fc1fd4ebd45933ce836fa1, type: 3}
+  m_Name: Shrimp recipe
+  m_EditorClassIdentifier: Assembly-CSharp::NoteSO
+  noteID: 4
+  NoteTitle: Shrimp recipe
+  Elements:
+  - Type: 0
+    TextContent: Bring few shrimps
+    ImageContent: {fileID: 0}
+  - Type: 0
+    TextContent: Bring some milk
+    ImageContent: {fileID: 0}
+  - Type: 0
+    TextContent: mix. mix. mix. mix. mix. mix. mix.
+    ImageContent: {fileID: 0}
+  - Type: 0
+    TextContent: Enjoy!!!!! :)
+    ImageContent: {fileID: 0}
+  - Type: 1
+    TextContent: 
+    ImageContent: {fileID: 21300000, guid: 0e889b27fa0462f41b2c4b63129da41d, type: 3}

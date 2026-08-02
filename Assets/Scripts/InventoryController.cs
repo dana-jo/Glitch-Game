@@ -11,6 +11,7 @@ public class InventoryController : MonoBehaviour
 {
     [Header("general")]
     private ItemDictionary itemDictionary;
+    public GameObject inventoryGroup;
     public GameObject inventoryPanel;
     public GameObject hotbarPanel;
     public GameObject slotPrefab;
@@ -75,9 +76,6 @@ public class InventoryController : MonoBehaviour
         }
         RebuildItemCounts();
         ClearItemDetails();
-
-
-
     }
 
     void Update()
@@ -100,6 +98,16 @@ public class InventoryController : MonoBehaviour
                 ClearItemDetails();
             }
         }
+    }
+
+    public void ToggleInventory()
+    {
+        if (inventoryGroup == null) return;
+
+        inventoryGroup.SetActive(!inventoryGroup.activeSelf);
+        Debug.Log("Toggling inventory");
+
+        PauseController.Instance.OpenInventory(inventoryGroup.activeSelf);
     }
 
     void UseItemInHotbarSlot(int index)

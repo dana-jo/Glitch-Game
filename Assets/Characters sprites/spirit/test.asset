@@ -16,22 +16,32 @@ MonoBehaviour:
   - line: What's up little boy?
     autoProgress: 0
     endProgress: 0
+    noteID: 0
+    givesNote: 0
     choices: []
   - line: It's a sunny day today. A good day to think, Don't you think?
     autoProgress: 0
     endProgress: 0
+    noteID: 0
+    givesNote: 0
     choices: []
   - line: I was wondering how life changes quickly....
     autoProgress: 1
     endProgress: 0
+    noteID: 0
+    givesNote: 0
     choices: []
   - line: you won't understand, you look young
     autoProgress: 1
     endProgress: 0
+    noteID: 0
+    givesNote: 0
     choices: []
   - line: how old are you, kid?
     autoProgress: 1
     endProgress: 0
+    noteID: 0
+    givesNote: 0
     choices:
     - line: 350 yo
       nextDialogueIndex: 5
@@ -45,30 +55,44 @@ MonoBehaviour:
   - line: HAHA. good one.
     autoProgress: 0
     endProgress: 0
+    noteID: 0
+    givesNote: 0
     choices: []
   - line: You can't fool a 1254 yo spirit, boy.
     autoProgress: 0
     endProgress: 1
+    noteID: 0
+    givesNote: 0
     choices: []
   - line: enjoy life while you're young, kid.
     autoProgress: 0
     endProgress: 1
+    noteID: 0
+    givesNote: 0
     choices: []
   - line: i like your spirit, kid! \nyou should not trust strangers.
     autoProgress: 0
     endProgress: 1
+    noteID: 0
+    givesNote: 0
     choices: []
   - line: So you know my anti-aginng secret, huh?
     autoProgress: 0
     endProgress: 0
+    noteID: 0
+    givesNote: 0
     choices: []
   - line: Don't go spreading it all around.
     autoProgress: 0
     endProgress: 0
+    noteID: 0
+    givesNote: 0
     choices: []
   - line: IT. IS. A. SECRET.
     autoProgress: 0
     endProgress: 1
+    noteID: 0
+    givesNote: 0
     choices: []
   autoProgressDelay: 1.5
   typingSpeed: 0.05

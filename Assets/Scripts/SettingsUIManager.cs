@@ -21,6 +21,8 @@ public class SettingsUIManager : MonoBehaviour
     {
         settingsPanel.SetActive(!settingsPanel.activeSelf);
         modalBlocker.SetActive(settingsPanel.activeSelf);
+
+        PauseController.Instance.OpenSettings(settingsPanel.activeSelf);
     }
 
     public void CloseSettings()

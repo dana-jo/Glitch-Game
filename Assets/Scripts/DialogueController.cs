@@ -7,16 +7,18 @@ public class DialogueController : MonoBehaviour
 {
     public static DialogueController Instance { get; private set; }
 
-    // UI stuff
+    [Header("Main UI")]
     public GameObject dialoguePanel;
     public Image portraitImage;
 
-    // Normal dialogue layout
+    [Space(15)]
+    [Header("Normal dialogue UI")]
     public GameObject normalDialogueLayout;
     public TMP_Text normalNameText;
     public TMP_Text normalDialogueText;
 
-    // Choices layout
+    [Space(15)]
+    [Header("Choices dialogue UI")]
     public GameObject choicesLayout;
     public TMP_Text questionText;
     public Transform choiceContainer;
@@ -43,10 +45,8 @@ public class DialogueController : MonoBehaviour
     public void ShowDialogueUI(bool show)
     {
         dialoguePanel.SetActive(show);
-        if (show)
-            PauseController.Instance.OpenDialogue();
-        else
-            PauseController.Instance.ResumeGame();
+
+        PauseController.Instance.OpenDialogue(show);
     }
 
     public void SetNPCInfo(string npcName, Sprite portrait)

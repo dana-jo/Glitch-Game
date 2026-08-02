@@ -14,7 +14,13 @@ public class Quest : ScriptableObject
 
     public virtual void ShowQuestPopup()
     {
-        PopupManager.Instance.ShowPopup(
+        if (PopupManager.Instance == null)
+        {
+            Debug.LogWarning("PopupManager was not found.");
+            return;
+        }
+
+        PopupManager.Instance.ShowQuestPopup(
             questName,
             description
         );

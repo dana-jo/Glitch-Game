@@ -16,18 +16,26 @@ MonoBehaviour:
   - line: you tried the shrips yet?
     autoProgress: 0
     endProgress: 0
+    noteID: 0
+    givesNote: 0
     choices: []
   - line: i can give you my recipe if you want
     autoProgress: 0
     endProgress: 0
+    noteID: 0
+    givesNote: 0
     choices: []
   - line: no frying. no stirring. no baking. very healthy and natural.
     autoProgress: 0
     endProgress: 0
+    noteID: 0
+    givesNote: 0
     choices: []
   - line: You interested?
     autoProgress: 0
     endProgress: 0
+    noteID: 0
+    givesNote: 0
     choices:
     - line: Yeah sure
       nextDialogueIndex: 5
@@ -38,14 +46,20 @@ MonoBehaviour:
   - line: your loss
     autoProgress: 0
     endProgress: 1
+    noteID: 0
+    givesNote: 0
     choices: []
   - line: HAHA. you thought i'll really tell you my SECRET?
     autoProgress: 0
     endProgress: 0
+    noteID: 4
+    givesNote: 1
     choices: []
   - line: kids are very stupid these days.
     autoProgress: 0
     endProgress: 0
+    noteID: 0
+    givesNote: 0
     choices: []
   autoProgressDelay: 1.5
   typingSpeed: 0.05

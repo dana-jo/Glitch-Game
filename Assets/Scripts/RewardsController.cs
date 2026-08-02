@@ -24,23 +24,29 @@ public class RewardsController : MonoBehaviour
             switch (reward.rewardType)
             {
                 case RewardType.Item:
-                    GiveItemReward(reward.ID, reward.amount);
+                    GiveItemReward(reward.itemID, reward.amount);
                     break;
+
                 case RewardType.Cutscene:
                     SceneController.Instance.PlayCutscene(reward.sceneName);
                     break;
+
                 case RewardType.Quest:
-                    QuestController.Instance.AcceptQuest(reward.ID);
+                    QuestController.Instance.AcceptQuest(reward.questID);
                     break;
+
                 case RewardType.Dialogue:
-                    if (NPCDicionary.Instance.GetNPC(reward.ID) == null)
+                    if (NPCDicionary.Instance.GetNPC(reward.npcID) == null)
                         Debug.Log($"NPC id is wrong in quest {questID}");
                     else
-                        NPCDicionary.Instance.GetNPC(reward.ID).GetComponent<DialogueManager>().ChangeDialogue(reward.dialogue);
+                        NPCDicionary.Instance.GetNPC(reward.npcID).GetComponent<DialogueManager>().ChangeDialogue(reward.dialogue);
                     break;
+
                 case RewardType.Note:
-                    // ------------------------- nouraaaaa
+                    if(NoteDictionary.Instance.GetNoteByID(reward.noteID) != null)
+                        NotebookController.Instance.AddNote(reward.noteID);
                     break;
+
                 case RewardType.Map:
                     // ------------------------- for later
                     break;

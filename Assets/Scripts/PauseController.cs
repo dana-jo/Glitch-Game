@@ -10,10 +10,11 @@ public class PauseController : MonoBehaviour
 
     private InputAction move;
     private InputAction interact;
-    //private InputAction inventory;
-    //private InputAction quests;
-    //private InputAction notes;
-    //private InputAction drag;
+    private InputAction drag;
+    private InputAction inventory;
+    private InputAction quests;
+    private InputAction notebook;
+    private InputAction settings;
 
     // ui puzzles;
 
@@ -32,38 +33,107 @@ public class PauseController : MonoBehaviour
             Debug.Log("Player action map not found");
         }
 
-        move = player.FindAction("Move");
-        interact = player.FindAction("Interact");
-
-        if ( move == null || interact == null)
+        move = player.FindAction("Move", true);
+        interact = player.FindAction("Interact", true);
+        drag = player.FindAction("Drag", true);
+        inventory = player.FindAction("Inventory", true);
+        quests = player.FindAction("Quests", true);
+        notebook = player.FindAction("Notebook", true);
+        settings = player.FindAction("Settings", true);
+    }
+    public void OpenDialogue(bool opened)
+    {
+        if (opened)
         {
-            Debug.Log("Couldn't find input systems");
+            move.Disable();
+            interact.Enable();
+            drag.Disable();
+            inventory.Disable();
+            quests.Disable();
+            notebook.Disable();
+            settings.Disable();
         }
-    }
-    public void OpenDialogue()
-    {
-        move.Disable();
-        interact.Enable();
-    }
-
-    public void OpenInventory()
-    {
-        // ----------------------------
+        else
+        {
+            ResumeGame();
+        }
+        
     }
 
-    public void OpenQuests()
+    public void OpenInventory(bool opened)
     {
-        // ----------------------------
+        if (opened)
+        {
+            move.Disable();
+            interact.Disable();
+            drag.Disable();
+            inventory.Enable();
+            quests.Disable();
+            notebook.Disable();
+            settings.Disable();
+        }
+        else
+        {
+            ResumeGame();
+        }
+        
     }
 
-    public void OpenNotebook()
+    public void OpenQuests(bool opened)
     {
-        // ----------------------------
+        if (opened)
+        {
+            move.Disable();
+            interact.Disable();
+            drag.Disable();
+            inventory.Disable();
+            quests.Enable();
+            notebook.Disable();
+            settings.Disable();
+        }
+        else
+        {
+            ResumeGame();
+        }
+        
     }
 
-    public void OpenSettings()
+    public void OpenNotebook(bool opened)
     {
-        // ----------------------------
+        if (opened)
+        {
+            move.Disable();
+            interact.Disable();
+            drag.Disable();
+            inventory.Disable();
+            quests.Disable();
+            notebook.Enable();
+            settings.Disable();
+        }
+        else
+        {
+            ResumeGame();
+        }
+        
+    }
+
+    public void OpenSettings(bool opened)
+    {
+        if (opened)
+        {
+            move.Disable();
+            interact.Disable();
+            drag.Disable();
+            inventory.Disable();
+            quests.Disable();
+            notebook.Disable();
+            settings.Enable();
+        }
+        else
+        {
+            ResumeGame();
+        }
+        
     }
 
     public void OpenMap()
@@ -71,14 +141,33 @@ public class PauseController : MonoBehaviour
         // ----------------------------
     }
 
-    public void Dragging()
+    public void Dragging(bool opened)
     {
-        // ----------------------------
+        if (opened)
+        {
+            move.Enable();
+            interact.Disable();
+            drag.Enable();
+            inventory.Disable();
+            quests.Disable();
+            notebook.Disable();
+            settings.Disable();
+        }
+        else
+        {
+            ResumeGame();
+        }
+        
     }
 
     public void ResumeGame()
     {
         move.Enable();
         interact.Enable();
+        drag.Enable();
+        inventory.Enable();
+        quests.Enable();
+        notebook.Enable();
+        settings.Enable();
     }
 }

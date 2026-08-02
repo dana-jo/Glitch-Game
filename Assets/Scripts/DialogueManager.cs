@@ -76,7 +76,7 @@ public class DialogueManager : MonoBehaviour
         int questID = dialogueData.questID;
 
         // quest state
-        if (QuestController.Instance.IsQuestCompleted(questID) && QuestController.Instance.IsQuestHandedIn(questID))
+        if (QuestController.Instance.IsQuestHandedIn(questID))
         {
             Debug.Log("if 1");
             questState = QuestState.HandedIn;
@@ -111,6 +111,10 @@ public class DialogueManager : MonoBehaviour
 
         dialogueUI.ClearChoices();
 
+        if (dialogueData.dialogueLines[dialogueIndex].givesNote)
+        {
+            NotebookController.Instance.AddNote(dialogueData.dialogueLines[dialogueIndex].noteID);
+        }
         if (dialogueData.dialogueLines[dialogueIndex].endProgress)
         {
             EndDialogue();

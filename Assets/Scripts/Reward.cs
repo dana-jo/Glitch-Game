@@ -9,11 +9,16 @@ public class Reward
     public RewardType rewardType;
 
     [Space(15)]
-    [Header("Note - Item - Quest - Dialogue npc")]
-    public int ID;
+    [Header("Note")]
+    public int noteID;
+
+    [Space(15)]
+    [Header("Quest")]
+    public int questID;
 
     [Space(15)]
     [Header("Item")]
+    public int itemID;
     public int amount;
 
     [Space(15)]
@@ -23,6 +28,7 @@ public class Reward
     [Space(15)]
     [Header("Dialogue")]
     public Dialogue dialogue;
+    public int npcID;
 
 }
 
