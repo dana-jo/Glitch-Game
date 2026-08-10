@@ -27,6 +27,16 @@ public class InteractionDetector : MonoBehaviour
         }
     }
 
+    public void OnCycleLoopCount(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        if (interactableRange is LoopStartBlock loopBlock)
+        {
+            loopBlock.CycleCount();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Interactable interactable) && interactable.CanInteract())

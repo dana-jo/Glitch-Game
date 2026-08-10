@@ -5,7 +5,8 @@ public enum BlockType
     Down,
     Left,
     Right,
-    ForLoop
+    LoopStart,
+    LoopEnd
 }
 public class PaletteBlock : MonoBehaviour, Interactable
 {
