@@ -46,10 +46,11 @@ public class InteractionDetector : MonoBehaviour
         {
             interactableRange = interactable;
             interactionIcon.SetActive(true);
-            //if(interactableRange is LoopStartBlock loopBlock)
-            //{
-            //    popupManagerInstance.ShowPopup("Press 'J' to increase the loop count for this block.");
-            //}
+            if (interactableRange is LoopStartBlock loopBlock)
+            {
+                //popupManagerInstance.ShowPopup("Press 'J' to increase the loop count for this block.");
+                Debug.Log("Press 'J' to increase the loop count for this block.");
+            }
         }
     }
 

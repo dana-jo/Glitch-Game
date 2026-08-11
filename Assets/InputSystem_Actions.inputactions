@@ -75,7 +75,7 @@
                     "id": "bc7f876d-d2cc-4b37-bac7-6ca0595a7117",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "initialStateCheck": false
                 }
             ],
@@ -249,7 +249,7 @@
                     "name": "",
                     "id": "3581c8ab-e3c1-4a4d-af82-4f5a0261a507",
                     "path": "<Keyboard>/j",
-                    "interactions": "",
+                    "interactions": "Press(behavior=1)",
                     "processors": "",
                     "groups": "",
                     "action": "CycleLoopCount",

@@ -41,6 +41,7 @@ public class CodeBlocksPuzzleController : MonoBehaviour
 
         GameObject visual = Instantiate(sequenceVisualPrefab, worldPos, Quaternion.identity, sequenceArea);
         visual.GetComponent<SpriteRenderer>().sprite = blockSprite;
+        visual.GetComponent<SpriteRenderer>().sortingLayerName = "Decor";
         spawnedVisuals.Add(visual);
     }
 

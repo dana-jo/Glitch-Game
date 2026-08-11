@@ -2,7 +2,7 @@
 - Project name: Glitch Game
 - Unity version: Unity 6000.3.14f1
 - Active game object:
-  - Name: Target_2
+  - Name: CodeBlocksPuzzle
   - Tag: Untagged
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
