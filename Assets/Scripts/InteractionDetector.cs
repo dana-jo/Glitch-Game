@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,6 +7,7 @@ public class InteractionDetector : MonoBehaviour
     private Interactable interactableRange = null;
     public GameObject interactionIcon;
     private PopupManager popupManagerInstance;
+    private Boolean popupShown = false;
 
     void Start()
     {
@@ -46,10 +48,10 @@ public class InteractionDetector : MonoBehaviour
         {
             interactableRange = interactable;
             interactionIcon.SetActive(true);
-            if (interactableRange is LoopStartBlock loopBlock)
+            if (interactableRange is LoopStartBlock loopBlock && !popupShown)
             {
-                //popupManagerInstance.ShowPopup("Press 'J' to increase the loop count for this block.");
-                Debug.Log("Press 'J' to increase the loop count for this block.");
+                popupManagerInstance.ShowPopup("Press 'J' to increase the loop count for this block.");
+                popupShown = true;
             }
         }
     }
