@@ -25,6 +25,9 @@ public class NotebookController : MonoBehaviour
 
     private void Start()
     {
+        AddNote(2);
+        AddNote(1);
+      
     }
     public void AddNote(int id)
     {
