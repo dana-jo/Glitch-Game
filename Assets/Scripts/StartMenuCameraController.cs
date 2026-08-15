@@ -54,7 +54,6 @@ public class StartMenuCameraController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && !isMoving && !isInMenu)
         {
-            GetComponent<ShakeEffect>().StopShake();
 
             if (glitchCoroutine != null)
             {
@@ -75,13 +74,14 @@ public class StartMenuCameraController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape) && !isMoving && isInMenu)
         {
-            GetComponent<ShakeEffect>().StopShake();
             ExitMenu();
         }
     }
 
     public void EnterMenu()
     {
+        GetComponent<ShakeEffect>().StopShake();
+
         Vector3 targetPosition = menuPosition.position;
         targetPosition.z = originalPosition.z;
 
@@ -95,6 +95,8 @@ public class StartMenuCameraController : MonoBehaviour
 
     public void ExitMenu()
     {
+        GetComponent<ShakeEffect>().StopShake();
+
         menuUI.SetActive(false);
 
         StartCoroutine(MoveCamera(

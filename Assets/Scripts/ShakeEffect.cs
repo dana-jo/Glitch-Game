@@ -7,6 +7,8 @@ public class ShakeEffect : MonoBehaviour
     public float shakeRange = 30f;
     public float shakeCount = 7f;
 
+    private Vector3 startPosition;
+
     public void StartShake()
     {
         Debug.Log("start shake");
@@ -15,7 +17,7 @@ public class ShakeEffect : MonoBehaviour
 
     private IEnumerator ShakeHandler()
     {
-        Vector3 startPosition = transform.position;
+        startPosition = transform.position;
         float elapsed = 0f;
         float singleShakeDuration = shakeDuration / shakeCount;
 
@@ -47,6 +49,13 @@ public class ShakeEffect : MonoBehaviour
     public void StopShake()
     {
         Debug.Log("force stop shake");
+        StopAllCoroutines();
+    }
+
+    public void StopShakeAndReset()
+    {
+        Debug.Log("force stop shake");
+        transform.position = startPosition;
         StopAllCoroutines();
     }
 }
