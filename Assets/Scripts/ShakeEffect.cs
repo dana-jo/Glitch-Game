@@ -17,22 +17,28 @@ public class ShakeEffect : MonoBehaviour
     {
         Vector3 startPosition = transform.position;
         float elapsed = 0f;
-        float singleShakeDurtion = shakeDuration / shakeCount;
+        float singleShakeDuration = shakeDuration / shakeCount;
 
         while (elapsed < shakeDuration)
         {
             Vector2 offset = Random.insideUnitCircle * shakeRange;
             Vector3 target = startPosition + new Vector3(offset.x, offset.y, 0);
 
+            Vector3 start = transform.position;
+
             float t = 0f;
-            while (t < singleShakeDurtion)
+            while (t < singleShakeDuration)
             {
-                transform.position = Vector3.Lerp(transform.position, target, t / singleShakeDurtion);
                 t += Time.deltaTime;
+                float progress = t / singleShakeDuration;
+
+                progress = Mathf.SmoothStep(0f, 1f, progress);
+
+                transform.position = Vector3.Lerp(start, target, progress);
                 yield return null;
             }
 
-            elapsed += singleShakeDurtion;
+            elapsed += singleShakeDuration;
         }
 
         transform.position = startPosition;
