@@ -16,7 +16,7 @@ MonoBehaviour:
   NoteTitle: helllo
   Elements:
   - Type: 0
-    TextContent: 'hello iam lama '
+    TextContent: helooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
     ImageContent: {fileID: 0}
   - Type: 0
     TextContent: glitch
@@ -25,8 +25,8 @@ MonoBehaviour:
     TextContent: stoppppp
     ImageContent: {fileID: -5409570386352685021, guid: 7511ee255dd839146a8b72299046004f, type: 3}
   - Type: 0
-    TextContent: lunaaaaaaaaaa
+    TextContent: 
     ImageContent: {fileID: -5409570386352685021, guid: 7511ee255dd839146a8b72299046004f, type: 3}
   - Type: 0
-    TextContent: nouraaaaaaaaaaa
+    TextContent: 
     ImageContent: {fileID: -5409570386352685021, guid: 7511ee255dd839146a8b72299046004f, type: 3}

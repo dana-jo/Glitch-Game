@@ -20,8 +20,8 @@ public class NotebookUIManager : MonoBehaviour
     [SerializeField] private Button nextButton;
     [SerializeField] private Button prevButton;
 
-   /* [Header("Settings")]
-    [SerializeField] private float maxPageHeight = 800f; */
+    [Header("Settings")]
+    [SerializeField] private float maxPageHeight = 300f; 
 
     private List<GameObject> dynamicPages = new List<GameObject>();
     private int currentPageIndex = 0;
@@ -71,37 +71,45 @@ public class NotebookUIManager : MonoBehaviour
         GameObject newPage = Instantiate(pagePrefab, pagesContainer);
         activePage = newPage.GetComponent<RectTransform>();
         dynamicPages.Add(newPage);
+        currentPageIndex = dynamicPages.Count - 1;
         UpdateUI();
     }
 
+   
 
+   
     public void WriteNote(NoteSO note)
     {
+
+        CreateNewPage();
+
+      
+        Transform targetPage = activePage;
+
+       
         foreach (NoteElement element in note.Elements)
         {
-            
-            CreateNewPage();
-
-            
             if (element.Type == NoteElementType.Text)
             {
-                GameObject textObj = Instantiate(textElementPrefab, activePage);
-                textObj.GetComponent<TMP_Text>().text = element.TextContent;
+                GameObject textObj = Instantiate(textElementPrefab, targetPage);
+                TMP_Text txt = textObj.GetComponent<TMP_Text>();
+                if (txt != null) txt.text = element.TextContent;
             }
             else if (element.Type == NoteElementType.Image)
             {
-                GameObject imgObj = Instantiate(imageElementPrefab, activePage);
+                GameObject imgObj = Instantiate(imageElementPrefab, targetPage);
                 Image img = imgObj.GetComponent<Image>();
-                img.sprite = element.ImageContent;
-                img.preserveAspect = true; 
+                if (img != null)
+                {
+                    img.sprite = element.ImageContent;
+                    img.preserveAspect = true;
+                }
             }
         }
 
-       
         UpdateUI();
     }
-
-
+    
 
     public void NextPage()
     {
