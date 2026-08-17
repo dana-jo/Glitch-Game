@@ -7,41 +7,44 @@ public class SaveController : MonoBehaviour
 {
     private string saveLocation;
     private InventoryController inventoryController;
+    private PlayerMovement player;
 
-    IEnumerator Start()
+    //IEnumerator Start()
+    void Start()
     {
         InitializeComponents();
 
         // wait one frame so InventoryController.Start() can finish first
-        yield return null;
+        // yield return null;
 
         LoadGame();
     }
 
-    private void Update()
-    {
+    // private void Update()
+    // {
 
-        //these are to check id save works 
-        if (Input.GetKeyDown(KeyCode.F5))
-        {
-            SaveGame();
-        }
+    //     //these are to check id save works 
+    //     if (Input.GetKeyDown(KeyCode.F5))
+    //     {
+    //         SaveGame();
+    //     }
 
-        if (Input.GetKeyDown(KeyCode.F9))
-        {
-            LoadGame();
-        }
+    //     if (Input.GetKeyDown(KeyCode.F9))
+    //     {
+    //         LoadGame();
+    //     }
 
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            DeleteSave();
-        }
-    }
+    //     if (Input.GetKeyDown(KeyCode.P))
+    //     {
+    //         DeleteSave();
+    //     }
+    // }
 
     private void InitializeComponents()
     {
         saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
         inventoryController = FindFirstObjectByType<InventoryController>();
+        player = FindFirstObjectByType<PlayerMovement>();
     }
 
     public void SaveGame()
@@ -57,7 +60,9 @@ public class SaveController : MonoBehaviour
         {
             inventorySaveData = inventoryController.GetInventoryItems(),
             hotbarSaveData = inventoryController.GetHotbarItems(),
-            stateOfPuzzles = PuzzlesController.Instance.GetPuzzleStates()
+            stateOfPuzzles = PuzzlesController.Instance.GetPuzzleStates(),
+            playerPosition = player.transform.position,
+            unlockedNotesIDs = NotebookController.Instance.unlockedNotesIDs
         };
 
         string json = JsonUtility.ToJson(saveData, true);
@@ -81,7 +86,8 @@ public class SaveController : MonoBehaviour
             inventoryController.SetInventoryItems(saveData.inventorySaveData);
             inventoryController.SetHotbarItems(saveData.hotbarSaveData);
             PuzzlesController.Instance.SetPuzzleStates(saveData.stateOfPuzzles);
-            
+            player.transform.position = saveData.playerPosition; // SHOULD I EDIT THE CAMERA POS TOO? 
+            NotebookController.Instance.AddListOfNotes(saveData.unlockedNotesIDs);
             Debug.Log("Game loaded from: " + saveLocation);
         }
         else

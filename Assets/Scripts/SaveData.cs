@@ -4,11 +4,12 @@ using UnityEngine;
 [System.Serializable]
 public class SaveData
 {
-    //public Vector3 playerPosition;
+    public Vector3 playerPosition;
     //public string mapBoundary; //map boundary name
     public List<InventorySaveData> inventorySaveData;
     public List<InventorySaveData> hotbarSaveData;
     public List<PuzzleSaveData> stateOfPuzzles; //true if puzzle is solved, false if not
+    public List<int> unlockedNotesIDs;
     //public List<ChestSaveData> chestSaveData;
     // public List<QuestProgress> questProgressData;
     //public List<string> handinQuestIDs;

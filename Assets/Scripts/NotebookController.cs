@@ -27,7 +27,6 @@ public class NotebookController : MonoBehaviour
     {
         AddNote(2);
         AddNote(1);
-      
     }
     public void AddNote(int id)
     {
@@ -71,5 +70,12 @@ public class NotebookController : MonoBehaviour
             name,
             ""
         );
+    }
+    public void AddListOfNotes(List<int> notes)
+    {
+        foreach(int note in notes)
+        {
+            AddNote(note);
+        }
     }
 }

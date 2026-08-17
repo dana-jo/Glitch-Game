@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Cauldron : MonoBehaviour , Interactable
 {
-    [SerializeField] private string Liquid; 
+    [SerializeField] public string Liquid; 
     [SerializeField] private Sprite emptySprite;
     [SerializeField] private Sprite waterSprite;
     [SerializeField] private Sprite mudSprite;
