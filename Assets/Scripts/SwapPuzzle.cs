@@ -9,7 +9,17 @@ public class SwapPuzzle : ObjectiveBehaviour
     void Start()
     {
         OnStart();
-        weightText.text = currentWeight.ToString("F2") +" / \n" + targetWeight.ToString("F2")+" KG"; 
+        Debug.Log("SwapPuzzle Start");
+        if(IsCompleted)
+        {
+            // Debug.Log("SwapPuzzle already completed");
+            CompleteState();
+        }
+        else
+        {
+            // Debug.Log("SwapPuzzle not completed yet");
+            weightText.text = currentWeight.ToString("F2") +" / \n" + targetWeight.ToString("F2")+" KG"; 
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -60,12 +70,20 @@ public class SwapPuzzle : ObjectiveBehaviour
     {
         weightText.text = targetWeight.ToString("F2") +" / \n" + targetWeight.ToString("F2")+" KG"; 
         Draggable draggable = cauldron.GetComponent<Draggable>();
+        cauldron.fillCauldron("Mud");
         if (draggable != null)
         {
             draggable.Drop();
             draggable.canBeDragged = false;
         }
-        cauldron.transform.position = transform.position - new Vector3(0, 0.5f, 0);;
+        cauldron.transform.position = transform.position - new Vector3(0, 0.5f, 0);
+        cauldron.canInteract = false;
+        // find Mud Cauldron and set its content to water
+        Cauldron mudCauldron = GameObject.Find("MudCauldron").GetComponent<Cauldron>();
+        if (mudCauldron != null)
+        {
+            mudCauldron.fillCauldron("Water");
+        }
         // green lights
     }
 

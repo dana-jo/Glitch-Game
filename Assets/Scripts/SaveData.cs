@@ -8,8 +8,9 @@ public class SaveData
     //public string mapBoundary; //map boundary name
     public List<InventorySaveData> inventorySaveData;
     public List<InventorySaveData> hotbarSaveData;
+    public List<PuzzleSaveData> stateOfPuzzles; //true if puzzle is solved, false if not
     //public List<ChestSaveData> chestSaveData;
-    //public List<QuestProgress> questProgressData;
+    // public List<QuestProgress> questProgressData;
     //public List<string> handinQuestIDs;
 
 

@@ -77,7 +77,7 @@ public class Cauldron : MonoBehaviour , Interactable
         Liquid = "";
         spriteRenderer.sprite = emptySprite;
     }
-    private void fillCauldron(string liquid)
+    public void fillCauldron(string liquid)
     {
         Liquid = liquid;
         if(liquid == "Water")

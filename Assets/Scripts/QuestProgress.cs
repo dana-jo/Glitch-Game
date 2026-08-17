@@ -75,7 +75,7 @@ public class QuestProgress
         InventoryController.Instance.OnItemAdded += OnItemAdded;
         InventoryController.Instance.OnItemRemoved += OnItemRemoved;
         DialogueController.Instance.OnFinishedDialogue += OnFinishedDialogue;
-        PuzzlesDictionary.Instance.OnPuzzleFinished += OnPuzzleFinished;
+        PuzzlesController.Instance.OnPuzzleFinished += OnPuzzleFinished;
     }
 
     private void OnItemAdded(int itemID, int amount)

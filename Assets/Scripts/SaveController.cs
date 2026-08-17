@@ -46,6 +46,7 @@ public class SaveController : MonoBehaviour
 
     public void SaveGame()
     {
+        // inventroy 
         if (inventoryController == null)
         {
             Debug.LogError("Missing InventoryController");
@@ -56,6 +57,7 @@ public class SaveController : MonoBehaviour
         {
             inventorySaveData = inventoryController.GetInventoryItems(),
             hotbarSaveData = inventoryController.GetHotbarItems(),
+            stateOfPuzzles = PuzzlesController.Instance.GetPuzzleStates()
         };
 
         string json = JsonUtility.ToJson(saveData, true);
@@ -78,7 +80,8 @@ public class SaveController : MonoBehaviour
 
             inventoryController.SetInventoryItems(saveData.inventorySaveData);
             inventoryController.SetHotbarItems(saveData.hotbarSaveData);
-
+            PuzzlesController.Instance.SetPuzzleStates(saveData.stateOfPuzzles);
+            
             Debug.Log("Game loaded from: " + saveLocation);
         }
         else
