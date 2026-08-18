@@ -25,10 +25,10 @@ public class NotebookController : MonoBehaviour
 
     private void Start()
     {
-        AddNote(2);
-        AddNote(1);
+        AddNote(2,true);
+        AddNote(1,true);
     }
-    public void AddNote(int id)
+    public void AddNote(int id , bool popup)
     {
         if (!unlockedNotesIDs.Contains(id))
         {
@@ -42,7 +42,7 @@ public class NotebookController : MonoBehaviour
                 {
                     NotebookUIManager.Instance.WriteNote(newNote);
 
-                    ShowNotebookPopup(newNote.name);
+                    if(popup) ShowNotebookPopup(newNote.name);
 
                     Debug.Log($"Note '{newNote.NoteTitle}' successfully added to the notebook!");
                 }
@@ -71,11 +71,12 @@ public class NotebookController : MonoBehaviour
             ""
         );
     }
-    public void AddListOfNotes(List<int> notes)
+    // Loading at start
+    public void LoadListOfNotes(List<int> notes) 
     {
         foreach(int note in notes)
         {
-            AddNote(note);
+            AddNote(note,false);
         }
     }
 }

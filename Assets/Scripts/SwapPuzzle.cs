@@ -53,9 +53,9 @@ public class SwapPuzzle : ObjectiveBehaviour
             Complete();
             CompleteState();   
             // test adding to notebook :  
-            NotebookController.Instance.AddNote(1);    
-            NotebookController.Instance.AddNote(2);    
-            NotebookController.Instance.AddNote(3);    
+            NotebookController.Instance.AddNote(1,true);    
+            NotebookController.Instance.AddNote(2,true);    
+            NotebookController.Instance.AddNote(3,true);    
         }
         else
         {

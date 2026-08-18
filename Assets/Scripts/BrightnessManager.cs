@@ -18,4 +18,13 @@ public class BrightnessManager : MonoBehaviour
         alpha = Mathf.Clamp(alpha, 0f, maxAlpha);
         brightnessPanel.color = new Color(0, 0, 0, alpha);
     }
+    public void LoadBrightnessSettings(float value) // currently only one value
+    {
+        brightnessSlider.value = value;
+        OnBrightnessChanged();
+    }
+    public float GetBrightness()
+    {
+        return brightnessSlider.value;
+    }
 }

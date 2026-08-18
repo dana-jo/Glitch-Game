@@ -113,7 +113,7 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueData.dialogueLines[dialogueIndex].givesNote)
         {
-            NotebookController.Instance.AddNote(dialogueData.dialogueLines[dialogueIndex].noteID);
+            NotebookController.Instance.AddNote(dialogueData.dialogueLines[dialogueIndex].noteID ,true);
         }
         if (dialogueData.dialogueLines[dialogueIndex].endProgress)
         {
