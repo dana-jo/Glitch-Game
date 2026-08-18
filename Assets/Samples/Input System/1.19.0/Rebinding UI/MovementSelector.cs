@@ -8,9 +8,18 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         private InputActionReference m_MoveAction;
         [SerializeField]
         private RebindSaveLoad m_SaveLoad;
+        private const string k_SchemePrefKey = "MovementScheme";
+        private const string k_SchemeWasd = "WASD";
+        private const string k_SchemeArrows = "Arrows";
+
         private void Start()
         {
-            UseArrowKeys();
+            var savedScheme = PlayerPrefs.GetString(k_SchemePrefKey, k_SchemeArrows);
+            if (savedScheme == k_SchemeWasd)
+                UseWASD();
+            else
+                UseArrowKeys();
+
         }
         public void UseArrowKeys()
         {
