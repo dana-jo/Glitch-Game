@@ -44,3 +44,11 @@ MonoBehaviour:
     sceneName: 
     dialogue: {fileID: 11400000, guid: 5e629a40f309f9c48b27c39237345d35, type: 2}
     npcID: 0
+  - rewardType: 0
+    noteID: 4
+    questID: 0
+    itemID: 2
+    amount: 5
+    sceneName: 
+    dialogue: {fileID: 11400000, guid: 5e629a40f309f9c48b27c39237345d35, type: 2}
+    npcID: 0

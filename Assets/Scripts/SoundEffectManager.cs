@@ -25,8 +25,10 @@ public class SoundEffectManager : MonoBehaviour
             randomPitchAudioSource = audioSources[1];
             musicSource  = audioSources[2];
             soundEffectLibrary = GetComponent<SoundEffectLibrary>();
-            DontDestroyOnLoad(gameObject);
-            PlayMusic(defaultMusicTrack);
+            //DontDestroyOnLoad(gameObject);
+
+            if(defaultMusicTrack != null)
+                PlayMusic(defaultMusicTrack);
         }
         else
         {
