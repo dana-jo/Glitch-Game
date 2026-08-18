@@ -1,25 +1,48 @@
+using System.Collections;
 using UnityEngine;
 
 public class Blinking : MonoBehaviour
 {
     private FadeEffect effect;
-    void Start()
+    private Coroutine blinkCoroutine;
+
+    private void Awake()
     {
         effect = GetComponent<FadeEffect>();
-        effect.FadeOut();
     }
-    void Update()
-    {
-        if (effect.IsFading)
-            return;
 
-        if (effect.IsFadeOutDone)
+    private void OnEnable()
+    {
+        if (effect == null)
+            effect = GetComponent<FadeEffect>();
+
+        blinkCoroutine = StartCoroutine(Blink());
+    }
+
+    private void OnDisable()
+    {
+        if (blinkCoroutine != null)
+        {
+            StopCoroutine(blinkCoroutine);
+            blinkCoroutine = null;
+        }
+    }
+
+    private IEnumerator Blink()
+    {
+        effect.FadeOut();
+
+        yield return new WaitUntil(() => !effect.IsFading);
+
+        while (true)
         {
             effect.FadeIn();
-        }
-        else if (effect.IsFadeInDone)
-        {
+
+            yield return new WaitUntil(() => !effect.IsFading);
+
             effect.FadeOut();
+
+            yield return new WaitUntil(() => !effect.IsFading);
         }
     }
 }

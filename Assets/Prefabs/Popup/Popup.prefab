@@ -272,15 +272,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.84705883}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: df90ec704aa58cd44a70056a0f308661, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: c5e99612b3cbb484f8d08d5ba0b351e3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -374,15 +374,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.8980392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: df90ec704aa58cd44a70056a0f308661, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: a730426a881a9d44583ac41153adc675, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -403,6 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de7e37c540a2de748bcef1ddf4ea8e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PopupView
+  popupRoot: {fileID: 0}
   iconPlace: {fileID: 1668796259547982531}
   iconImage: {fileID: 257870354632296547}
   titleText: {fileID: 7559128345645606660}
