@@ -77,48 +77,8 @@ public class NotebookUIManager : MonoBehaviour
 
    
 
-
+   
     public void WriteNote(NoteSO note)
-     {
-
-         CreateNewPage();
-
-
-         foreach (NoteElement element in note.Elements)
-         {
-             GameObject newElement = null;
-
-             if (element.Type == NoteElementType.Text)
-             {
-                 newElement = Instantiate(textElementPrefab, activePage);
-                 TMP_Text txt = newElement.GetComponent<TMP_Text>();
-                 if (txt != null) txt.text = element.TextContent;
-             }
-             else if (element.Type == NoteElementType.Image)
-             {
-                 newElement = Instantiate(imageElementPrefab, activePage);
-                 Image img = newElement.GetComponent<Image>();
-                 if (img != null)
-                 {
-                     img.sprite = element.ImageContent;
-                     img.preserveAspect = true;
-                 }
-             }
-
-
-             Canvas.ForceUpdateCanvases();
-
-
-             if (activePage.rect.height > maxPageHeight)
-             {
-                 CreateNewPage();
-                 newElement.transform.SetParent(activePage, false);
-             }
-         }
-
-         UpdateUI();
-     }
-    /*public void WriteNote(NoteSO note)
     {
 
         CreateNewPage();
@@ -149,7 +109,7 @@ public class NotebookUIManager : MonoBehaviour
 
         UpdateUI();
     }
-    */
+    
 
     public void NextPage()
     {

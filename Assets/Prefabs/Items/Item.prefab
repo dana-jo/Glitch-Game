@@ -233,9 +233,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   ID: 1
   Name: Axe
-  itemDescription: Small Axe used for chopping wood..and other things...
+  itemDescription: Small Axe used for chopping wood..and other things... to make
+    the text long bla bla bla bla bla bla bla bla bla bla bla \n bla blab lbalkf
+    ljflsjl l lfjslfi  lfjsif sl lsjfslf jlsf lsfj slfkj slfkjs lf slfks lfj
   itemIcon: {fileID: 21300000, guid: 6cc445f0737b356408065fae4130ca6c, type: 3}
   quantity: 1
+  isCollected: 0
 --- !u!225 &-5971578144614325350
 CanvasGroup:
   m_ObjectHideFlags: 0

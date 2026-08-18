@@ -21,7 +21,6 @@ public struct NoteElement
 [CreateAssetMenu(fileName = "NewNote", menuName = "Notebook/Note Data")]
 public class NoteSO : ScriptableObject
 {
-    //[HideInInspector]
     public int noteID; 
     public string NoteTitle;
     [Header("Note Content")]
