@@ -97,9 +97,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5451072968387607322, guid: 743ae2888da5d2342b50dc0cfb22f088, type: 3}
+      propertyPath: ID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451072968387607322, guid: 743ae2888da5d2342b50dc0cfb22f088, type: 3}
       propertyPath: itemIcon
       value: 
       objectReference: {fileID: 21300000, guid: 0e889b27fa0462f41b2c4b63129da41d, type: 3}
+    - target: {fileID: 5451072968387607322, guid: 743ae2888da5d2342b50dc0cfb22f088, type: 3}
+      propertyPath: itemDescription
+      value: small text to test
+      objectReference: {fileID: 0}
     - target: {fileID: 9000188684791094606, guid: 743ae2888da5d2342b50dc0cfb22f088, type: 3}
       propertyPath: m_Name
       value: Shrimp Variant

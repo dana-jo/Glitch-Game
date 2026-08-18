@@ -9,6 +9,8 @@ public class StartMenuCameraController : MonoBehaviour
 
     [Header("UI")]
     public GameObject menuUI;
+    public GameObject notebookUI;
+    public GameObject settingsUI;
     public GameObject drawing;
 
     [Header("Glitching")]
@@ -40,6 +42,8 @@ public class StartMenuCameraController : MonoBehaviour
         originalCameraSize = cam.orthographicSize;
 
         menuUI.SetActive(false);
+        notebookUI.SetActive(false);
+        settingsUI.SetActive(false);
 
         animator = drawing.GetComponent<Animator>();
 
@@ -52,24 +56,28 @@ public class StartMenuCameraController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isMoving && !isInMenu)
+        if (Input.GetMouseButtonDown(0))
         {
+            SoundEffectManager.play("Mouse", true);
 
-            if (glitchCoroutine != null)
+            if (!isMoving && !isInMenu)
             {
-                StopCoroutine(glitchCoroutine);
-                glitchCoroutine = null;
+                if (glitchCoroutine != null)
+                {
+                    StopCoroutine(glitchCoroutine);
+                    glitchCoroutine = null;
+                }
+
+                if (currentGlitch != null)
+                {
+                    StopCoroutine(currentGlitch);
+                    currentGlitch = null;
+                }
+
+                animator.SetFloat("state", 0);
+
+                EnterMenu();
             }
-
-            if (currentGlitch != null)
-            {
-                StopCoroutine(currentGlitch);
-                currentGlitch = null;
-            }
-
-            animator.SetFloat("state", 0);
-
-            EnterMenu();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && !isMoving && isInMenu)
@@ -98,6 +106,8 @@ public class StartMenuCameraController : MonoBehaviour
         GetComponent<ShakeEffect>().StopShake();
 
         menuUI.SetActive(false);
+        notebookUI.SetActive(false);
+        settingsUI.SetActive(false);
 
         StartCoroutine(MoveCamera(
         originalPosition,
@@ -166,8 +176,12 @@ public class StartMenuCameraController : MonoBehaviour
 
             yield return new WaitForSeconds(0.7f);
 
-        if(!isMoving)
+        if (!isMoving)
+        {
             menuUI.SetActive( isInMenu );
+            notebookUI.SetActive(false);
+            settingsUI.SetActive(false);
+        }
 
     }
 
@@ -200,7 +214,8 @@ public class StartMenuCameraController : MonoBehaviour
 
         yield return new WaitForSeconds(randomDuration);
 
-        yield return StartCoroutine(EndGlitch());
+        //yield return StartCoroutine(EndGlitch());
+        animator.SetFloat("state", 0.75f);
     }
 
     private IEnumerator EndGlitch()
@@ -209,6 +224,13 @@ public class StartMenuCameraController : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f); // glitch end animation duration
 
+        animator.SetFloat("state", 0f); // normal
+
+        // play shutdow
+    }
+
+    public void OnEndGlitch()
+    {
         animator.SetFloat("state", 0f); // normal
     }
 }

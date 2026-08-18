@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ClickAnywhere : MonoBehaviour
+public class Blinking : MonoBehaviour
 {
     private FadeEffect effect;
     void Start()
@@ -12,9 +12,14 @@ public class ClickAnywhere : MonoBehaviour
     {
         if (effect.IsFading)
             return;
-        else if (effect.IsFadeInDone)
-            effect.FadeOut();
-        else
+
+        if (effect.IsFadeOutDone)
+        {
             effect.FadeIn();
+        }
+        else if (effect.IsFadeInDone)
+        {
+            effect.FadeOut();
+        }
     }
 }

@@ -11,6 +11,7 @@ public class FadeEffect : MonoBehaviour
     private Graphic uiGraphic;
     private TMP_Text tmpText;
     private SpriteRenderer spriteRenderer;
+    private Image image;
 
     private Coroutine fadeCoroutine;
 
@@ -24,6 +25,10 @@ public class FadeEffect : MonoBehaviour
         uiGraphic = GetComponent<Graphic>();
         tmpText = GetComponent<TMP_Text>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        image = GetComponent<Image>();
+
+        Debug.Log(image == null);
+
     }
 
     public void FadeIn()
@@ -33,6 +38,7 @@ public class FadeEffect : MonoBehaviour
 
     public void FadeOut()
     {
+        Debug.Log("fade out started");
         StartFade(0f, false);
     }
 
@@ -107,6 +113,9 @@ public class FadeEffect : MonoBehaviour
         if (spriteRenderer != null)
             return spriteRenderer.color.a;
 
+        if (image != null)
+            return image.color.a;
+
         return 1f;
     }
 
@@ -139,6 +148,13 @@ public class FadeEffect : MonoBehaviour
             Color color = spriteRenderer.color;
             color.a = alpha;
             spriteRenderer.color = color;
+        }
+
+        if(image != null)
+        {
+            Color color = image.color;
+            color.a = alpha;
+            image.color = color;
         }
     }
 }
