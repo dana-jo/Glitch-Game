@@ -11,8 +11,8 @@ public class SaveData
     public List<PuzzleSaveData> stateOfPuzzles; //true if puzzle is solved, false if not
     public List<int> unlockedNotesIDs;
     //public List<ChestSaveData> chestSaveData;
-    // public List<QuestProgress> questProgressData;
-    //public List<string> handinQuestIDs;
+    public List<QuestSaveData> activeQuestProgressData;
+    public List<int> handingQuestIDs;
 
 
 }

@@ -58,10 +58,12 @@ public class SaveController : MonoBehaviour
 
         SaveData saveData = new SaveData()
         {
+            playerPosition = player.transform.position,
             inventorySaveData = inventoryController.GetInventoryItems(),
             hotbarSaveData = inventoryController.GetHotbarItems(),
             stateOfPuzzles = PuzzlesController.Instance.GetPuzzleStates(),
-            playerPosition = player.transform.position,
+            activeQuestProgressData = QuestController.Instance.GetQuestSaveData(),
+            handingQuestIDs = QuestController.Instance.handingQuestIDs,
             unlockedNotesIDs = NotebookController.Instance.unlockedNotesIDs
         };
 
@@ -83,10 +85,12 @@ public class SaveController : MonoBehaviour
         {
             SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
 
+            player.transform.position = saveData.playerPosition; // SHOULD I EDIT THE CAMERA POS TOO? 
             inventoryController.SetInventoryItems(saveData.inventorySaveData);
             inventoryController.SetHotbarItems(saveData.hotbarSaveData);
             PuzzlesController.Instance.SetPuzzleStates(saveData.stateOfPuzzles);
-            player.transform.position = saveData.playerPosition; // SHOULD I EDIT THE CAMERA POS TOO? 
+            QuestController.Instance.LoadQuestSaveData(saveData.activeQuestProgressData);
+            QuestController.Instance.handingQuestIDs = saveData.handingQuestIDs;
             NotebookController.Instance.AddListOfNotes(saveData.unlockedNotesIDs);
             Debug.Log("Game loaded from: " + saveLocation);
         }
