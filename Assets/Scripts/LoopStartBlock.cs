@@ -39,6 +39,6 @@ public class LoopStartBlock : MonoBehaviour, Interactable
 
     public bool CanInteract()
     {
-        return true;
+        return !controller.IsLocked();
     }
 }

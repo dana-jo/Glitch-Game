@@ -16,6 +16,6 @@ public class PlayButton : MonoBehaviour, Interactable
 
     public bool CanInteract()
     {
-        return true;
+        return !controller.IsLocked();
     }
 }

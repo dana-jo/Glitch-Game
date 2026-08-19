@@ -45,6 +45,9 @@ TagManager:
   - name: Ground
     uniqueID: 1458515801
     locked: 0
+  - name: Floor
+    uniqueID: 3741862047
+    locked: 0
   - name: WalkFront
     uniqueID: 470240805
     locked: 0
