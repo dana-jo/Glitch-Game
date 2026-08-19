@@ -39,7 +39,7 @@ public class PauseController : MonoBehaviour
         inventory = player.FindAction("Inventory", true);
         quests = player.FindAction("Quests", true);
         notebook = player.FindAction("Notebook", true);
-        settings = player.FindAction("Settings", true);
+        settings = player.FindAction("settingsPanel", true);
     }
     public void OpenDialogue(bool opened)
     {

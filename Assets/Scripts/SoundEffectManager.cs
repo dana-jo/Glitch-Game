@@ -55,7 +55,9 @@ public class SoundEffectManager : MonoBehaviour
     {
         sfxSlider.onValueChanged.AddListener(delegate { OnVolumeChanged(); });
         musicSlider.onValueChanged.AddListener(delegate { OnMusicVolumeChanged(); });
-        musicMuteToggle.onValueChanged.AddListener(OnMusicMuteToggled);
+
+        if(musicMuteToggle != null)
+            musicMuteToggle.onValueChanged.AddListener(OnMusicMuteToggled);
     }
 
     public static void SetVolume(float volume)

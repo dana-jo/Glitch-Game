@@ -20,7 +20,7 @@ public class NotebookUIManager : MonoBehaviour
     [SerializeField] private Button nextButton;
     [SerializeField] private Button prevButton;
 
-    [Header("Settings")]
+    [Header("settingsPanel")]
     [SerializeField] private float maxPageHeight = 300f; 
 
     private List<GameObject> dynamicPages = new List<GameObject>();
