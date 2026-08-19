@@ -7,7 +7,6 @@ public class DisplayScript : MonoBehaviour, Interactable
 
     [Header("Scroll")]
     public RectTransform content;
-    public RectTransform child;
     public GameObject scroll;
     public float scrollStep = 0.1f;
     private ScrollRect scrollRect;
@@ -24,19 +23,30 @@ public class DisplayScript : MonoBehaviour, Interactable
     {
         canvas.SetActive(false);
 
-        SetAspectRatio();
+        //SetAspectRatio();
     }
     private void Awake()
     {
+        scrollRect = scroll.GetComponent<ScrollRect>();
+        image = ourImage.GetComponent<Image>();
+
+        aspectRatioFitter = ourImage.GetComponent<AspectRatioFitter>();
+        SetAspectRatio();
+
+        //content.SetSizeWithCurrentAnchors(
+        //    RectTransform.Axis.Vertical,
+        //    ourImage.GetComponent<RectTransform>().rect.height
+        //);
+
+        //Debug.Log("hight " + ourImage.GetComponent<RectTransform>().rect.height);
+    }
+
+    private void LateUpdate()
+    {
         content.SetSizeWithCurrentAnchors(
             RectTransform.Axis.Vertical,
-            child.rect.height
+            ourImage.GetComponent<RectTransform>().rect.height
         );
-
-        scrollRect = scroll.GetComponent<ScrollRect>();
-
-        image = ourImage.GetComponent<Image>();
-        aspectRatioFitter = ourImage.GetComponent<AspectRatioFitter>();
     }
 
     public bool CanInteract()
