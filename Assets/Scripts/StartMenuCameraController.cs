@@ -218,17 +218,6 @@ public class StartMenuCameraController : MonoBehaviour
         animator.SetFloat("state", 0.75f);
     }
 
-    private IEnumerator EndGlitch()
-    {
-        animator.SetFloat("state", 0.75f); // glitch end
-
-        yield return new WaitForSeconds(0.5f); // glitch end animation duration
-
-        animator.SetFloat("state", 0f); // normal
-
-        // play shutdow
-    }
-
     public void OnEndGlitch()
     {
         animator.SetFloat("state", 0f); // normal
