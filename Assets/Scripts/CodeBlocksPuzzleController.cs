@@ -7,16 +7,19 @@ public class CodeBlocksPuzzleController : MonoBehaviour
     private SequenceAreaController sequenceAreaController;
     public GameObject sequenceVisualPrefab;
     private RobotController robotController;
+    private CodeBlocksPuzzle objective;
 
     private List<SequenceStep> playerSequence = new List<SequenceStep>();
     private List<GameObject> spawnedVisuals = new List<GameObject>();
     private bool isRunning = false;
+    private bool isSolved = false;
 
     void Awake()
     {
         sequenceAreaController = GetComponentInChildren<SequenceAreaController>();
         sequenceArea = sequenceAreaController.transform;
         robotController = GetComponentInChildren<RobotController>();
+        objective = GetComponent<CodeBlocksPuzzle>();
     }
 
     public void AddBlock(BlockType type, Sprite blockSprite, int repeatCount = 0)
@@ -88,12 +91,47 @@ public class CodeBlocksPuzzleController : MonoBehaviour
         if (success)
         {
             Debug.Log("Puzzle solved!");
+            objective?.UpdatePuzzleState();
             // stays isRunning = true, locked, as you specified
         }
         else
         {
             Debug.Log("Puzzle failed - reset required.");
-            // isRunning stays true until player hits Reset, also as you specified
+            isRunning = false; // unlock so the player can Reset or rebuild
         }
+    }
+
+    //public List<Sprite> GetSolvedVisualSequence()
+    //{
+    //    List<Sprite> sprites = new List<Sprite>();
+    //    foreach (GameObject visual in spawnedVisuals)
+    //    {
+    //        sprites.Add(visual.GetComponent<SpriteRenderer>().sprite);
+    //    }
+    //    return sprites;
+    //}
+
+    //public void RestoreVisualSequence(List<Sprite> sprites)
+    //{
+    //    for (int i = 0; i < sprites.Count; i++)
+    //    {
+    //        Vector3 localPos = sequenceAreaController.GetSlotLocalPosition(i);
+    //        Vector3 worldPos = sequenceArea.TransformPoint(localPos);
+
+    //        GameObject visual = Instantiate(sequenceVisualPrefab, worldPos, Quaternion.identity, sequenceArea);
+    //        visual.GetComponent<SpriteRenderer>().sprite = sprites[i];
+    //        spawnedVisuals.Add(visual);
+    //    }
+    //}
+
+    public bool IsLocked()
+    {
+        return isRunning || isSolved;
+    }
+
+    public void LockAsSolved()
+    {
+        isSolved = true;
+        isRunning = true;
     }
 }
