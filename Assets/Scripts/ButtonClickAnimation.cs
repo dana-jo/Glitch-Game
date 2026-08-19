@@ -20,14 +20,14 @@ public class ButtonClickAnimation : MonoBehaviour
     {
         isAnimating = true;
 
-        // 1 ? 2 ? 3 ? 4 ? 5
+        
         for (int i = 0; i < frames.Length; i++)
         {
             buttonImage.sprite = frames[i];
             yield return new WaitForSecondsRealtime(frameTime);
         }
 
-        // 4 ? 3 ? 2 ? 1
+        
         for (int i = frames.Length - 2; i >= 0; i--)
         {
             buttonImage.sprite = frames[i];
