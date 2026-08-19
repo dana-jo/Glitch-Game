@@ -33,4 +33,13 @@ public class BrightnessManager : MonoBehaviour
     {
         brightnessSlider.value = Mathf.Clamp01(brightnessSlider.value - 0.1f);
     }
+    public void LoadBrightnessSettings(float value) // currently only one value
+    {
+        brightnessSlider.value = value;
+        OnBrightnessChanged();
+    }
+    public float GetBrightness()
+    {
+        return brightnessSlider.value;
+    }
 }

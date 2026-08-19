@@ -51,7 +51,11 @@ public class SwapPuzzle : ObjectiveBehaviour
         if(currentWeight >= targetWeight)
         {
             Complete();
-            CompleteState();            
+            CompleteState();   
+            // test adding to notebook :  
+            NotebookController.Instance.AddNote(1,true);    
+            NotebookController.Instance.AddNote(2,true);    
+            NotebookController.Instance.AddNote(3,true);    
         }
         else
         {
@@ -80,7 +84,7 @@ public class SwapPuzzle : ObjectiveBehaviour
         cauldron.canInteract = false;
         // find Mud Cauldron and set its content to water
         Cauldron mudCauldron = GameObject.Find("MudCauldron").GetComponent<Cauldron>();
-        if (mudCauldron != null)
+        if (mudCauldron != null && mudCauldron.Liquid == "Mud")
         {
             mudCauldron.fillCauldron("Water");
         }

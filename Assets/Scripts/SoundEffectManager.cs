@@ -203,4 +203,18 @@ public class SoundEffectManager : MonoBehaviour
         sfxMuteButtonImage.sprite =
             isSfxMuted ? unmuteSprite : muteSprite;
     }
+    public List<float> GetSoundSettings()
+    {
+        return new List<float> { sfxSlider.value, musicSlider.value, isMusicMuted ? 1f : 0f };
+    }
+    public void LoadSoundSettings(float sfxVolume, float musicVolume, bool isMuted)
+    {
+        sfxSlider.SetValueWithoutNotify(sfxVolume);
+        musicSlider.SetValueWithoutNotify(musicVolume);
+        musicMuteToggle.SetIsOnWithoutNotify(isMuted);
+
+        SetVolume(sfxVolume);
+        SetMusicVolume(isMuted ? 0f : musicVolume);
+        isMusicMuted = isMuted;
+    }
 }
