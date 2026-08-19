@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Cauldron : MonoBehaviour , Interactable
 {
-    [SerializeField] private string Liquid; 
+    [SerializeField] public string Liquid; 
     [SerializeField] private Sprite emptySprite;
     [SerializeField] private Sprite waterSprite;
     [SerializeField] private Sprite mudSprite;
@@ -77,7 +77,7 @@ public class Cauldron : MonoBehaviour , Interactable
         Liquid = "";
         spriteRenderer.sprite = emptySprite;
     }
-    private void fillCauldron(string liquid)
+    public void fillCauldron(string liquid)
     {
         Liquid = liquid;
         if(liquid == "Water")

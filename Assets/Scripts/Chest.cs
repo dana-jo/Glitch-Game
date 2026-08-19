@@ -12,7 +12,7 @@ public class Chest : MonoBehaviour, Interactable
     [SerializeField] private Animator animator;
     [SerializeField] private float itemDropDelay = 0.7f;
 
-    private void Start()
+    private void Awake()
     {
         ChestID ??= GenerateUniqueID(gameObject);
     }
@@ -40,7 +40,7 @@ public class Chest : MonoBehaviour, Interactable
         Debug.Log("Chest unlocked!");
     }
 
-    private void OpenChest()
+    private void OpenChest(bool dropItem = true)
     {
         SetOpened(true);
 
@@ -51,7 +51,7 @@ public class Chest : MonoBehaviour, Interactable
             animator.SetTrigger("Open");
         }
 
-        if (itemPrefab)
+        if (itemPrefab && dropItem)
         {
             StartCoroutine(DropItemAfterDelay());
         }
@@ -92,5 +92,15 @@ public class Chest : MonoBehaviour, Interactable
     {
         return $"{obj.scene.name}_{obj.transform.position.x}_{obj.transform.position.y}"; //chest_1_3
     }
-
+    public void LoadChestState(bool isOpened)
+    {
+        if(isOpened)
+        {
+            OpenChest(false);
+        }
+        else
+        {
+            SetOpened(isOpened);
+        }
+    }
 }
