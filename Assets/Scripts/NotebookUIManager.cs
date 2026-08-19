@@ -182,17 +182,28 @@ public class NotebookUIManager : MonoBehaviour
 
         int halfwayPoint = flipFrames.Length / 2;
 
+        int hideStartFrame = 3;
+        int showAgainFrame = 7;
+
         if (forward)
         {
             for (int i = 0; i < flipFrames.Length; i++)
             {
                 bookImage.sprite = flipFrames[i];
 
-                //switch page halfway through the flip
+                if (i == hideStartFrame)
+                {
+                    dynamicPages[currentPageIndex].SetActive(false);
+                }
+
                 if (i == halfwayPoint)
                 {
                     currentPageIndex++;
-                    UpdateUI();
+                }
+
+                if (i == showAgainFrame)
+                {
+                    dynamicPages[currentPageIndex].SetActive(true);
                 }
 
                 yield return new WaitForSecondsRealtime(frameTime);
@@ -204,10 +215,17 @@ public class NotebookUIManager : MonoBehaviour
             {
                 bookImage.sprite = flipFrames[i];
 
+                if (i == showAgainFrame)
+                {
+                    dynamicPages[currentPageIndex].SetActive(false);
+                }
                 if (i == halfwayPoint)
                 {
                     currentPageIndex--;
-                    UpdateUI();
+                }
+                if (i == hideStartFrame)
+                {
+                    dynamicPages[currentPageIndex].SetActive(true);
                 }
 
                 yield return new WaitForSecondsRealtime(frameTime);
