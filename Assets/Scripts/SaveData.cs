@@ -9,19 +9,8 @@ public class SaveData
     public List<InventorySaveData> inventorySaveData;
     public List<InventorySaveData> hotbarSaveData;
     public List<PuzzleSaveData> stateOfPuzzles; //true if puzzle is solved, false if not
-    public List<int> unlockedNotesIDs;
-    //public List<ChestSaveData> chestSaveData;
+    public List<ChestSaveData> chestSaveData;
     public List<QuestSaveData> activeQuestProgressData;
     public List<int> handingQuestIDs;
-
-
+    public List<int> unlockedNotesIDs;
 }
-
-//[System.Serializable]
-
-//public class ChestSaveData
-//{
-//    public string chestID;
-//    public bool isOpened;
-
-//}

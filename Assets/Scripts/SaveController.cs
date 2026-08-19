@@ -54,6 +54,7 @@ public class SaveController : MonoBehaviour
             inventorySaveData = inventoryController.GetInventoryItems(),
             hotbarSaveData = inventoryController.GetHotbarItems(),
             stateOfPuzzles = PuzzlesController.Instance.GetPuzzleStates(),
+            chestSaveData = ChestController.Instance.GetChestSaveData(),
             activeQuestProgressData = QuestController.Instance.GetQuestSaveData(),
             handingQuestIDs = QuestController.Instance.handingQuestIDs,
             unlockedNotesIDs = NotebookController.Instance.unlockedNotesIDs
@@ -98,6 +99,7 @@ public class SaveController : MonoBehaviour
             inventoryController.SetHotbarItems(saveData.hotbarSaveData);
 
             PuzzlesController.Instance.SetPuzzleStates(saveData.stateOfPuzzles);
+            ChestController.Instance.SetChestStates(saveData.chestSaveData);
             QuestController.Instance.LoadQuestSaveData(saveData.activeQuestProgressData);
             QuestController.Instance.handingQuestIDs = saveData.handingQuestIDs;
 

@@ -39,6 +39,9 @@ public class DialogueController : MonoBehaviour
 
         normalDialogueLayout.SetActive(false);
         choicesLayout.SetActive(false);
+    }
+    void Start()
+    {
         ShowDialogueUI(false);
     }
 
