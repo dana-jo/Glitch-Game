@@ -80,7 +80,7 @@ public class SwapPuzzle : ObjectiveBehaviour
             draggable.Drop();
             draggable.canBeDragged = false;
         }
-        cauldron.transform.position = transform.position - new Vector3(0, 0.5f, 0);
+        cauldron.transform.position = transform.position + new Vector3(0, 0.5f, 0);
         cauldron.canInteract = false;
         // find Mud Cauldron and set its content to water
         Cauldron mudCauldron = GameObject.Find("MudCauldron").GetComponent<Cauldron>();
