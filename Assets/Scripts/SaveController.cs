@@ -13,14 +13,16 @@ public class SaveController : MonoBehaviour
     private SoundEffectManager soundEffectManager;
 
     //IEnumerator Start()
-    void Start()
+    IEnumerator Start()
     {
         InitializeComponents();
 
         // wait one frame so InventoryController.Start() can finish first
-        // yield return null;
+         yield return null;
 
         LoadGame();
+
+        //Debug.Log(saveLocation);
     }
 
     private void InitializeComponents()
@@ -41,6 +43,24 @@ public class SaveController : MonoBehaviour
     }
     private void SaveGameProgress()
     {
+        if (inventoryController == null)
+            Debug.LogError("inventoryController is NULL");
+
+        if (player == null)
+            Debug.LogError("player is NULL");
+
+        if (PuzzlesController.Instance == null)
+            Debug.LogError("PuzzlesController is NULL");
+
+        if (ChestController.Instance == null)
+            Debug.LogError("ChestController is NULL");
+
+        if (QuestController.Instance == null)
+            Debug.LogError("QuestController is NULL");
+
+        if (NotebookController.Instance == null)
+            Debug.LogError("NotebookController is NULL");
+
         // inventroy 
         if (inventoryController == null)
         {
