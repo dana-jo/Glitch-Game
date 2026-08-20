@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         {
            StopFootsteps();
         }
+
     }
 
     public void Move(InputAction.CallbackContext context)

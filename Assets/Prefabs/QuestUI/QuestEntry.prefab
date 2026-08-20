@@ -184,15 +184,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Quest Name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 72b10510aa0908d4987104e7b7a0c9af, type: 2}
-  m_sharedMaterial: {fileID: -6898578746189279660, guid: 72b10510aa0908d4987104e7b7a0c9af, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4ac2889559043e84298cee9c50433d57, type: 2}
+  m_sharedMaterial: {fileID: -1616477289863396206, guid: 4ac2889559043e84298cee9c50433d57, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4289641405
+  m_fontColor: {r: 0.7411765, g: 0.73333335, b: 0.68235296, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -209,8 +209,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1cdc54487b1281e488f18dc9f9e260e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 27bf8af3e5c51c546b4c04244a94fe8d, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

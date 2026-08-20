@@ -156,7 +156,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Settings"",
+                    ""name"": ""settingsPanel"",
                     ""type"": ""Button"",
                     ""id"": ""28f153ae-4406-46cd-97c4-2f1ae20aba95"",
                     ""expectedControlType"": """",
@@ -347,7 +347,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Settings"",
+                    ""action"": ""settingsPanel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -437,7 +437,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
         m_Player_Notebook = m_Player.FindAction("Notebook", throwIfNotFound: true);
         m_Player_Quests = m_Player.FindAction("Quests", throwIfNotFound: true);
-        m_Player_Settings = m_Player.FindAction("Settings", throwIfNotFound: true);
+        m_Player_Settings = m_Player.FindAction("settingsPanel", throwIfNotFound: true);
         m_Player_CycleLoopCount = m_Player.FindAction("CycleLoopCount", throwIfNotFound: true);
     }
 

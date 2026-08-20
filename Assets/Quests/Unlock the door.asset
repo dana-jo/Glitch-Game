@@ -27,6 +27,17 @@ MonoBehaviour:
     countFrom0: 0
     npcID: 0
     doneTalking: 0
+  - description: Go north west
+    type: 1
+    puzzleID: 1
+    requiredAmount: 5
+    currentAmount: 0
+    previousAmount: 0
+    itemID: 1
+    removeItemsAfterFinish: 0
+    countFrom0: 0
+    npcID: 0
+    doneTalking: 0
   rewards:
   - rewardType: 5
     noteID: 0
