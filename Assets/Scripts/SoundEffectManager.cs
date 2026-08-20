@@ -68,8 +68,11 @@ public class SoundEffectManager : MonoBehaviour
     }
     void Start()
     {
-        sfxSlider.onValueChanged.AddListener(delegate { OnVolumeChanged(); });
-        musicSlider.onValueChanged.AddListener(delegate { OnMusicVolumeChanged(); });
+        if(sfxSlider != null)
+            sfxSlider.onValueChanged.AddListener(delegate { OnVolumeChanged(); });
+
+        if (musicSlider != null)
+            musicSlider.onValueChanged.AddListener(delegate { OnMusicVolumeChanged(); });
 
         if(musicMuteToggle != null)
             musicMuteToggle.onValueChanged.AddListener(OnMusicMuteToggled);
@@ -211,9 +214,12 @@ public class SoundEffectManager : MonoBehaviour
     }
     public void LoadSoundSettings(float sfxVolume, float musicVolume, bool isMuted)
     {
-        sfxSlider.SetValueWithoutNotify(sfxVolume);
-        musicSlider.SetValueWithoutNotify(musicVolume);
-        musicMuteToggle.SetIsOnWithoutNotify(isMuted);
+        if (sfxSlider != null)
+            sfxSlider.SetValueWithoutNotify(sfxVolume);
+        if (musicSlider != null)
+            musicSlider.SetValueWithoutNotify(musicVolume);
+        if (musicMuteToggle != null)
+            musicMuteToggle.SetIsOnWithoutNotify(isMuted);
 
         SetVolume(sfxVolume);
         SetMusicVolume(isMuted ? 0f : musicVolume);

@@ -15,4 +15,9 @@ public class PauseUIController : MonoBehaviour
         PauseController.Instance.OpenSettings(pauseMenu.activeSelf);
     }
 
+    public void QuitToMainMenu()
+    {
+        SceneController.Instance.ChangeScene("Start Menu");
+    }
+
 }

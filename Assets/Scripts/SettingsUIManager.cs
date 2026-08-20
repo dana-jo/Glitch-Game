@@ -12,7 +12,9 @@ public class SettingsUIManager : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
-        settingsPanel.SetActive(false);
+
+        if(settingsPanel != null)
+            settingsPanel.SetActive(false);
     }
 
     public void ToggleSettings()

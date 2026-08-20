@@ -9,37 +9,76 @@ public class BrightnessManager : MonoBehaviour
     [SerializeField] private Image brightnessBarImage;
     [SerializeField] private Sprite[] brightnessBarSprites;
 
+    private float brightness = 1f;
+
     void Start()
     {
-        brightnessSlider.onValueChanged.AddListener(delegate { OnBrightnessChanged(); });
+        if (brightnessSlider != null)
+        {
+            brightnessSlider.onValueChanged.AddListener(delegate { OnBrightnessChanged(); });
+            brightness = brightnessSlider.value;
+        }
+
         OnBrightnessChanged();
     }
+
     public void OnBrightnessChanged()
     {
-        float alpha = 1 - brightnessSlider.value;
-        alpha = Mathf.Clamp(alpha, 0f, maxAlpha);
-        brightnessPanel.color = new Color(0, 0, 0, alpha);
+        if (brightnessSlider != null)
+            brightness = brightnessSlider.value;
 
-        int index = Mathf.RoundToInt(brightnessSlider.value * 10);
-        brightnessBarImage.sprite = brightnessBarSprites[index];
+        ApplyBrightness();
+    }
+
+    private void ApplyBrightness()
+    {
+        float alpha = 1 - brightness;
+        alpha = Mathf.Clamp(alpha, 0f, maxAlpha);
+
+        if (brightnessPanel != null)
+            brightnessPanel.color = new Color(0, 0, 0, alpha);
+
+        if (brightnessBarImage != null && brightnessBarSprites != null && brightnessBarSprites.Length > 0)
+        {
+            int index = Mathf.RoundToInt(brightness * 10);
+            index = Mathf.Clamp(index, 0, brightnessBarSprites.Length - 1);
+
+            brightnessBarImage.sprite = brightnessBarSprites[index];
+        }
     }
 
     public void IncreaseBrightness()
     {
-        brightnessSlider.value = Mathf.Clamp01(brightnessSlider.value + 0.1f);
+        brightness = Mathf.Clamp01(brightness + 0.1f);
+
+        if (brightnessSlider != null)
+            brightnessSlider.value = brightness;
+        else
+            ApplyBrightness();
     }
 
     public void DecreaseBrightness()
     {
-        brightnessSlider.value = Mathf.Clamp01(brightnessSlider.value - 0.1f);
+        brightness = Mathf.Clamp01(brightness - 0.1f);
+
+        if (brightnessSlider != null)
+            brightnessSlider.value = brightness;
+        else
+            ApplyBrightness();
     }
-    public void LoadBrightnessSettings(float value) // currently only one value
+
+    public void LoadBrightnessSettings(float value)
     {
-        brightnessSlider.value = value;
-        OnBrightnessChanged();
+        brightness = Mathf.Clamp01(value);
+
+        if (brightnessSlider != null)
+            brightnessSlider.value = brightness;
+
+        ApplyBrightness();
     }
+
     public float GetBrightness()
     {
-        return brightnessSlider.value;
+        return brightness;
     }
 }

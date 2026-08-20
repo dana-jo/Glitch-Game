@@ -17,7 +17,7 @@ public class StartMenuUIController : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Start game");
-        SceneController.Instance.ChangeScene("aya UI");
+        SceneController.Instance.ChangeScene("FINAL");
     }
 
     public void ContinueGame()
