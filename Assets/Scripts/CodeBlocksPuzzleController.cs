@@ -101,28 +101,44 @@ public class CodeBlocksPuzzleController : MonoBehaviour
         }
     }
 
-    //public List<Sprite> GetSolvedVisualSequence()
-    //{
-    //    List<Sprite> sprites = new List<Sprite>();
-    //    foreach (GameObject visual in spawnedVisuals)
-    //    {
-    //        sprites.Add(visual.GetComponent<SpriteRenderer>().sprite);
-    //    }
-    //    return sprites;
-    //}
+    private Sprite GetSpriteForType(BlockType type)
+    {
+        PaletteBlock[] blocks = GetComponentsInChildren<PaletteBlock>(true);
+        foreach (PaletteBlock block in blocks)
+        {
+            if (block.blockType == type)
+                return block.GetComponent<SpriteRenderer>().sprite;
+        }
 
-    //public void RestoreVisualSequence(List<Sprite> sprites)
-    //{
-    //    for (int i = 0; i < sprites.Count; i++)
-    //    {
-    //        Vector3 localPos = sequenceAreaController.GetSlotLocalPosition(i);
-    //        Vector3 worldPos = sequenceArea.TransformPoint(localPos);
+        // Check LoopStart separately, since it's a different script
+        LoopStartBlock[] loopBlocks = GetComponentsInChildren<LoopStartBlock>(true);
+        foreach (LoopStartBlock block in loopBlocks)
+        {
+            if (block.blockType == type)
+                return block.GetComponent<SpriteRenderer>().sprite;
+        }
 
-    //        GameObject visual = Instantiate(sequenceVisualPrefab, worldPos, Quaternion.identity, sequenceArea);
-    //        visual.GetComponent<SpriteRenderer>().sprite = sprites[i];
-    //        spawnedVisuals.Add(visual);
-    //    }
-    //}
+        Debug.LogWarning("No palette block found for type: " + type);
+        return null;
+    }
+
+    public void RestoreVisualSequence(List<SequenceStep> steps)
+    {
+        for (int i = 0; i < steps.Count; i++)
+        {
+            Vector3 localPos = sequenceAreaController.GetSlotLocalPosition(i);
+            Vector3 worldPos = sequenceArea.TransformPoint(localPos);
+
+            GameObject visual = Instantiate(sequenceVisualPrefab, worldPos, Quaternion.identity, sequenceArea);
+            visual.GetComponent<SpriteRenderer>().sprite = GetSpriteForType(steps[i].type);
+            spawnedVisuals.Add(visual);
+        }
+    }
+
+    public List<SequenceStep> GetSolvedSequence()
+    {
+        return playerSequence;
+    }
 
     public bool IsLocked()
     {
