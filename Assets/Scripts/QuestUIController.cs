@@ -71,6 +71,14 @@ public class QuestUIController : MonoBehaviour
                 if (objective.type == ObjectiveType.CollectItem)
                     objText.text += $"({objective.currentAmount} / {objective.requiredAmount}) ";
                 objText.text += $"{objective.description}";
+
+                // if completed => dim
+                if (quest.IsObjectiveCompleted(objective))
+                {
+                    Color color = objText.color;
+                    color.a = 0.5f;
+                    objText.color = color;
+                }
             }
         }
     }

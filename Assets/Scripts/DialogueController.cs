@@ -10,11 +10,11 @@ public class DialogueController : MonoBehaviour
     [Header("Main UI")]
     public GameObject dialoguePanel;
     public Image portraitImage;
+    public TMP_Text nameText;
 
     [Space(15)]
     [Header("Normal dialogue UI")]
     public GameObject normalDialogueLayout;
-    public TMP_Text normalNameText;
     public TMP_Text normalDialogueText;
 
     [Space(15)]
@@ -33,9 +33,12 @@ public class DialogueController : MonoBehaviour
         if (Instance == null)
             Instance = this;
         else
+        {
             Destroy(gameObject);
+            return;
+        }
 
-        currentDialogueText = normalDialogueText; // so it doesn't stay null (-_-)
+        currentDialogueText = normalDialogueText;
 
         normalDialogueLayout.SetActive(false);
         choicesLayout.SetActive(false);
@@ -51,7 +54,7 @@ public class DialogueController : MonoBehaviour
 
     public void SetNPCInfo(string npcName, Sprite portrait)
     {
-        normalNameText.text = npcName;
+        nameText.text = npcName;
         portraitImage.sprite = portrait;
     }
 
@@ -66,17 +69,23 @@ public class DialogueController : MonoBehaviour
             Destroy(child.gameObject);
     }
 
-    public void CreateChoiceButton(string choiceText, UnityEngine.Events.UnityAction onClick)
+    public void CreateChoiceButton(
+        string choiceText,
+        UnityEngine.Events.UnityAction onClick)
     {
-        GameObject choiceButton = Instantiate(choiceButtonPrefab, choiceContainer);
-        choiceButton.GetComponentInChildren<TMP_Text>().text = choiceText;
-        choiceButton.GetComponentInChildren<Button>().onClick.AddListener(onClick);
+        GameObject choiceButton =
+            Instantiate(choiceButtonPrefab, choiceContainer);
+
+        Button button = choiceButton.GetComponentInChildren<Button>();
+        button.GetComponentInChildren<TMP_Text>().text = choiceText;
+        button.onClick.AddListener(onClick);
     }
 
     public void ShowNormalDialogueLayout()
     {
         normalDialogueLayout.SetActive(true);
         choicesLayout.SetActive(false);
+
         currentDialogueText = normalDialogueText;
     }
 
@@ -84,6 +93,7 @@ public class DialogueController : MonoBehaviour
     {
         normalDialogueLayout.SetActive(false);
         choicesLayout.SetActive(true);
+
         currentDialogueText = questionText;
     }
 
