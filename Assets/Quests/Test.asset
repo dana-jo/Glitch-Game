@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4233e3d4e514a2542b8067b313ca18d0, type: 3}
-  m_Name: Unlock the door
+  m_Name: Test
   m_EditorClassIdentifier: Assembly-CSharp::Quest
-  ID: 2
-  questName: Reach sus location
+  ID: 1
+  questName: Spirit request
   description: 
   objectives:
-  - description: Go north west
+  - description: Go to the safe
     type: 2
-    puzzleID: 2
+    puzzleID: 1
     requiredAmount: 0
     currentAmount: 0
     previousAmount: 0
@@ -27,15 +27,20 @@ MonoBehaviour:
     countFrom0: 0
     npcID: 0
     doneTalking: 0
-  - description: Collect comupter parts
-    type: 1
-    puzzleID: 1
-    requiredAmount: 10
-    currentAmount: 0
-    previousAmount: 0
-    itemID: 1
-    removeItemsAfterFinish: 0
-    countFrom0: 0
+  rewards:
+  - rewardType: 0
+    noteID: 1
+    questID: 0
+    itemID: 0
+    amount: 0
+    sceneName: 
+    dialogue: {fileID: 0}
     npcID: 0
-    doneTalking: 0
-  rewards: []
+  - rewardType: 4
+    noteID: 1
+    questID: 2
+    itemID: 0
+    amount: 0
+    sceneName: 
+    dialogue: {fileID: 0}
+    npcID: 0
