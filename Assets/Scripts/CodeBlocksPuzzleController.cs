@@ -19,7 +19,7 @@ public class CodeBlocksPuzzleController : MonoBehaviour
         sequenceAreaController = GetComponentInChildren<SequenceAreaController>();
         sequenceArea = sequenceAreaController.transform;
         robotController = GetComponentInChildren<RobotController>();
-        objective = GetComponent<CodeBlocksPuzzle>();
+        objective = GetComponentInChildren<CodeBlocksPuzzle>();
     }
 
     public void AddBlock(BlockType type, Sprite blockSprite, int repeatCount = 0)
@@ -91,6 +91,7 @@ public class CodeBlocksPuzzleController : MonoBehaviour
         if (success)
         {
             Debug.Log("Puzzle solved!");
+            isSolved = true;
             objective?.UpdatePuzzleState();
             // stays isRunning = true, locked, as you specified
         }
@@ -124,6 +125,11 @@ public class CodeBlocksPuzzleController : MonoBehaviour
 
     public void RestoreVisualSequence(List<SequenceStep> steps)
     {
+        if(steps == null || steps.Count == 0)
+        {
+            Debug.Log("No sequence to restore.");
+            return;
+        }
         for (int i = 0; i < steps.Count; i++)
         {
             Vector3 localPos = sequenceAreaController.GetSlotLocalPosition(i);
@@ -133,11 +139,20 @@ public class CodeBlocksPuzzleController : MonoBehaviour
             visual.GetComponent<SpriteRenderer>().sprite = GetSpriteForType(steps[i].type);
             spawnedVisuals.Add(visual);
         }
+        objective?.UpdatePuzzleState();
     }
 
     public List<SequenceStep> GetSolvedSequence()
     {
-        return playerSequence;
+        if (isSolved)
+        {
+            return playerSequence;
+        }
+        else
+        {
+            Debug.LogWarning("Puzzle not solved yet - returning empty sequence.");
+            return new List<SequenceStep>();
+        }
     }
 
     public bool IsLocked()
@@ -148,6 +163,6 @@ public class CodeBlocksPuzzleController : MonoBehaviour
     public void LockAsSolved()
     {
         isSolved = true;
-        isRunning = true;
+        isRunning = false;
     }
 }

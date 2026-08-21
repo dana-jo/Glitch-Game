@@ -11,6 +11,7 @@ public class SaveController : MonoBehaviour
     private PlayerMovement player;
     private BrightnessManager brightnessManager;
     private SoundEffectManager soundEffectManager;
+    private CodeBlocksPuzzleController codeBlocksPuzzleController;
 
     //IEnumerator Start()
     IEnumerator Start()
@@ -33,6 +34,7 @@ public class SaveController : MonoBehaviour
         player = FindFirstObjectByType<PlayerMovement>();
         brightnessManager = FindFirstObjectByType<BrightnessManager>();
         soundEffectManager = FindFirstObjectByType<SoundEffectManager>();
+        codeBlocksPuzzleController = FindFirstObjectByType<CodeBlocksPuzzleController>();
     }
 
     // we can save game on quit by using function OnApplicationQuit()
@@ -77,7 +79,8 @@ public class SaveController : MonoBehaviour
             chestSaveData = ChestController.Instance.GetChestSaveData(),
             activeQuestProgressData = QuestController.Instance.GetQuestSaveData(),
             handingQuestIDs = QuestController.Instance.handingQuestIDs,
-            unlockedNotesIDs = NotebookController.Instance.unlockedNotesIDs
+            unlockedNotesIDs = NotebookController.Instance.unlockedNotesIDs,
+            playerSequenceCBPuzzle = codeBlocksPuzzleController.GetSolvedSequence()
         };
 
         string json = JsonUtility.ToJson(saveData, true);
@@ -122,6 +125,7 @@ public class SaveController : MonoBehaviour
             ChestController.Instance.SetChestStates(saveData.chestSaveData);
             QuestController.Instance.LoadQuestSaveData(saveData.activeQuestProgressData);
             QuestController.Instance.handingQuestIDs = saveData.handingQuestIDs;
+            codeBlocksPuzzleController.RestoreVisualSequence(saveData.playerSequenceCBPuzzle);
 
             NotebookController.Instance.LoadListOfNotes(saveData.unlockedNotesIDs);
             Debug.Log("Game loaded from: " + saveLocation);

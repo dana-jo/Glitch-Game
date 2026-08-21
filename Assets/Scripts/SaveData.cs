@@ -9,6 +9,7 @@ public class SaveData
     public List<InventorySaveData> inventorySaveData;
     public List<InventorySaveData> hotbarSaveData;
     public List<PuzzleSaveData> stateOfPuzzles; //true if puzzle is solved, false if not
+    public List<SequenceStep> playerSequenceCBPuzzle; // code blocks puzzle solved sequence
     public List<ChestSaveData> chestSaveData;
     public List<QuestSaveData> activeQuestProgressData;
     public List<int> handingQuestIDs;
