@@ -77,6 +77,15 @@
                     "processors": "",
                     "interactions": "Hold",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Chat",
+                    "type": "Button",
+                    "id": "07f5469b-67fe-46ea-87f3-a1993b978ad3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -253,6 +262,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "CycleLoopCount",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "01b302c3-256b-4284-a6b7-74a80f809cac",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Chat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

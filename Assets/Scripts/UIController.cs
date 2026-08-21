@@ -5,11 +5,13 @@ public class UIController : MonoBehaviour
     public GameObject inventoryGroup;
     public GameObject questsPage;
     public GameObject notebook;
+    public GameObject chat;
     void Start()
     {
         inventoryGroup.SetActive(false);
         questsPage.SetActive(false);
         notebook.SetActive(false);
+        chat.SetActive(false);
     }
 
   

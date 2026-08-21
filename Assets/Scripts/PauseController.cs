@@ -15,11 +15,11 @@ public class PauseController : MonoBehaviour
     private InputAction quests;
     private InputAction notebook;
     private InputAction settings;
-
+    private InputAction chat;
     // ui puzzles;
 
-    private
 
+   
     void Awake()
     {
         if (Instance == null)
@@ -40,6 +40,7 @@ public class PauseController : MonoBehaviour
         quests = player.FindAction("Quests", true);
         notebook = player.FindAction("Notebook", true);
         settings = player.FindAction("Settings", true);
+        chat = player.FindAction("Chat", true);
     }
     public void OpenDialogue(bool opened)
     {
@@ -52,6 +53,7 @@ public class PauseController : MonoBehaviour
             quests.Disable();
             notebook.Disable();
             settings.Disable();
+            chat.Disable();
         }
         else
         {
@@ -71,6 +73,7 @@ public class PauseController : MonoBehaviour
             quests.Disable();
             notebook.Disable();
             settings.Disable();
+            chat.Disable();
         }
         else
         {
@@ -90,6 +93,7 @@ public class PauseController : MonoBehaviour
             quests.Enable();
             notebook.Disable();
             settings.Disable();
+            chat.Disable();
         }
         else
         {
@@ -109,6 +113,7 @@ public class PauseController : MonoBehaviour
             quests.Disable();
             notebook.Enable();
             settings.Disable();
+            chat.Disable();
         }
         else
         {
@@ -128,12 +133,31 @@ public class PauseController : MonoBehaviour
             quests.Disable();
             notebook.Disable();
             settings.Enable();
+            chat.Disable();
         }
         else
         {
             ResumeGame();
         }
         
+    }
+    public void OpenChat(bool opened)
+    {
+        if (opened)
+        {
+            move.Disable();
+            interact.Disable();
+            drag.Disable();
+            inventory.Disable();
+            quests.Disable();
+            notebook.Disable();
+            settings.Disable();
+            chat.Enable(); 
+        }
+        else
+        {
+            ResumeGame();
+        }
     }
 
     public void OpenMap()
@@ -152,6 +176,7 @@ public class PauseController : MonoBehaviour
             quests.Disable();
             notebook.Disable();
             settings.Disable();
+            chat.Disable();
         }
         else
         {
@@ -169,5 +194,6 @@ public class PauseController : MonoBehaviour
         quests.Enable();
         notebook.Enable();
         settings.Enable();
+     chat.Enable();
     }
 }

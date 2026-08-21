@@ -16,7 +16,7 @@ MonoBehaviour:
   NoteTitle: helllo
   Elements:
   - Type: 0
-    TextContent: helooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+    TextContent: 
     ImageContent: {fileID: 0}
   - Type: 0
     TextContent: glitch
