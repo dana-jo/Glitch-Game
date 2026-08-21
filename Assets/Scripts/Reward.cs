@@ -24,6 +24,7 @@ public class Reward
     [Space(15)]
     [Header("Cutscene")]
     public string sceneName;
+    public bool repeat;
 
     [Space(15)]
     [Header("Dialogue")]

@@ -47,12 +47,12 @@ public class SceneController : MonoBehaviour
         cutsceneBg.SetActive(true);
     }
 
-    public void EndCutscene()
+    public bool EndCutscene()
     {
         Debug.Log("EndCutscene");
 
         if (!isPlayingCutscene)
-            return;
+            return false;
 
         SceneManager.UnloadSceneAsync(currentCutscene);
         cutsceneBg.SetActive(false);
@@ -60,5 +60,6 @@ public class SceneController : MonoBehaviour
         currentCutscene = "";
         isPlayingCutscene = false;
         loop = false;
+        return true;
     }
 }

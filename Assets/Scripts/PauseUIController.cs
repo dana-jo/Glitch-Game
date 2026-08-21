@@ -7,7 +7,10 @@ public class PauseUIController : MonoBehaviour
    
     public void TogglePauseMenu()
     {
-        if (pauseMenu == null) return;
+        if (SceneController.Instance.EndCutscene())
+            return;
+
+        if (pauseMenu == null) return; 
 
         pauseMenu.SetActive(!pauseMenu.activeSelf);
         Debug.Log("Toggling pause menu");

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
+using UnityEngine.Timeline;
 
 public class CutsceneManager : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class CutsceneManager : MonoBehaviour
 
         if (sc.loop)
         {
-            director.time = 0;
+            director.time = GetLoopStartTime();
             director.Evaluate();
             director.Play();
         }
@@ -30,5 +31,24 @@ public class CutsceneManager : MonoBehaviour
         {
             sc.EndCutscene();
         }
+    }
+
+    private double GetLoopStartTime()
+    {
+        TimelineAsset timeline = director.playableAsset as TimelineAsset;
+
+        if (timeline == null)
+            return 0;
+
+        foreach (var track in timeline.GetRootTracks())
+        {
+            foreach (var marker in track.GetMarkers())
+            {
+                if (marker is LoopStartMarker)
+                    return marker.time;
+            }
+        }
+
+        return 0;
     }
 }

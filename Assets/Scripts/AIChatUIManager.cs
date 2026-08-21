@@ -65,17 +65,17 @@ public class AIChatUIManager : MonoBehaviour
         var playerInput = FindAnyObjectByType<PlayerInput>();
         if (playerInput != null)
         {
-            _chatAction = playerInput.actions.FindAction("Chat", false);
-            if (_chatAction != null)
-            {
-                _chatAction.started -= OnChatInputTriggered; 
-                _chatAction.started += OnChatInputTriggered;
-                _chatAction.Enable(); 
-            }
-            else
-            {
-                Debug.LogError("[AIChatUIManager] Action 'Chat' NOT found in PlayerInput Actions!");
-            }
+            //_chatAction = playerInput.actions.FindAction("Chat", false);
+            //if (_chatAction != null)
+            //{
+            //    _chatAction.started -= OnChatInputTriggered; 
+            //    _chatAction.started += OnChatInputTriggered;
+            //    _chatAction.Enable(); 
+            //}
+            //else
+            //{
+            //    Debug.LogError("[AIChatUIManager] Action 'Chat' NOT found in PlayerInput Actions!");
+            //}
         }
         else
         {

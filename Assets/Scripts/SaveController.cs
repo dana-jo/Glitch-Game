@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SaveController : MonoBehaviour
 {
+    public static SaveController Instance { get; private set; }
+
     private string saveLocation;
     private string saveSettingsLocation;
     private InventoryController inventoryController;
@@ -15,12 +17,22 @@ public class SaveController : MonoBehaviour
     //IEnumerator Start()
     IEnumerator Start()
     {
+
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else 
+            Destroy(gameObject);
+
         InitializeComponents();
 
         // wait one frame so InventoryController.Start() can finish first
          yield return null;
 
-        LoadGame();
+        //LoadGame(); // loading the game moved to quest controller
+        LoadMainMenu();
 
         //Debug.Log(saveLocation);
     }
@@ -85,7 +97,7 @@ public class SaveController : MonoBehaviour
 
         Debug.Log("Game progress saved to: " + saveLocation);
     }
-    private void SaveSettings()
+    public void SaveSettings()
     {
         List<float> soundSettings = soundEffectManager.GetSoundSettings();
         SettingsData settingsData = new SettingsData()
@@ -154,10 +166,42 @@ public class SaveController : MonoBehaviour
 
     public void DeleteSave()
     {
+        Debug.Log("Deleting file");
         if (File.Exists(saveLocation))
         {
             File.Delete(saveLocation);
             Debug.Log("Save file deleted.");
         }
+    }
+
+    public void LoadMainMenu()
+    {
+        LoadSettings();
+
+        if (File.Exists(saveLocation))
+        {
+            SaveData saveData = JsonUtility.FromJson<SaveData>(
+                File.ReadAllText(saveLocation)
+            );
+
+            NotebookController.Instance.LoadListOfNotes(
+                saveData.unlockedNotesIDs
+            );
+        }
+    }
+
+    public bool HasSaveData()
+    {
+        if (!File.Exists(saveLocation))
+            return false;
+
+        string json = File.ReadAllText(saveLocation);
+
+        if (string.IsNullOrWhiteSpace(json))
+            return false;
+
+        SaveData saveData = JsonUtility.FromJson<SaveData>(json);
+
+        return saveData != null;
     }
 }

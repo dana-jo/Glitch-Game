@@ -1,10 +1,15 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class StartMenuUIController : MonoBehaviour
 {
     public GameObject menuPanel;
     public GameObject notebookPanel;
     public GameObject settingsPanel;
+    public Button continueButton;
+    public string gameSceneName;
 
     //private bool menuOn, notesOn, settingsOn;
     private void Start()
@@ -12,17 +17,30 @@ public class StartMenuUIController : MonoBehaviour
         menuPanel.SetActive(false);
         notebookPanel.SetActive(false);
         settingsPanel.SetActive(false);
+
+
+        if (!SaveController.Instance.HasSaveData())
+        {
+            continueButton.interactable = SaveController.Instance.HasSaveData();
+            continueButton.GetComponentInChildren<TMP_Text>().alpha = 0.5f;
+            continueButton.GetComponent<EventTrigger>().enabled = false; 
+        }
     }
 
     public void StartGame()
     {
         Debug.Log("Start game");
-        SceneController.Instance.ChangeScene("FINAL");
+        SaveController.Instance.SaveSettings();
+        SaveController.Instance.DeleteSave();
+        SceneController.Instance.ChangeScene(gameSceneName);
     }
 
     public void ContinueGame()
     {
         Debug.Log("Continue game");
+        SaveController.Instance.SaveSettings();
+        SceneController.Instance.ChangeScene(gameSceneName);
+        //SaveController.Instance.LoadGame();
     }
 
     public void ToggleNotebook()

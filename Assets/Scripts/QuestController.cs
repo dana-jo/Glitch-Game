@@ -26,6 +26,7 @@ public class QuestController : MonoBehaviour
         questDictionary = QuestDictionary.Instance;
 
         //InventoryController.Instance.OnInventoryChanged += CheckInventoryForQuests;
+
     }
 
     public void AcceptQuest(int questID)
