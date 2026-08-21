@@ -7,26 +7,24 @@ public class SettingsUIManager : MonoBehaviour
 
     [Header("UI Panels")]
     [SerializeField] private GameObject settingsPanel;
-    [SerializeField] private GameObject modalBlocker;
-    [SerializeField] private GameObject Settings;
 
     void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
-        settingsPanel.SetActive(true);
-        modalBlocker.SetActive(true);
-        Settings.SetActive(false);
+
+        if(settingsPanel != null)
+            settingsPanel.SetActive(false);
     }
 
     public void ToggleSettings()
     {
-        Settings.SetActive(!Settings.activeSelf);
-        PauseController.Instance.OpenSettings(Settings.activeSelf);
+        settingsPanel.SetActive(!settingsPanel.activeSelf);
+        PauseController.Instance.OpenSettings(settingsPanel.activeSelf);
     }
 
     public void CloseSettings()
     {
-        Settings.SetActive(false);
+        settingsPanel.SetActive(false);
     }
 }

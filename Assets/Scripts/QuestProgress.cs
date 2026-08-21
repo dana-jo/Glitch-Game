@@ -41,7 +41,7 @@ public class QuestProgress
 
     public bool IsCompleted() => objectives.TrueForAll(o => IsObjectiveCompleted(o));
 
-    private bool IsObjectiveCompleted(Objective obj)
+    public bool IsObjectiveCompleted(Objective obj)
     {
         if (obj.type == ObjectiveType.Puzzle || obj.type == ObjectiveType.ReachLocation)
         {
@@ -75,7 +75,7 @@ public class QuestProgress
         InventoryController.Instance.OnItemAdded += OnItemAdded;
         InventoryController.Instance.OnItemRemoved += OnItemRemoved;
         DialogueController.Instance.OnFinishedDialogue += OnFinishedDialogue;
-        PuzzlesDictionary.Instance.OnPuzzleFinished += OnPuzzleFinished;
+        PuzzlesController.Instance.OnPuzzleFinished += OnPuzzleFinished;
     }
 
     private void OnItemAdded(int itemID, int amount)
@@ -121,6 +121,7 @@ public class QuestProgress
             {
                 objective.doneTalking = true;
                 Debug.Log("Done talking catched");
+                QuestController.Instance.UpdateUI();
                 //return;        // ??
             }
         }
@@ -135,6 +136,7 @@ public class QuestProgress
                 if(objective.puzzleID == puzzleID)
                 {
                     QuestController.Instance.HandInQuest(questID);
+                    QuestController.Instance.UpdateUI();
                     //return;        // ??
                 }
             }

@@ -5,7 +5,7 @@ public abstract class ObjectiveBehaviour : MonoBehaviour
 {
     public int puzzleID;
     public bool isActive = false;
-    public bool IsCompleted { get; private set; }
+    public bool IsCompleted { get; set; }
 
     public void OnStart()
     {
@@ -18,7 +18,7 @@ public abstract class ObjectiveBehaviour : MonoBehaviour
         Debug.Log("Completed from abstract");
         IsCompleted = true;
 
-        PuzzlesDictionary.Instance.FinishPuzzle(puzzleID);
+        PuzzlesController.Instance.FinishPuzzle(puzzleID);
     }
 
     public virtual void UpdatePuzzleState() { }

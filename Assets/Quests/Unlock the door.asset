@@ -18,7 +18,7 @@ MonoBehaviour:
   objectives:
   - description: Go north west
     type: 2
-    puzzleID: 1
+    puzzleID: 2
     requiredAmount: 0
     currentAmount: 0
     previousAmount: 0
@@ -27,20 +27,15 @@ MonoBehaviour:
     countFrom0: 0
     npcID: 0
     doneTalking: 0
-  rewards:
-  - rewardType: 5
-    noteID: 0
-    questID: 0
-    itemID: 0
-    amount: 5
-    sceneName: 
-    dialogue: {fileID: 11400000, guid: 5e629a40f309f9c48b27c39237345d35, type: 2}
-    npcID: 1
-  - rewardType: 2
-    noteID: 0
-    questID: 0
-    itemID: 2
-    amount: 5
-    sceneName: 
-    dialogue: {fileID: 11400000, guid: 5e629a40f309f9c48b27c39237345d35, type: 2}
+  - description: Collect comupter parts
+    type: 1
+    puzzleID: 1
+    requiredAmount: 10
+    currentAmount: 0
+    previousAmount: 0
+    itemID: 1
+    removeItemsAfterFinish: 0
+    countFrom0: 0
     npcID: 0
+    doneTalking: 0
+  rewards: []

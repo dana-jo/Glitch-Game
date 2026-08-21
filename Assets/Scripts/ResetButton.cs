@@ -15,6 +15,6 @@ public class ResetButton : MonoBehaviour, Interactable
 
     public bool CanInteract()
     {
-        return true;
+        return !controller.IsLocked();
     }
 }

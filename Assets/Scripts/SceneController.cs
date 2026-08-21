@@ -14,11 +14,15 @@ public class SceneController : MonoBehaviour
     private void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else
             Destroy(gameObject);
 
-        cutsceneBg.SetActive(false);
+        if(cutsceneBg != null)
+            cutsceneBg.SetActive(false);
     }
 
     public void ChangeScene(string sceneName)

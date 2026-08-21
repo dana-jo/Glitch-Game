@@ -1,10 +1,11 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 
 public class InventoryController : MonoBehaviour
@@ -24,6 +25,8 @@ public class InventoryController : MonoBehaviour
     public Image itemPreviewImage;
     public TMP_Text itemNameText;
     public TMP_Text itemDescriptionText;
+    public ScrollRect scrollRect;
+    public float scrollStep = 0.1f;
     public Item CurrentItemInUse { get; private set; }
     public static InventoryController Instance { get; private set; }
     Dictionary<int, int> itemsCountCache = new();
@@ -91,13 +94,13 @@ public class InventoryController : MonoBehaviour
             }
         }
 
-        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            if (!IsPointerOverItem())
-            {
-                ClearItemDetails();
-            }
-        }
+        //if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        //{
+        //    if (!IsPointerOverItem())
+        //    {
+        //        ClearItemDetails();
+        //    }
+        //}
     }
 
     public void ToggleInventory()
@@ -442,6 +445,8 @@ public class InventoryController : MonoBehaviour
         {
             itemDescriptionText.text = item.itemDescription;
         }
+
+        Canvas.ForceUpdateCanvases();
     }
 
     public void ClearItemDetails()
@@ -483,6 +488,21 @@ public class InventoryController : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void ScrollUp()
+    {
+        if (scrollRect == null) return;
+
+        float newPos = scrollRect.verticalNormalizedPosition + scrollStep;
+        scrollRect.verticalNormalizedPosition = Mathf.Clamp01(newPos);
+    }
+    public void ScrollDown()
+    {
+        if (scrollRect == null) return;
+
+        float newPos = scrollRect.verticalNormalizedPosition - scrollStep;
+        scrollRect.verticalNormalizedPosition = Mathf.Clamp01(newPos);
     }
 
 }

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Collections;
+using UnityEngine.Events;
 public class PinPuzzle : ObjectiveBehaviour, Interactable
 {
     [SerializeField] private string keyboardCharacters = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -16,6 +17,9 @@ public class PinPuzzle : ObjectiveBehaviour, Interactable
     [SerializeField] private Button submitButton;
     [SerializeField] private Button clearButton;
     [SerializeField] private GameObject pinSlotPrefab;
+    [SerializeField] private float closeDelay = 2f;
+    [SerializeField] private UnityEvent onPuzzleCompleted;
+
 
     private readonly List<TMP_Text> pinSlotTexts = new();
 
@@ -165,6 +169,17 @@ public class PinPuzzle : ObjectiveBehaviour, Interactable
         currentInput = correctAnswer;
 
         ApplyCompletedState();
+        onPuzzleCompleted?.Invoke();
+
+        StartCoroutine(ClosePuzzleAfterDelay());
+    }
+
+        private IEnumerator ClosePuzzleAfterDelay()
+    {
+        yield return new WaitForSeconds(closeDelay);
+
+        if (canvas != null)
+            canvas.SetActive(false);
     }
 
     public override void RestoreCompletedState()

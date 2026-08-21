@@ -12,11 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77760c8935fc1fd4ebd45933ce836fa1, type: 3}
   m_Name: NewNote 3
   m_EditorClassIdentifier: Assembly-CSharp::NoteSO
-  noteID: 5
+  noteID: 0
   NoteTitle: 
-  Elements:
-  - Type: 0
-    TextContent: '"Incident Report: Victim Mr. Arthur was found at 10:45 PM. The
-      vault combination found in his diary is ''8492''. The primary suspect seen
-      leaving the building was wearing a dark blue coat'
-    ImageContent: {fileID: 0}
+  Elements: []

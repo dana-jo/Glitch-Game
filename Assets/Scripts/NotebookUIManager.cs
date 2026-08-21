@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,6 +26,13 @@ public class NotebookUIManager : MonoBehaviour
     private List<GameObject> dynamicPages = new List<GameObject>();
     private int currentPageIndex = 0;
     private RectTransform activePage;
+
+    [Header("Page Flip Animation")]
+    [SerializeField] private Image bookImage;
+    [SerializeField] private Sprite[] flipFrames;
+    [SerializeField] private float frameTime = 0.05f;
+
+    private bool isFlipping = false;
 
     private void Awake()
     {
@@ -108,23 +116,45 @@ public class NotebookUIManager : MonoBehaviour
 
         UpdateUI();
     }
-    
+
+
+    //public void NextPage()
+    //{
+    //    if (currentPageIndex < dynamicPages.Count - 1)
+    //    {
+    //        currentPageIndex++;
+    //        UpdateUI();
+    //    }
+    //}
+
+    //public void PreviousPage()
+    //{
+    //    if (currentPageIndex > 0)
+    //    {
+    //        currentPageIndex--;
+    //        UpdateUI();
+    //    }
+    //}
 
     public void NextPage()
     {
+        if (isFlipping)
+            return;
+
         if (currentPageIndex < dynamicPages.Count - 1)
         {
-            currentPageIndex++;
-            UpdateUI();
+            StartCoroutine(FlipPage(true));
         }
     }
 
     public void PreviousPage()
     {
+        if (isFlipping)
+            return;
+
         if (currentPageIndex > 0)
         {
-            currentPageIndex--;
-            UpdateUI();
+            StartCoroutine(FlipPage(false));
         }
     }
 
@@ -140,5 +170,69 @@ public class NotebookUIManager : MonoBehaviour
 
         if (nextButton != null)
             nextButton.interactable = (currentPageIndex < dynamicPages.Count - 1);
+    }
+
+    private IEnumerator FlipPage(bool forward)
+    {
+        isFlipping = true;
+
+        nextButton.interactable = false;
+        prevButton.interactable = false;
+
+        int halfwayPoint = flipFrames.Length / 2;
+
+        int hideStartFrame = 3;
+        int showAgainFrame = 7;
+
+        if (forward)
+        {
+            for (int i = 0; i < flipFrames.Length; i++)
+            {
+                bookImage.sprite = flipFrames[i];
+
+                if (i == hideStartFrame)
+                {
+                    dynamicPages[currentPageIndex].SetActive(false);
+                }
+
+                if (i == halfwayPoint)
+                {
+                    currentPageIndex++;
+                }
+
+                if (i == showAgainFrame)
+                {
+                    dynamicPages[currentPageIndex].SetActive(true);
+                }
+
+                yield return new WaitForSecondsRealtime(frameTime);
+            }
+        }
+        else
+        {
+            for (int i = flipFrames.Length - 1; i >= 0; i--)
+            {
+                bookImage.sprite = flipFrames[i];
+
+                if (i == showAgainFrame)
+                {
+                    dynamicPages[currentPageIndex].SetActive(false);
+                }
+                if (i == halfwayPoint)
+                {
+                    currentPageIndex--;
+                }
+                if (i == hideStartFrame)
+                {
+                    dynamicPages[currentPageIndex].SetActive(true);
+                }
+
+                yield return new WaitForSecondsRealtime(frameTime);
+            }
+        }
+
+        isFlipping = false;
+
+        UpdateUI();
     }
 }

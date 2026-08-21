@@ -14,7 +14,7 @@ public class PauseController : MonoBehaviour
     private InputAction inventory;
     private InputAction quests;
     private InputAction notebook;
-    private InputAction settings;
+    //private InputAction settings;
     private InputAction chat;
     // ui puzzles;
 
@@ -39,7 +39,7 @@ public class PauseController : MonoBehaviour
         inventory = player.FindAction("Inventory", true);
         quests = player.FindAction("Quests", true);
         notebook = player.FindAction("Notebook", true);
-        settings = player.FindAction("Settings", true);
+      //  settings = player.FindAction("Settings", true);
         chat = player.FindAction("Chat", true);
     }
     public void OpenDialogue(bool opened)
@@ -52,7 +52,7 @@ public class PauseController : MonoBehaviour
             inventory.Disable();
             quests.Disable();
             notebook.Disable();
-            settings.Disable();
+           // settings.Disable();
             chat.Disable();
         }
         else
@@ -72,7 +72,7 @@ public class PauseController : MonoBehaviour
             inventory.Enable();
             quests.Disable();
             notebook.Disable();
-            settings.Disable();
+          //  settings.Disable();
             chat.Disable();
         }
         else
@@ -92,7 +92,7 @@ public class PauseController : MonoBehaviour
             inventory.Disable();
             quests.Enable();
             notebook.Disable();
-            settings.Disable();
+        //    settings.Disable();
             chat.Disable();
         }
         else
@@ -112,7 +112,7 @@ public class PauseController : MonoBehaviour
             inventory.Disable();
             quests.Disable();
             notebook.Enable();
-            settings.Disable();
+           // settings.Disable();
             chat.Disable();
         }
         else
@@ -132,7 +132,7 @@ public class PauseController : MonoBehaviour
             inventory.Disable();
             quests.Disable();
             notebook.Disable();
-            settings.Enable();
+            //settings.Enable();
             chat.Disable();
         }
         else
@@ -151,7 +151,7 @@ public class PauseController : MonoBehaviour
             inventory.Disable();
             quests.Disable();
             notebook.Disable();
-            settings.Disable();
+         //   settings.Disable();
             chat.Enable(); 
         }
         else
@@ -175,7 +175,7 @@ public class PauseController : MonoBehaviour
             inventory.Disable();
             quests.Disable();
             notebook.Disable();
-            settings.Disable();
+           // settings.Disable();
             chat.Disable();
         }
         else
@@ -193,7 +193,7 @@ public class PauseController : MonoBehaviour
         inventory.Enable();
         quests.Enable();
         notebook.Enable();
-        settings.Enable();
+       // settings.Enable();
      chat.Enable();
     }
 }

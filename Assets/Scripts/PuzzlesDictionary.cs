@@ -8,8 +8,6 @@ public class PuzzlesDictionary : MonoBehaviour
     public static PuzzlesDictionary Instance { get; private set; }
     public List<GameObject> puzzles;
 
-    public Action<int> OnPuzzleFinished;
-
     void Awake()
     {
         if (Instance == null)
@@ -30,6 +28,7 @@ public class PuzzlesDictionary : MonoBehaviour
                 ob.puzzleID = i + 1;
             }
         }
+        Debug.Log("puzzles dictionary has " + puzzles.Count + " puzzles");
     }
 
     public ObjectiveBehaviour GetPuzzleOB(int id) // OB = ObjectiveBehaviour
@@ -48,10 +47,5 @@ public class PuzzlesDictionary : MonoBehaviour
         }
 
         return ob;
-    }
-
-    public void FinishPuzzle(int puzzleID)
-    {
-        OnPuzzleFinished?.Invoke(puzzleID);
     }
 }

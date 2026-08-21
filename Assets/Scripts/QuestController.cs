@@ -2,7 +2,6 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class QuestController : MonoBehaviour
 {
@@ -166,6 +165,57 @@ public class QuestController : MonoBehaviour
     public void LoadQuestProgress(List<QuestProgress> savedQuests)
     {
         activeQuests = savedQuests ?? new();
+
+        CheckInventoryForQuests();
+        UpdateUI();
+    }
+
+    // save stuff
+    public List<QuestSaveData> GetQuestSaveData()
+    {
+        List<QuestSaveData> questSaveDataList = new List<QuestSaveData>();
+
+        foreach (var quest in activeQuests)
+        {
+            QuestSaveData questSaveData = new QuestSaveData
+            {
+                questID = quest.questID,
+                objectives = quest.objectives.Select(o => new ObjectiveSaveData
+                {
+                    currentAmount = o.currentAmount,
+                    previousAmount = o.previousAmount,
+                    doneTalking = o.doneTalking
+                }).ToList()
+            };
+
+            questSaveDataList.Add(questSaveData);
+        }
+
+        return questSaveDataList;
+    }
+    public void LoadQuestSaveData(List<QuestSaveData> questSaveDataList)
+    {
+        activeQuests.Clear();
+
+        foreach (var questSaveData in questSaveDataList)
+        {
+            QuestProgress questProgress = new QuestProgress(questSaveData.questID);
+
+            for (int i = 0; i < questProgress.objectives.Count; i++)
+            {
+                if (i < questSaveData.objectives.Count)
+                {
+                    ObjectiveSaveData objectiveSaveData = questSaveData.objectives[i];
+                    Objective objective = questProgress.objectives[i];
+
+                    objective.currentAmount = objectiveSaveData.currentAmount;
+                    objective.previousAmount = objectiveSaveData.previousAmount;
+                    objective.doneTalking = objectiveSaveData.doneTalking;
+                }
+            }
+
+            activeQuests.Add(questProgress);
+        }
 
         CheckInventoryForQuests();
         UpdateUI();

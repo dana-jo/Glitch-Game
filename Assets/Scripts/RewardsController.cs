@@ -44,7 +44,7 @@ public class RewardsController : MonoBehaviour
 
                 case RewardType.Note:
                     if(NoteDictionary.Instance.GetNoteByID(reward.noteID) != null)
-                        NotebookController.Instance.AddNote(reward.noteID);
+                        NotebookController.Instance.AddNote(reward.noteID,true);
                     break;
 
                 case RewardType.Map:

@@ -7,16 +7,19 @@ public class CodeBlocksPuzzleController : MonoBehaviour
     private SequenceAreaController sequenceAreaController;
     public GameObject sequenceVisualPrefab;
     private RobotController robotController;
+    private CodeBlocksPuzzle objective;
 
     private List<SequenceStep> playerSequence = new List<SequenceStep>();
     private List<GameObject> spawnedVisuals = new List<GameObject>();
     private bool isRunning = false;
+    private bool isSolved = false;
 
     void Awake()
     {
         sequenceAreaController = GetComponentInChildren<SequenceAreaController>();
         sequenceArea = sequenceAreaController.transform;
         robotController = GetComponentInChildren<RobotController>();
+        objective = GetComponent<CodeBlocksPuzzle>();
     }
 
     public void AddBlock(BlockType type, Sprite blockSprite, int repeatCount = 0)
@@ -88,12 +91,63 @@ public class CodeBlocksPuzzleController : MonoBehaviour
         if (success)
         {
             Debug.Log("Puzzle solved!");
+            objective?.UpdatePuzzleState();
             // stays isRunning = true, locked, as you specified
         }
         else
         {
             Debug.Log("Puzzle failed - reset required.");
-            // isRunning stays true until player hits Reset, also as you specified
+            isRunning = false; // unlock so the player can Reset or rebuild
         }
+    }
+
+    private Sprite GetSpriteForType(BlockType type)
+    {
+        PaletteBlock[] blocks = GetComponentsInChildren<PaletteBlock>(true);
+        foreach (PaletteBlock block in blocks)
+        {
+            if (block.blockType == type)
+                return block.GetComponent<SpriteRenderer>().sprite;
+        }
+
+        // Check LoopStart separately, since it's a different script
+        LoopStartBlock[] loopBlocks = GetComponentsInChildren<LoopStartBlock>(true);
+        foreach (LoopStartBlock block in loopBlocks)
+        {
+            if (block.blockType == type)
+                return block.GetComponent<SpriteRenderer>().sprite;
+        }
+
+        Debug.LogWarning("No palette block found for type: " + type);
+        return null;
+    }
+
+    public void RestoreVisualSequence(List<SequenceStep> steps)
+    {
+        for (int i = 0; i < steps.Count; i++)
+        {
+            Vector3 localPos = sequenceAreaController.GetSlotLocalPosition(i);
+            Vector3 worldPos = sequenceArea.TransformPoint(localPos);
+
+            GameObject visual = Instantiate(sequenceVisualPrefab, worldPos, Quaternion.identity, sequenceArea);
+            visual.GetComponent<SpriteRenderer>().sprite = GetSpriteForType(steps[i].type);
+            spawnedVisuals.Add(visual);
+        }
+    }
+
+    public List<SequenceStep> GetSolvedSequence()
+    {
+        return playerSequence;
+    }
+
+    public bool IsLocked()
+    {
+        return isRunning || isSolved;
+    }
+
+    public void LockAsSolved()
+    {
+        isSolved = true;
+        isRunning = true;
     }
 }
