@@ -27,6 +27,7 @@ public class NotebookController : MonoBehaviour
     {
         //AddNote(2,true);
         //AddNote(1,true);
+      
     }
     public void AddNote(int id , bool popup)
     {

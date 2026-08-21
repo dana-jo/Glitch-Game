@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77760c8935fc1fd4ebd45933ce836fa1, type: 3}
   m_Name: NewNote 2
   m_EditorClassIdentifier: Assembly-CSharp::NoteSO
-  noteID: 0
+  noteID: 3
   NoteTitle: 
-  Elements: []
+  Elements:
+  - Type: 0
+    TextContent: 'Loop
+
+      A loop repeats a block of code multiple times until
+      a specific condition is met.
+
+
+'
+    ImageContent: {fileID: 0}
