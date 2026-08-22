@@ -160,6 +160,25 @@ public class PauseController : MonoBehaviour
         }
     }
 
+    public void OpenUI(bool opened)
+    {
+        if (opened)
+        {
+            move.Disable();
+            interact.Enable();
+            drag.Disable();
+            inventory.Disable();
+            quests.Disable();
+            notebook.Disable();
+            //   settings.Disable();
+            chat.Disable();
+        }
+        else
+        {
+            ResumeGame();
+        }
+    }
+
     public void OpenMap()
     {
         // ----------------------------

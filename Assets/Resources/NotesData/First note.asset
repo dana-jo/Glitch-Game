@@ -13,17 +13,12 @@ MonoBehaviour:
   m_Name: First note
   m_EditorClassIdentifier: Assembly-CSharp::NoteSO
   noteID: 1
-  NoteTitle: 
+  NoteTitle: ASCII 1
   Elements:
   - Type: 0
-    TextContent: 'ASCII (American Standard Code for Information Interchange) '
+    TextContent: 'ASCII '
     ImageContent: {fileID: 0}
   - Type: 0
-    TextContent: A   01000010
-    ImageContent: {fileID: 0}
-  - Type: 0
-    TextContent: B   01000011
-    ImageContent: {fileID: 0}
-  - Type: 0
-    TextContent: C   01000100
+    TextContent: ASCII is basically a giant master list where every letter, number,
+      and punctuation mark is assigned a specific number
     ImageContent: {fileID: 0}

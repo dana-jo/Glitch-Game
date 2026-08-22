@@ -25,9 +25,10 @@ public class NotebookController : MonoBehaviour
 
     private void Start()
     {
-        //AddNote(2,true);
         //AddNote(1,true);
-      
+        //AddNote(2, true);
+        //AddNote(3, true);
+
     }
     public void AddNote(int id , bool popup)
     {
@@ -43,7 +44,7 @@ public class NotebookController : MonoBehaviour
                 {
                     NotebookUIManager.Instance.WriteNote(newNote);
 
-                    if(popup) ShowNotebookPopup(newNote.name);
+                    if(popup) ShowNotebookPopup(newNote.NoteTitle);
 
                     Debug.Log($"Note '{newNote.NoteTitle}' successfully added to the notebook!");
                 }

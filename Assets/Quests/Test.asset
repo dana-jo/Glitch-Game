@@ -16,8 +16,8 @@ MonoBehaviour:
   questName: Spirit request
   description: 
   objectives:
-  - description: Go to the safe
-    type: 2
+  - description: open the safe
+    type: 0
     puzzleID: 1
     requiredAmount: 0
     currentAmount: 0
@@ -34,6 +34,7 @@ MonoBehaviour:
     itemID: 0
     amount: 0
     sceneName: 
+    repeat: 0
     dialogue: {fileID: 0}
     npcID: 0
   - rewardType: 4
@@ -42,5 +43,24 @@ MonoBehaviour:
     itemID: 0
     amount: 0
     sceneName: 
+    repeat: 0
+    dialogue: {fileID: 0}
+    npcID: 0
+  - rewardType: 0
+    noteID: 2
+    questID: 2
+    itemID: 0
+    amount: 0
+    sceneName: 
+    repeat: 0
+    dialogue: {fileID: 0}
+    npcID: 0
+  - rewardType: 0
+    noteID: 3
+    questID: 2
+    itemID: 0
+    amount: 0
+    sceneName: 
+    repeat: 0
     dialogue: {fileID: 0}
     npcID: 0

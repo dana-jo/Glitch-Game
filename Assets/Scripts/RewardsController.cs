@@ -28,7 +28,7 @@ public class RewardsController : MonoBehaviour
                     break;
 
                 case RewardType.Cutscene:
-                    SceneController.Instance.PlayCutscene(reward.sceneName);
+                    SceneController.Instance.PlayCutscene(reward.sceneName, reward.repeat);
                     break;
 
                 case RewardType.Quest:

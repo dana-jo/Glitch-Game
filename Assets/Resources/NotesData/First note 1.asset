@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77760c8935fc1fd4ebd45933ce836fa1, type: 3}
+  m_Name: First note 1
+  m_EditorClassIdentifier: Assembly-CSharp::NoteSO
+  noteID: 2
+  NoteTitle: ASCII 2
+  Elements:
+  - Type: 0
+    TextContent: A   01000010
+    ImageContent: {fileID: 0}
+  - Type: 0
+    TextContent: B   01000011
+    ImageContent: {fileID: 0}
+  - Type: 0
+    TextContent: 'C   01000011
+
+'
+    ImageContent: {fileID: 0}
+  - Type: 0
+    TextContent: D   01000100
+    ImageContent: {fileID: 0}
+  - Type: 0
+    TextContent: E   01000101
+    ImageContent: {fileID: 0}
+  - Type: 0
+    TextContent: 'F   01000110
+
+'
+    ImageContent: {fileID: 0}
+  - Type: 0
+    TextContent: G   01000111
+    ImageContent: {fileID: 0}
+  - Type: 0
+    TextContent: H   01001000
+    ImageContent: {fileID: 0}
+  - Type: 0
+    TextContent: I   01001001
+    ImageContent: {fileID: 0}
+  - Type: 0
+    TextContent: J   01001010
+    ImageContent: {fileID: 0}
+  - Type: 0
+    TextContent: K   01001011
+    ImageContent: {fileID: 0}
+  - Type: 0
+    TextContent: L   01001100
+    ImageContent: {fileID: 0}
+  - Type: 0
+    TextContent: M   01001101
+    ImageContent: {fileID: 0}

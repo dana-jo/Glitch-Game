@@ -57,6 +57,7 @@ public class DisplayScript : MonoBehaviour, Interactable
     public void Interact()
     {
         canvas.SetActive(!canvas.activeSelf);
+        PauseController.Instance.OpenUI(canvas.activeSelf);
     }
 
     public void ScrollUp()
