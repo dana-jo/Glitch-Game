@@ -97,6 +97,7 @@ public class PinPuzzle : ObjectiveBehaviour, Interactable
             return;
 
         canvas.SetActive(!canvas.activeSelf);
+        PauseController.Instance.OpenUI(canvas.activeSelf);
     }
 
     public void PressKey(string keyValue)

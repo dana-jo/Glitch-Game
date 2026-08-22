@@ -83,6 +83,7 @@ public class SaveController : MonoBehaviour
         SaveData saveData = new SaveData()
         {
             playerPosition = player.transform.position,
+            isSceneDone = player.isSceneDone,
             inventorySaveData = inventoryController.GetInventoryItems(),
             hotbarSaveData = inventoryController.GetHotbarItems(),
             stateOfPuzzles = PuzzlesController.Instance.GetPuzzleStates(),
@@ -126,6 +127,7 @@ public class SaveController : MonoBehaviour
             SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
 
             player.transform.position = saveData.playerPosition; // SHOULD I EDIT THE CAMERA POS TOO?
+            player.isSceneDone = saveData.isSceneDone;
 
             inventoryController.SetInventoryItems(saveData.inventorySaveData);
             inventoryController.SetHotbarItems(saveData.hotbarSaveData);

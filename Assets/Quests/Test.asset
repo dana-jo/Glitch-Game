@@ -16,8 +16,8 @@ MonoBehaviour:
   questName: Spirit request
   description: 
   objectives:
-  - description: Go to the safe
-    type: 2
+  - description: open the safe
+    type: 0
     puzzleID: 1
     requiredAmount: 0
     currentAmount: 0

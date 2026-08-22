@@ -5,6 +5,7 @@ using UnityEngine;
 public class SaveData
 {
     public Vector3 playerPosition;
+    public bool isSceneDone;
     //public string mapBoundary; //map boundary name
     public List<InventorySaveData> inventorySaveData;
     public List<InventorySaveData> hotbarSaveData;

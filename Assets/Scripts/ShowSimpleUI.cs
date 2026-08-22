@@ -39,6 +39,7 @@ public class ShowSimpleUI : MonoBehaviour, Interactable
         }
 
         canvas.SetActive(!canvas.activeSelf);
+        PauseController.Instance.OpenUI(canvas.activeSelf);
     }
 }
 
